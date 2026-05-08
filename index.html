@@ -5,6 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rimowa-Outlet — Valises RIMOWA Prix Outlet</title>
   <meta name="description" content="Valises RIMOWA authentiques à prix outlet. Cabin dès 89€, Check-In dès 159€. Livraison gratuite. Garantie 5 ans.">
+  <link rel="canonical" href="https://rimowa-outlet.fr/">
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%231A1A1A'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-size='18' font-family='Georgia,serif' fill='%23B8975A'>R</text></svg>">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rimowa-outlet.fr/">
+  <meta property="og:title" content="Rimowa-Outlet — Valises RIMOWA dès 89€">
+  <meta property="og:description" content="Valises RIMOWA authentiques à prix outlet. Cabin dès 89€, Check-In dès 159€. Livraison gratuite. Garantie 5 ans.">
+  <meta property="og:image" content="https://lavoyagerie-paris.fr/4677-thickbox_default/rimowa-classic-check-in-l-73-silver.jpg">
+  <meta property="og:locale" content="fr_FR">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rimowa-Outlet — Valises RIMOWA dès 89€">
+  <meta name="twitter:description" content="Valises RIMOWA authentiques à prix outlet. Cabin dès 89€. Livraison gratuite. Garantie 5 ans.">
+  <meta name="twitter:image" content="https://lavoyagerie-paris.fr/4677-thickbox_default/rimowa-classic-check-in-l-73-silver.jpg">
+  <!-- Preload hero -->
+  <link rel="preload" as="image" href="rimowa-hero.webp" fetchpriority="high">
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Rimowa-Outlet",
+        "url": "https://rimowa-outlet.fr",
+        "logo": "https://rimowa-outlet.fr/favicon.ico",
+        "description": "Revendeur de valises RIMOWA authentiques à prix outlet.",
+        "address": { "@type": "PostalAddress", "addressCountry": "FR" },
+        "offers": { "@type": "AggregateOffer", "lowPrice": "89", "highPrice": "199", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "WebSite",
+        "url": "https://rimowa-outlet.fr",
+        "name": "Rimowa-Outlet",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://rimowa-outlet.fr/catalogue.html?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+  <!-- Snap Pixel — remplacer VOTRE_PIXEL_ID par l'ID obtenu dans Snap Ads Manager -->
+  <script type="text/javascript">
+  (function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function(){
+  a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
+  a.queue=[];var s='script';r=t.createElement(s);r.async=!0;
+  r.src=n;var u=t.getElementsByTagName(s)[0];
+  u.parentNode.insertBefore(r,u);})(window,document,'https://sc-static.net/scevent.min.js');
+  snaptr('init', 'VOTRE_PIXEL_ID', { user_email: '' });
+  snaptr('track', 'PAGE_VIEW');
+  </script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17179829801"></script>
   <script>
@@ -548,7 +602,7 @@
     </div>
     <div class="drawer-footer">
       <p>Besoin d'aide ?</p>
-      <small>contact@rimowa-outlet.com<br>Lun–Sam · 9h–18h</small>
+      <small>contact@rimowa-outlet.fr<br>Lun–Sam · 9h–18h</small>
     </div>
   </div>
 </div>
@@ -1290,6 +1344,8 @@ function openModal(id) {
   const p = PRODUCTS.find(x => x.id === id);
   if (!p) return;
   currentProduct = p;
+  if (typeof snaptr !== 'undefined') snaptr('track', 'VIEW_CONTENT', { price: p.price, currency: 'EUR', item_ids: [p.id] });
+  if (typeof gtag !== 'undefined') gtag('event', 'view_item', { value: p.price, currency: 'EUR', items: [{ item_name: p.name, price: p.price }] });
   const overlay = document.getElementById('modal-overlay');
   document.getElementById('modal-collection').textContent = p.collection;
   document.getElementById('modal-name').textContent = p.name;
@@ -1569,15 +1625,21 @@ function handleCartOverlay(e) {
 }
 
 function handleCheckout() {
+  const total = cartTotal();
+  const qty   = cartQty();
+  if (typeof snaptr !== 'undefined') {
+    snaptr('track', 'ADD_BILLING', { price: total, currency: 'EUR', number_items: qty });
+  }
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'begin_checkout', { value: total, currency: 'EUR', items: cart.map(i => ({ item_name: i.name, price: i.price, quantity: i.qty })) });
+  }
   const btn = document.querySelector('.cart-checkout-btn');
-  btn.textContent = 'Redirection vers le paiement…';
+  btn.textContent = 'Traitement en cours…';
   btn.style.background = '#2d7a2d';
   btn.disabled = true;
   setTimeout(() => {
-    btn.textContent = 'Passer commande';
-    btn.style.background = '';
-    btn.disabled = false;
-  }, 3000);
+    window.location.href = 'suivi.html';
+  }, 1200);
 }
 
 // ── Upsell Pack ──────────────────────────────────────────
@@ -1678,6 +1740,8 @@ function addToCart(btn) {
   if (existing) existing.qty++;
   else cart.push({ id:p.id, name:p.name, color:p.color, price:p.price, qty:1, img });
   updateCartBadge();
+  if (typeof snaptr !== 'undefined') snaptr('track', 'ADD_CART', { price: p.price, currency: 'EUR', item_ids: [p.id] });
+  if (typeof gtag !== 'undefined') gtag('event', 'add_to_cart', { value: p.price, currency: 'EUR', items: [{ item_name: p.name, price: p.price }] });
 
   btn.textContent = '✓ Ajouté au panier';
   btn.style.background = '#2d7a2d';
