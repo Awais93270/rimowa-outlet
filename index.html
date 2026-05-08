@@ -76,7 +76,7 @@
     .pack-confirm-btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#fff;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:14px 28px;border:none;cursor:pointer;transition:background .2s,transform .15s;font-family:var(--sans)}
     .pack-confirm-btn:hover{background:var(--gold-dk)}
     .pack-confirm-btn.confirmed{background:#2A6E35;pointer-events:none}
-    .pack-img-box img{width:100%;height:100%;object-fit:contain;padding:12px;transition:opacity .2s ease}
+    .pack-img-box img{width:100%;height:100%;object-fit:contain;padding:4px;transition:opacity .2s ease}
 
     /* ── Hero cinématique ── */
     .hero{position:relative;width:100%;height:92vh;min-height:580px;max-height:900px;overflow:hidden;display:flex;align-items:flex-end}
@@ -209,7 +209,7 @@
     .product-card:hover{transform:translateY(-4px);box-shadow:0 14px 40px rgba(0,0,0,.1)}
     .product-card.hidden{display:none}
     .product-img-wrap{position:relative;background:var(--light);overflow:hidden;aspect-ratio:3/4}
-    .product-img-wrap img{width:100%;height:100%;object-fit:contain;padding:16px;transition:transform .4s ease}
+    .product-img-wrap img{width:100%;height:100%;object-fit:contain;padding:8px;transition:transform .4s ease}
     .product-card:hover .product-img-wrap img{transform:scale(1.05)}
     .product-badge{position:absolute;top:10px;left:10px;background:var(--red);color:#fff;font-size:10px;font-weight:900;letter-spacing:.06em;padding:5px 9px}
     .product-tag{position:absolute;top:10px;right:10px;background:var(--text);color:#fff;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 8px}
@@ -1004,7 +1004,7 @@ const PRODUCTS = [
     collection:'RIMOWA Classic', name:'Classic Cabin S', color:'Silver',
     dims:'55×35×23 cm', cap:'36 L', mat:'Aluminium + Cuir', wt:'3.9 kg',
     price:100, orig:1050,
-    imgs:['4654','4655','4656','4657','4658'],
+    imgs:['4657','4656','4655','4658','4654'],
     slug:'rimowa-classic-cabin-s-52-silver',
     desc:'La valise cabine en aluminium emblématique de RIMOWA. Fabriquée à la main, la Classic Cabin S allie la robustesse de l\'aluminium à l\'élégance des poignées en cuir de vachette. Elle traverse les décennies sans vieillir — un objet conçu pour durer une vie.',
     features:['Coque aluminium brossé premium','Poignées cuir de vachette véritable','2 verrous TSA à combinaison','Poignée télescopique aluminium','4 roues doubles multidirectionnelles silencieuses','Format cabine universel IATA','Garantie mondiale 5 ans'],
@@ -1019,7 +1019,7 @@ const PRODUCTS = [
     collection:'RIMOWA Classic', name:'Classic Check-In L', color:'Silver',
     dims:'79×53×28 cm', cap:'84 L', mat:'Aluminium + Cuir', wt:'6 kg',
     price:199, orig:1390,
-    imgs:['4677','4673','4674','4675','4676'],
+    imgs:['4676','4675','4674','4673','4677'],
     slug:'rimowa-classic-check-in-l-73-silver',
     desc:'L\'icône absolue de RIMOWA. Fabriquée en aluminium avec de véritables poignées en cuir de vachette, la Classic Check-In L est la valise des grands voyageurs exigeants. Deux verrous TSA à combinaison, 84 litres, 5 ans de garantie mondiale.',
     features:['Coque aluminium premium','Poignées cuir de vachette véritable','2 verrous TSA à combinaison','Système trolley télescopique','4 roues doubles multidirectionnelles','Compartiment diviseur amovible','Garantie mondiale 5 ans'],
@@ -1264,8 +1264,8 @@ const PACKS = {
   alu: {
     name: 'Gris Argent',
     price: 200, orig: 268, eco: 68,
-    img1: '4654-thickbox_default/rimowa-classic-cabin-s-52-silver.jpg',
-    img2: '4677-thickbox_default/rimowa-classic-check-in-l-73-silver.jpg',
+    img1: '4657-thickbox_default/rimowa-classic-cabin-s-52-silver.jpg',
+    img2: '4676-thickbox_default/rimowa-classic-check-in-l-73-silver.jpg',
     desc: 'Classic Cabine S 52cm + Check-In L 73cm'
   }
 };
@@ -1463,7 +1463,7 @@ const CHECKIN_BY_COLOR = {
   'Blue Gloss':  { img:'3842-thickbox_default/rimowa-essential-check-in-l-73-blue-gloss.jpg',       label:'Check-In L — Blue Gloss' },
   'Red Gloss':   { img:'3683-thickbox_default/rimowa-essential-lite-cabin-53-red-gloss.jpg',         label:'Check-In L — Red Gloss' },
   'Matte Black': { img:'3761-thickbox_default/rimowa-essential-check-in-l-73-black-gloss.jpg',       label:'Check-In L — Black' },
-  'Silver':      { img:'4677-thickbox_default/rimowa-classic-check-in-l-73-silver.jpg',              label:'Check-In L — Silver' },
+  'Silver':      { img:'4676-thickbox_default/rimowa-classic-check-in-l-73-silver.jpg',              label:'Check-In L — Silver' },
 };
 
 function openUpsell(p, btn) {
