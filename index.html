@@ -1295,15 +1295,31 @@ function selectPack(type) {
 
 function commanderPack() {
   const btn = document.getElementById('pack-btn');
+  const swatches = document.querySelectorAll('.pack-swatch');
+  let activeType = 'noir';
+  swatches.forEach(s => { if (s.classList.contains('active')) activeType = s.dataset.pack; });
+  const p = PACKS[activeType];
+  const BASE = 'https://lavoyagerie-paris.fr/';
+  const existing = cart.find(i => i.id === 'pack-' + activeType);
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({
+      id: 'pack-' + activeType,
+      name: 'Pack Voyage — ' + p.name,
+      price: p.price,
+      qty: 1,
+      img: BASE + p.img1
+    });
+  }
   btn.style.background = '#2d7a2d';
-  btn.textContent = '✓ Demande envoyée — on vous recontacte !';
+  btn.textContent = '✓ Ajouté au panier !';
   setTimeout(() => {
     btn.style.background = '';
-    const swatches = document.querySelectorAll('.pack-swatch');
-    let activeType = 'noir';
-    swatches.forEach(s => { if (s.classList.contains('active')) activeType = s.dataset.pack; });
-    btn.textContent = 'Commander ce pack — ' + PACKS[activeType].price + '€';
-  }, 4000);
+    btn.textContent = 'Commander ce pack — ' + p.price + '€';
+  }, 2000);
+  updateCartBadge();
+  openCartDrawer();
 }
 
 // ── Header scroll animation ──────────────────────────────
@@ -1427,12 +1443,14 @@ function handleCartOverlay(e) {
 
 function handleCheckout() {
   const btn = document.querySelector('.cart-checkout-btn');
-  btn.textContent = '✓ Commande transmise — on vous recontacte !';
+  btn.textContent = 'Redirection vers le paiement…';
   btn.style.background = '#2d7a2d';
+  btn.disabled = true;
   setTimeout(() => {
     btn.textContent = 'Passer commande';
     btn.style.background = '';
-  }, 4000);
+    btn.disabled = false;
+  }, 3000);
 }
 
 // ── Upsell Pack ──────────────────────────────────────────
