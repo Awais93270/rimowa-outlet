@@ -224,13 +224,36 @@
     .product-btn:hover{background:#333}
 
     /* ── Reviews section ── */
-    .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-    .review-card{background:var(--white);border:1px solid var(--border);padding:28px 24px}
-    .review-stars{color:var(--gold);font-size:16px;letter-spacing:2px;margin-bottom:10px}
-    .review-text{font-size:14px;line-height:1.7;color:var(--text);font-style:italic;margin-bottom:16px;font-family:var(--serif)}
-    .review-author{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
-    .review-meta{font-size:11px;color:var(--muted);margin-top:2px}
-    .review-product{display:inline-block;margin-top:8px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:700;border:1px solid var(--gold);padding:3px 8px}
+    /* Trustpilot */
+    --tp:#00B67A;
+    .tp-header-badge{display:flex;align-items:center;gap:20px;flex-shrink:0}
+    .tp-logo-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+    .tp-logo{display:flex;align-items:center;gap:6px}
+    .tp-logo-star{width:22px;height:22px;background:var(--tp);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .tp-logo-star svg{width:13px;height:13px;fill:#fff}
+    .tp-logo-text{font-size:18px;font-weight:900;color:#191919;letter-spacing:-.03em}
+    .tp-excellent{font-size:13px;font-weight:700;color:#191919;letter-spacing:.02em}
+    .tp-stars-row{display:flex;gap:3px}
+    .tp-star-box{width:22px;height:22px;background:var(--tp);display:flex;align-items:center;justify-content:center}
+    .tp-star-box svg{width:13px;height:13px;fill:#fff}
+    .tp-count{font-size:11px;color:var(--muted);margin-top:3px;text-align:right}
+    .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .review-card{background:var(--white);border:1px solid var(--border);padding:24px;display:flex;flex-direction:column}
+    .review-card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
+    .rc-tp-stars{display:flex;gap:2px}
+    .rc-tp-star{width:20px;height:20px;background:var(--tp);display:flex;align-items:center;justify-content:center}
+    .rc-tp-star svg{width:12px;height:12px;fill:#fff}
+    .rc-date{font-size:11px;color:var(--muted)}
+    .review-text{font-size:14px;line-height:1.7;color:var(--text);font-style:italic;margin-bottom:14px;font-family:var(--serif);flex:1}
+    .review-author{font-size:12px;font-weight:700;letter-spacing:.04em}
+    .review-meta{font-size:11px;color:var(--muted);margin-top:2px;display:flex;align-items:center;gap:6px}
+    .rc-verified{display:inline-flex;align-items:center;gap:3px;color:var(--tp);font-weight:700}
+    .review-card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid var(--border)}
+    .review-product{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:700}
+    .rc-tp-logo{display:flex;align-items:center;gap:3px;opacity:.5}
+    .rc-tp-logo-star{width:13px;height:13px;background:var(--tp);display:flex;align-items:center;justify-content:center}
+    .rc-tp-logo-star svg{width:8px;height:8px;fill:#fff}
+    .rc-tp-logo-txt{font-size:10px;font-weight:700;color:#191919;letter-spacing:-.02em}
 
     /* ── FAQ ── */
     .faq-list{max-width:760px}
@@ -407,6 +430,8 @@
       .products-grid{grid-template-columns:repeat(2,1fr);gap:12px}
       .section{padding:48px 20px}
       .reviews-grid{grid-template-columns:1fr;gap:16px}
+      .tp-header-badge{flex-direction:column;align-items:flex-start}
+      .tp-logo-wrap{align-items:flex-start}
       .blog-grid{grid-template-columns:1fr;gap:16px}
       .collections-grid{grid-template-columns:1fr}
       .editorial-inner{grid-template-columns:1fr;gap:48px}
@@ -661,56 +686,145 @@
         <p class="section-eyebrow">Ils nous font confiance</p>
         <h2 class="section-title">Avis clients vérifiés</h2>
       </div>
-      <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
-        <span style="font-size:28px;font-weight:700">4.9</span>
-        <div>
-          <div style="color:var(--gold);font-size:18px">★★★★★</div>
-          <div style="font-size:11px;color:var(--muted)">Basé sur 214 avis</div>
+      <div class="tp-header-badge">
+        <div style="font-size:36px;font-weight:900;color:#191919;line-height:1">4.9</div>
+        <div class="tp-logo-wrap">
+          <div class="tp-logo">
+            <div class="tp-logo-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <span class="tp-logo-text">Trustpilot</span>
+          </div>
+          <div class="tp-excellent">Excellent</div>
+          <div class="tp-stars-row">
+            <div class="tp-star-box"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="tp-star-box"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="tp-star-box"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="tp-star-box"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="tp-star-box"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+          </div>
+          <div class="tp-count">Basé sur 214 avis</div>
         </div>
       </div>
     </div>
+
     <div class="reviews-grid">
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
+        <div class="review-card-top">
+          <div class="rc-tp-stars">
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+          </div>
+          <span class="rc-date">3 mai 2026</span>
+        </div>
         <p class="review-text">« Qualité irréprochable, exactement comme en boutique. La valise est arrivée en parfait état, livrée le lendemain. Je recommande les yeux fermés ! »</p>
         <div class="review-author">Camille R.</div>
-        <div class="review-meta">Paris · Achat vérifié · il y a 3 jours</div>
-        <span class="review-product">Essential Lite Cabin</span>
+        <div class="review-meta"><span class="rc-verified"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Achat vérifié</span> · Paris</div>
+        <div class="review-card-footer">
+          <span class="review-product">Essential Lite Cabin</span>
+          <div class="rc-tp-logo"><div class="rc-tp-logo-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div><span class="rc-tp-logo-txt">Trustpilot</span></div>
+        </div>
       </div>
+
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
+        <div class="review-card-top">
+          <div class="rc-tp-stars">
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+          </div>
+          <span class="rc-date">29 avr. 2026</span>
+        </div>
         <p class="review-text">« J'ai hésité à acheter en outlet mais tout est authentique, l'étiquette RIMOWA avec le numéro de série est bien présente. Prix imbattable. »</p>
         <div class="review-author">Thomas M.</div>
-        <div class="review-meta">Lyon · Achat vérifié · il y a 1 semaine</div>
-        <span class="review-product">Classic Check-In L</span>
+        <div class="review-meta"><span class="rc-verified"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Achat vérifié</span> · Lyon</div>
+        <div class="review-card-footer">
+          <span class="review-product">Classic Check-In L</span>
+          <div class="rc-tp-logo"><div class="rc-tp-logo-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div><span class="rc-tp-logo-txt">Trustpilot</span></div>
+        </div>
       </div>
+
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
+        <div class="review-card-top">
+          <div class="rc-tp-stars">
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+          </div>
+          <span class="rc-date">22 avr. 2026</span>
+        </div>
         <p class="review-text">« Le pack cabin + check-in à 200€ c'est une affaire incroyable. Les deux valises sont impeccables. Le service client a répondu en moins d'une heure. »</p>
         <div class="review-author">Sophie L.</div>
-        <div class="review-meta">Bordeaux · Achat vérifié · il y a 2 semaines</div>
-        <span class="review-product">Pack Voyage</span>
+        <div class="review-meta"><span class="rc-verified"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Achat vérifié</span> · Bordeaux</div>
+        <div class="review-card-footer">
+          <span class="review-product">Pack Voyage</span>
+          <div class="rc-tp-logo"><div class="rc-tp-logo-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div><span class="rc-tp-logo-txt">Trustpilot</span></div>
+        </div>
       </div>
+
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
+        <div class="review-card-top">
+          <div class="rc-tp-stars">
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+          </div>
+          <span class="rc-date">14 avr. 2026</span>
+        </div>
         <p class="review-text">« Troisième commande chez Rimowa-Outlet. La constance dans la qualité et le service est remarquable. Mon entourage a tous acheté ici maintenant. »</p>
         <div class="review-author">Marc D.</div>
-        <div class="review-meta">Marseille · Achat vérifié · il y a 3 semaines</div>
-        <span class="review-product">Essential Check-In L</span>
+        <div class="review-meta"><span class="rc-verified"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Achat vérifié</span> · Marseille</div>
+        <div class="review-card-footer">
+          <span class="review-product">Essential Check-In L</span>
+          <div class="rc-tp-logo"><div class="rc-tp-logo-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div><span class="rc-tp-logo-txt">Trustpilot</span></div>
+        </div>
       </div>
+
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
+        <div class="review-card-top">
+          <div class="rc-tp-stars">
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+          </div>
+          <span class="rc-date">7 avr. 2026</span>
+        </div>
         <p class="review-text">« La valise Essential Lite est incroyablement légère. Parfaite pour les vols en cabine. Serrure TSA fonctionnelle. Livraison express sans frais. Top ! »</p>
         <div class="review-author">Julie K.</div>
-        <div class="review-meta">Toulouse · Achat vérifié · il y a 1 mois</div>
-        <span class="review-product">Essential Lite Cabin Blue Gloss</span>
+        <div class="review-meta"><span class="rc-verified"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Achat vérifié</span> · Toulouse</div>
+        <div class="review-card-footer">
+          <span class="review-product">Essential Lite Blue Gloss</span>
+          <div class="rc-tp-logo"><div class="rc-tp-logo-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div><span class="rc-tp-logo-txt">Trustpilot</span></div>
+        </div>
       </div>
+
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
+        <div class="review-card-top">
+          <div class="rc-tp-stars">
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+            <div class="rc-tp-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+          </div>
+          <span class="rc-date">1 avr. 2026</span>
+        </div>
         <p class="review-text">« Vraiment satisfait de mon achat. La Classic en aluminium est magnifique, les poignées en cuir sont solides. Un produit à vie pour le prix d'une valise classique. »</p>
         <div class="review-author">Antoine P.</div>
-        <div class="review-meta">Strasbourg · Achat vérifié · il y a 1 mois</div>
-        <span class="review-product">Classic Check-In M</span>
+        <div class="review-meta"><span class="rc-verified"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Achat vérifié</span> · Strasbourg</div>
+        <div class="review-card-footer">
+          <span class="review-product">Classic Check-In M</span>
+          <div class="rc-tp-logo"><div class="rc-tp-logo-star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div><span class="rc-tp-logo-txt">Trustpilot</span></div>
+        </div>
       </div>
     </div>
   </div>
