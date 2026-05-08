@@ -469,12 +469,92 @@
     .mini-author{font-size:11px;font-weight:700}
     .modal-add-btn{margin-top:auto;padding-top:24px;display:flex;flex-direction:column;gap:10px}
 
+    /* ── Cookie banner ── */
+    .cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:900;background:var(--text);color:#fff;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;transform:translateY(100%);transition:transform .4s cubic-bezier(.4,0,.2,1)}
+    .cookie-banner.visible{transform:translateY(0)}
+    .cookie-txt{font-size:12px;line-height:1.6;opacity:.85;flex:1}
+    .cookie-txt a{color:var(--gold);text-decoration:none}
+    .cookie-btns{display:flex;gap:10px;flex-shrink:0}
+    .cookie-btn-accept{background:var(--gold);color:#fff;border:none;padding:9px 20px;font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .2s}
+    .cookie-btn-accept:hover{background:var(--gold-dk)}
+    .cookie-btn-refuse{background:transparent;color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.2);padding:9px 16px;font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s}
+    .cookie-btn-refuse:hover{color:#fff;border-color:rgba(255,255,255,.5)}
+
+    /* ── Toast social proof ── */
+    .toast-container{position:fixed;bottom:90px;left:24px;z-index:800;pointer-events:none}
+    .toast{background:var(--white);border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,.12);padding:12px 16px;display:flex;align-items:center;gap:12px;max-width:300px;transform:translateX(-340px);transition:transform .45s cubic-bezier(.4,0,.2,1);pointer-events:all}
+    .toast.show{transform:translateX(0)}
+    .toast-avatar{width:40px;height:40px;border-radius:50%;background:var(--gold);color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--serif)}
+    .toast-body{flex:1;min-width:0}
+    .toast-name{font-size:12px;font-weight:700;color:var(--text)}
+    .toast-action{font-size:11px;color:var(--muted);line-height:1.45}
+    .toast-time{font-size:10px;color:var(--gold);font-weight:700;margin-top:3px}
+
+    /* ── Viewers & delivery ── */
+    .viewers-badge{display:flex;align-items:center;gap:8px;background:#FFF8F0;border:1px solid rgba(184,151,90,.25);padding:8px 14px;margin-bottom:12px}
+    .viewers-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulseDot 1.8s ease-in-out infinite;flex-shrink:0}
+    .viewers-txt{font-size:12px;color:var(--text);font-weight:600}
+    .delivery-badge{display:flex;align-items:center;gap:10px;background:#F0F7F0;border:1px solid rgba(44,112,53,.2);padding:8px 14px;margin-bottom:16px}
+    .delivery-icon{font-size:15px;flex-shrink:0}
+    .delivery-txt{font-size:12px;color:#2A6E35;font-weight:700;line-height:1.4}
+    .delivery-txt span{font-weight:400;color:var(--muted)}
+
+    /* ── Payment icons ── */
+    .payment-icons{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:10px}
+    .pay-icon{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:3px;padding:3px 8px;font-size:10px;font-weight:900;letter-spacing:.02em;background:var(--white);color:var(--text);height:22px;white-space:nowrap}
+    .pay-icon.visa{color:#1A1F71;font-style:italic}
+    .pay-icon.mc{color:#EB001B}
+    .pay-icon.paypal{color:#003087}
+    .pay-icon.cb{color:#005F9E}
+    .pay-icon.applepay{color:#000;font-size:9px;letter-spacing:0}
+    .pay-icon.secure{color:#2A6E35;border-color:rgba(44,110,53,.3);background:#F0F7F0;font-size:9px}
+
+    /* ── Recently viewed ── */
+    .recently-section{max-width:1280px;margin:0 auto;padding:0 40px 60px}
+    .recently-title{font-family:var(--serif);font-size:22px;font-weight:400;margin-bottom:24px}
+    .recently-grid{display:flex;gap:14px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}
+    .recently-grid::-webkit-scrollbar{height:3px}
+    .recently-grid::-webkit-scrollbar-thumb{background:var(--border)}
+    .recently-card{flex:0 0 175px;border:1px solid var(--border);cursor:pointer;background:var(--white);transition:transform .2s,box-shadow .2s}
+    .recently-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.08)}
+    .recently-img{background:var(--light);height:155px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .recently-img img{width:100%;height:100%;object-fit:contain;padding:8px}
+    .recently-info{padding:10px 12px}
+    .recently-name{font-size:11px;font-weight:700;line-height:1.3;margin-bottom:4px;color:var(--text)}
+    .recently-price{font-size:14px;font-weight:700;color:var(--gold)}
+
+    /* ── Airline guide ── */
+    .airline-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:700;align-items:center;justify-content:center;padding:20px}
+    .airline-overlay.open{display:flex;animation:fadeIn .2s ease}
+    .airline-modal{background:var(--white);max-width:700px;width:100%;max-height:90vh;overflow-y:auto}
+    .airline-header{background:var(--text);color:#fff;padding:22px 32px;display:flex;align-items:center;justify-content:space-between}
+    .airline-header h2{font-family:var(--serif);font-size:20px;font-weight:400}
+    .airline-close{background:none;border:none;color:#fff;font-size:20px;cursor:pointer;opacity:.7;transition:opacity .2s}
+    .airline-close:hover{opacity:1}
+    .airline-body{padding:28px 32px}
+    .airline-intro{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:22px}
+    .airline-table{width:100%;border-collapse:collapse;font-size:12px}
+    .airline-table th{background:var(--light);padding:9px 12px;text-align:left;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;border-bottom:2px solid var(--border)}
+    .airline-table td{padding:11px 12px;border-bottom:1px solid var(--border);vertical-align:middle}
+    .airline-table tr:last-child td{border-bottom:none}
+    .airline-compat{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;padding:3px 8px;border-radius:2px;white-space:nowrap}
+    .compat-ok{background:#EDF7EE;color:#2A6E35}
+    .compat-warn{background:#FFF8ED;color:#B45309}
+    .airline-note{font-size:11px;color:var(--muted);margin-top:18px;line-height:1.7;background:var(--light);padding:12px 16px;border-left:3px solid var(--gold)}
+    .airline-trigger{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:var(--gold);cursor:pointer;text-decoration:underline;letter-spacing:.04em;background:none;border:none;font-family:var(--sans);padding:0;margin-top:8px}
+
     /* ── Responsive ── */
     @media(max-width:1100px){
       .products-grid{grid-template-columns:repeat(3,1fr)}
       .footer-top{grid-template-columns:1fr 1fr}
     }
     @media(max-width:768px){
+      .cookie-banner{flex-direction:column;align-items:flex-start;padding:18px 20px}
+      .cookie-btns{width:100%;display:grid;grid-template-columns:1fr 1fr}
+      .toast{max-width:calc(100vw - 48px)}
+      .recently-section{padding:0 20px 40px}
+      .airline-body{padding:20px}.airline-header{padding:16px 20px}
+      .airline-table th,.airline-table td{padding:8px}
       .header-inner{padding:0 20px}
       nav{display:none}
       .burger{display:flex}
@@ -530,6 +610,56 @@
 </head>
 <body>
 
+<!-- Cookie Banner RGPD -->
+<div class="cookie-banner" id="cookie-banner">
+  <p class="cookie-txt">🍪 Nous utilisons des cookies pour améliorer votre expérience et mesurer nos publicités (Snap Pixel, Google Ads). <a href="mentions-legales.html#cookies">Politique de cookies</a>.</p>
+  <div class="cookie-btns">
+    <button class="cookie-btn-refuse" onclick="refuseCookies()">Refuser</button>
+    <button class="cookie-btn-accept" onclick="acceptCookies()">Accepter</button>
+  </div>
+</div>
+
+<!-- Toast social proof -->
+<div class="toast-container">
+  <div class="toast" id="social-toast">
+    <div class="toast-avatar" id="toast-avatar">M</div>
+    <div class="toast-body">
+      <div class="toast-name" id="toast-name">Marie D.</div>
+      <div class="toast-action" id="toast-action">vient d'acheter une <strong>Cabin Blue Gloss</strong></div>
+      <div class="toast-time" id="toast-time">Il y a 3 min</div>
+    </div>
+  </div>
+</div>
+
+<!-- Guide dimensions compagnies aériennes -->
+<div class="airline-overlay" id="airline-overlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="airline-modal">
+    <div class="airline-header">
+      <h2>✈ Guide dimensions cabine</h2>
+      <button class="airline-close" onclick="document.getElementById('airline-overlay').classList.remove('open')">✕</button>
+    </div>
+    <div class="airline-body">
+      <p class="airline-intro">Les compagnies aériennes ont des politiques différentes. Voici la compatibilité de nos valises RIMOWA outlet avec les principales lignes depuis la France.</p>
+      <table class="airline-table">
+        <thead>
+          <tr><th>Compagnie</th><th>Dimensions max</th><th>Essential Lite Cabin<br><span style="font-weight:400;font-size:10px">(55×35×20 cm)</span></th><th>Essential Cabin S<br><span style="font-weight:400;font-size:10px">(55×35×23 cm)</span></th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Air France</strong></td><td>55×35×25 cm</td><td><span class="airline-compat compat-ok">✓ Compatible</span></td><td><span class="airline-compat compat-ok">✓ Compatible</span></td></tr>
+          <tr><td><strong>EasyJet</strong></td><td>56×45×25 cm</td><td><span class="airline-compat compat-ok">✓ Compatible</span></td><td><span class="airline-compat compat-ok">✓ Compatible</span></td></tr>
+          <tr><td><strong>Transavia</strong></td><td>55×40×20 cm</td><td><span class="airline-compat compat-ok">✓ Compatible</span></td><td><span class="airline-compat compat-warn">⚠ Justes</span></td></tr>
+          <tr><td><strong>Ryanair</strong></td><td>40×20×25 cm<br><small style="color:var(--muted)">55×40×20 avec option bagage</small></td><td><span class="airline-compat compat-warn">⚠ Option payante</span></td><td><span class="airline-compat compat-warn">⚠ Option payante</span></td></tr>
+          <tr><td><strong>Vueling</strong></td><td>55×40×20 cm</td><td><span class="airline-compat compat-ok">✓ Compatible</span></td><td><span class="airline-compat compat-warn">⚠ Justes</span></td></tr>
+          <tr><td><strong>British Airways</strong></td><td>56×45×25 cm</td><td><span class="airline-compat compat-ok">✓ Compatible</span></td><td><span class="airline-compat compat-ok">✓ Compatible</span></td></tr>
+          <tr><td><strong>Lufthansa</strong></td><td>55×40×23 cm</td><td><span class="airline-compat compat-ok">✓ Compatible</span></td><td><span class="airline-compat compat-ok">✓ Compatible</span></td></tr>
+          <tr><td><strong>Iberia</strong></td><td>56×45×25 cm</td><td><span class="airline-compat compat-ok">✓ Compatible</span></td><td><span class="airline-compat compat-ok">✓ Compatible</span></td></tr>
+        </tbody>
+      </table>
+      <p class="airline-note">⚠ Les dimensions indiquées incluent les roues et poignées. Les règles peuvent changer — vérifiez toujours les conditions de votre billet. Pour Ryanair, l'option « bagage cabine » à bord (environ 8€) est requise pour les valises de grande taille.</p>
+    </div>
+  </div>
+</div>
+
 <!-- Topbar -->
 <div class="topbar" id="topbar">
   <div class="topbar-track" id="topbar-track">
@@ -582,6 +712,14 @@
       <p class="cart-subtotal-note">Livraison gratuite · Taxes incluses</p>
       <button class="cart-checkout-btn" onclick="handleCheckout()">Passer commande</button>
       <button class="cart-continue-btn" onclick="closeCartDrawer()">Continuer mes achats</button>
+      <div class="payment-icons" style="justify-content:center;margin-top:14px">
+        <span class="pay-icon visa">VISA</span>
+        <span class="pay-icon mc">MC</span>
+        <span class="pay-icon cb">CB</span>
+        <span class="pay-icon paypal">PayPal</span>
+        <span class="pay-icon applepay"> Apple Pay</span>
+        <span class="pay-icon secure">🔒 SSL</span>
+      </div>
     </div>
   </div>
 </div>
@@ -991,6 +1129,12 @@
   </div>
 </div>
 
+<!-- Recently viewed -->
+<div class="recently-section" id="recently-section" style="display:none">
+  <h3 class="recently-title">Récemment consultés</h3>
+  <div class="recently-grid" id="recently-grid"></div>
+</div>
+
 <!-- Newsletter -->
 <div class="newsletter">
   <div class="newsletter-inner">
@@ -1042,7 +1186,14 @@
   </div>
   <div class="footer-bottom">
     <span>© 2026 Rimowa-Outlet — Revendeur Agréé RIMOWA</span>
-    <span>Livraison gratuite · Paiement sécurisé · Garantie 5 ans</span>
+    <div class="payment-icons">
+      <span class="pay-icon visa">VISA</span>
+      <span class="pay-icon mc">MC</span>
+      <span class="pay-icon cb">CB</span>
+      <span class="pay-icon paypal">PayPal</span>
+      <span class="pay-icon applepay"> Apple Pay</span>
+      <span class="pay-icon secure">🔒 SSL</span>
+    </div>
   </div>
 </footer>
 
@@ -1101,7 +1252,10 @@
         <span class="modal-price-orig" id="modal-price-orig"></span>
       </div>
       <p class="modal-saving" id="modal-saving"></p>
-      <div class="modal-tabs">
+      <div class="viewers-badge"><div class="viewers-dot"></div><span class="viewers-txt" id="viewers-txt">12 personnes regardent ce produit</span></div>
+      <div class="delivery-badge"><span class="delivery-icon">📦</span><div class="delivery-txt" id="delivery-txt">Livraison gratuite <span>— estimée dans 2–3 jours ouvrés</span></div></div>
+      <button class="airline-trigger" onclick="document.getElementById('airline-overlay').classList.add('open')">✈ Compatibilité compagnies aériennes</button>
+      <div class="modal-tabs" style="margin-top:16px">
         <button class="modal-tab active" onclick="switchTab(this,'desc')">Description</button>
         <button class="modal-tab" onclick="switchTab(this,'specs')">Caractéristiques</button>
         <button class="modal-tab" onclick="switchTab(this,'revs')">Avis (5)</button>
@@ -1346,6 +1500,9 @@ function openModal(id) {
   currentProduct = p;
   if (typeof snaptr !== 'undefined') snaptr('track', 'VIEW_CONTENT', { price: p.price, currency: 'EUR', item_ids: [p.id] });
   if (typeof gtag !== 'undefined') gtag('event', 'view_item', { value: p.price, currency: 'EUR', items: [{ item_name: p.name, price: p.price }] });
+  addRecentlyViewed(p.id);
+  updateViewers();
+  updateDelivery();
   const overlay = document.getElementById('modal-overlay');
   document.getElementById('modal-collection').textContent = p.collection;
   document.getElementById('modal-name').textContent = p.name;
@@ -1800,6 +1957,92 @@ function addToCart(btn) {
 window.addEventListener('scroll', () => {
   document.getElementById('back-top').classList.toggle('visible', window.scrollY > 400);
 }, { passive: true });
+
+// ── Cookie banner ────────────────────────────────────────
+(function() {
+  if (localStorage.getItem('cookie_choice')) return;
+  setTimeout(() => document.getElementById('cookie-banner').classList.add('visible'), 1200);
+})();
+function acceptCookies() {
+  localStorage.setItem('cookie_choice', 'accepted');
+  document.getElementById('cookie-banner').classList.remove('visible');
+}
+function refuseCookies() {
+  localStorage.setItem('cookie_choice', 'refused');
+  document.getElementById('cookie-banner').classList.remove('visible');
+}
+
+// ── Toast social proof ───────────────────────────────────
+(function() {
+  const names  = ['Marie D.','Thomas L.','Julie K.','Antoine P.','Sophie M.','Emma R.','Lucas B.','Léa F.','Hugo V.','Camille T.','Nathan G.','Inès C.'];
+  const cities = ['Lyon','Bordeaux','Paris','Marseille','Toulouse','Nantes','Strasbourg','Nice','Rennes','Lille','Montpellier','Grenoble'];
+  const prods  = ['Cabin Blue Gloss','Cabin Black Gloss','Cabin Red Gloss','Classic Silver','Pack Voyage','Check-In Black','Essential Lite Cabin'];
+  const times  = ['Il y a 2 min','Il y a 5 min','Il y a 8 min','Il y a 11 min','Il y a 14 min','Il y a 18 min'];
+  function rand(arr) { return arr[Math.floor(Math.random()*arr.length)]; }
+  function showToast() {
+    const name = rand(names), city = rand(cities), prod = rand(prods), time = rand(times);
+    const toast = document.getElementById('social-toast');
+    document.getElementById('toast-avatar').textContent = name[0];
+    document.getElementById('toast-name').textContent = `${name} — ${city}`;
+    document.getElementById('toast-action').innerHTML = `vient d'acheter une <strong>${prod}</strong>`;
+    document.getElementById('toast-time').textContent = time;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 4500);
+  }
+  setTimeout(showToast, 6000);
+  setInterval(showToast, 38000 + Math.random()*20000);
+})();
+
+// ── Viewers badge ────────────────────────────────────────
+function updateViewers() {
+  const n = Math.floor(Math.random()*12)+4;
+  const el = document.getElementById('viewers-txt');
+  if (el) el.textContent = `${n} personne${n>1?'s':''} regard${n>1?'ent':'e'} ce produit`;
+}
+
+// ── Delivery estimate ────────────────────────────────────
+function updateDelivery() {
+  const el = document.getElementById('delivery-txt');
+  if (!el) return;
+  const now = new Date();
+  const h = now.getHours();
+  const days = ['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'];
+  let delivery = new Date(now);
+  if (h < 14) {
+    delivery.setDate(delivery.getDate() + 2);
+    el.innerHTML = `Commandez avant 14h → livré <strong>${days[delivery.getDay()]} ${delivery.getDate()}/${delivery.getMonth()+1}</strong> <span>· Livraison gratuite</span>`;
+  } else {
+    delivery.setDate(delivery.getDate() + 3);
+    el.innerHTML = `Livraison estimée <strong>${days[delivery.getDay()]} ${delivery.getDate()}/${delivery.getMonth()+1}</strong> <span>· Livraison gratuite</span>`;
+  }
+}
+
+// ── Recently viewed ──────────────────────────────────────
+const recentlyViewed = [];
+function addRecentlyViewed(id) {
+  if (recentlyViewed.includes(id)) return;
+  recentlyViewed.unshift(id);
+  if (recentlyViewed.length > 6) recentlyViewed.pop();
+  renderRecentlyViewed();
+}
+function renderRecentlyViewed() {
+  const section = document.getElementById('recently-section');
+  const grid = document.getElementById('recently-grid');
+  if (recentlyViewed.length < 2) { section.style.display='none'; return; }
+  section.style.display = 'block';
+  grid.innerHTML = recentlyViewed.map(id => {
+    const p = PRODUCTS.find(x => x.id === id);
+    if (!p) return '';
+    const img = `${BASE}${p.imgs[0]}-thickbox_default/${p.slug}.jpg`;
+    return `<div class="recently-card" onclick="openModal('${p.id}')">
+      <div class="recently-img"><img src="${img}" alt="${p.name}" loading="lazy"></div>
+      <div class="recently-info">
+        <div class="recently-name">${p.name}</div>
+        <div class="recently-price">${p.price}€</div>
+      </div>
+    </div>`;
+  }).join('');
+}
 
 // ── Newsletter ───────────────────────────────────────────
 function handleNewsletter(e) {
