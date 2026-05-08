@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suivi de commande — Rimowa-Outlet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#FAF9F7;--white:#fff;--text:#1A1A1A;--muted:#777;--light:#F0EDE8;--border:#E4DDD4;--gold:#B8975A;--green:#2E7D32;--serif:'Playfair Display',serif;--sans:'Lato',sans-serif}
+    body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+    .topbar{background:var(--text);color:#fff;text-align:center;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:9px 20px;font-weight:700}
+    .topbar span{opacity:.4;margin:0 12px}
+    header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+    .header-inner{max-width:1280px;margin:0 auto;padding:0 40px;height:68px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:10px}
+    .logo-badge{background:var(--text);color:#fff;font-size:9px;font-family:var(--sans);font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:3px 8px}
+    nav{display:flex;gap:26px}
+    nav a{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--muted);text-decoration:none;transition:color .2s}
+    nav a:hover{color:var(--text)}
+    .page-wrap{max-width:640px;margin:80px auto;padding:0 24px 80px}
+    .page-eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px}
+    .page-title{font-family:var(--serif);font-size:clamp(28px,4vw,44px);font-weight:400;line-height:1.2;margin-bottom:12px}
+    .page-sub{font-size:15px;color:var(--muted);font-weight:300;margin-bottom:48px;line-height:1.7}
+    .tracking-form{background:var(--white);border:1px solid var(--border);padding:36px}
+    .form-group{margin-bottom:22px}
+    label{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:8px}
+    input[type=text],input[type=email]{width:100%;border:1.5px solid var(--border);background:var(--bg);padding:13px 14px;font-family:var(--sans);font-size:14px;color:var(--text);outline:none;transition:border-color .2s}
+    input:focus{border-color:var(--text)}
+    .btn-submit{width:100%;background:var(--text);color:#fff;border:none;padding:15px;font-family:var(--sans);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;cursor:pointer;transition:background .2s;margin-top:4px}
+    .btn-submit:hover{background:#333}
+    .result-block{margin-top:36px;border:1px solid var(--border);background:var(--white);display:none}
+    .result-block.show{display:block}
+    .result-header{background:var(--text);color:#fff;padding:20px 24px;display:flex;justify-content:space-between;align-items:center}
+    .result-order{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+    .result-status{font-size:12px;font-weight:700;background:var(--gold);padding:5px 12px}
+    .result-body{padding:28px 24px}
+    .timeline{display:flex;flex-direction:column;gap:0}
+    .tl-step{display:flex;gap:16px;padding:0 0 24px}
+    .tl-step:last-child{padding-bottom:0}
+    .tl-left{display:flex;flex-direction:column;align-items:center;gap:0;flex-shrink:0;width:28px}
+    .tl-dot{width:16px;height:16px;border-radius:50%;flex-shrink:0;margin-top:2px}
+    .tl-dot.done{background:var(--green)}
+    .tl-dot.active{background:var(--gold);box-shadow:0 0 0 4px rgba(184,151,90,.25)}
+    .tl-dot.pending{background:var(--border)}
+    .tl-line{width:2px;flex:1;background:var(--border);margin-top:4px}
+    .tl-line.done{background:var(--green)}
+    .tl-label{font-size:13px;font-weight:700;color:var(--text)}
+    .tl-label.pending{color:var(--muted)}
+    .tl-date{font-size:11px;color:var(--muted);margin-top:2px}
+    .tl-desc{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5}
+    .result-product{margin-top:24px;padding-top:24px;border-top:1px solid var(--border);display:grid;grid-template-columns:80px 1fr;gap:16px;align-items:center}
+    .result-prod-img{background:var(--light);aspect-ratio:1;overflow:hidden}
+    .result-prod-img img{width:100%;height:100%;object-fit:contain;padding:8px}
+    .result-prod-name{font-family:var(--serif);font-size:16px;font-weight:400;margin-bottom:4px}
+    .result-prod-detail{font-size:12px;color:var(--muted)}
+    .info-boxes{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+    .info-box{background:var(--light);padding:20px 18px}
+    .info-box-title{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:8px}
+    .info-box-text{font-size:13px;color:var(--text);line-height:1.6}
+    .contact-block{margin-top:48px;background:var(--white);border:1px solid var(--border);padding:28px;text-align:center}
+    .contact-block h3{font-family:var(--serif);font-size:20px;font-weight:400;margin-bottom:8px}
+    .contact-block p{font-size:14px;color:var(--muted);margin-bottom:20px}
+    .contact-methods{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .contact-btn{display:inline-block;background:var(--text);color:#fff;text-decoration:none;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:12px 22px;transition:background .2s}
+    .contact-btn:hover{background:#333}
+    .contact-btn.ghost{background:transparent;color:var(--text);border:1.5px solid var(--border)}
+    .contact-btn.ghost:hover{border-color:var(--text)}
+    footer{background:var(--text);color:#fff;padding:32px;text-align:center;font-size:12px;opacity:.7}
+    footer a{color:#fff;text-decoration:none;margin:0 10px;opacity:.7}
+    @media(max-width:600px){
+      .header-inner{padding:0 20px}nav{display:none}
+      .tracking-form{padding:24px 20px}
+      .info-boxes{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+<div class="topbar">Livraison gratuite<span>|</span>Authenticité garantie<span>|</span>Retours 30 jours</div>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">Rimowa-Outlet <span class="logo-badge">Officiel</span></a>
+    <nav>
+      <a href="index.html#products">Catalogue</a>
+      <a href="blog.html">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-wrap">
+  <p class="page-eyebrow">Votre commande</p>
+  <h1 class="page-title">Suivi de commande</h1>
+  <p class="page-sub">Entrez votre numéro de commande et votre adresse email pour suivre votre colis en temps réel.</p>
+
+  <div class="tracking-form">
+    <div class="form-group">
+      <label for="order-num">Numéro de commande</label>
+      <input type="text" id="order-num" placeholder="Ex : RO-2026-004821" autocomplete="off">
+    </div>
+    <div class="form-group">
+      <label for="order-email">Adresse email de commande</label>
+      <input type="email" id="order-email" placeholder="votre@email.fr" autocomplete="email">
+    </div>
+    <button class="btn-submit" onclick="trackOrder()">Suivre ma commande</button>
+  </div>
+
+  <!-- Result (shown after submit) -->
+  <div class="result-block" id="result-block">
+    <div class="result-header">
+      <span class="result-order" id="result-order-num">RO-2026-004821</span>
+      <span class="result-status">En transit</span>
+    </div>
+    <div class="result-body">
+      <div class="timeline">
+        <div class="tl-step">
+          <div class="tl-left"><div class="tl-dot done"></div><div class="tl-line done"></div></div>
+          <div><div class="tl-label">Commande confirmée</div><div class="tl-date">07/05/2026 à 14:32</div><div class="tl-desc">Paiement reçu. Votre commande est enregistrée.</div></div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-left"><div class="tl-dot done"></div><div class="tl-line done"></div></div>
+          <div><div class="tl-label">En préparation</div><div class="tl-date">07/05/2026 à 16:45</div><div class="tl-desc">Votre valise a été contrôlée et emballée avec soin.</div></div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-left"><div class="tl-dot active"></div><div class="tl-line"></div></div>
+          <div><div class="tl-label">Expédiée — En transit</div><div class="tl-date">08/05/2026 à 09:12</div><div class="tl-desc">Prise en charge par Colissimo. Numéro de suivi : 8C12345678901</div></div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-left"><div class="tl-dot pending"></div><div class="tl-line"></div></div>
+          <div><div class="tl-label pending">Livraison prévue</div><div class="tl-date">09/05/2026</div><div class="tl-desc">Livraison estimée entre 8h et 18h à votre adresse.</div></div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-left"><div class="tl-dot pending"></div></div>
+          <div><div class="tl-label pending">Livré</div><div class="tl-date">—</div></div>
+        </div>
+      </div>
+
+      <div class="result-product">
+        <div class="result-prod-img">
+          <img src="https://lavoyagerie-paris.fr/3625-thickbox_default/rimowa-essential-lite-cabin-53-black-gloss.jpg" alt="RIMOWA Essential Lite Cabin">
+        </div>
+        <div>
+          <div class="result-prod-name">RIMOWA Essential Lite Cabin</div>
+          <div class="result-prod-detail">Black Gloss · 37L · 2,2 kg<br>Qté : 1 · <strong>89€</strong></div>
+        </div>
+      </div>
+
+      <div class="info-boxes">
+        <div class="info-box">
+          <div class="info-box-title">Adresse de livraison</div>
+          <div class="info-box-text">Marie Dupont<br>12 rue de la Paix<br>75001 Paris</div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-title">Transporteur</div>
+          <div class="info-box-text">Colissimo<br>Suivi : 8C12345678901<br><a href="https://www.laposte.fr/outils/suivre-vos-envois" target="_blank" style="color:var(--gold)">→ Suivre sur LaPoste.fr</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-boxes" style="margin-top:32px">
+    <div class="info-box">
+      <div class="info-box-title">Délai de livraison</div>
+      <div class="info-box-text">Expédition sous 24h. Livraison Colissimo en 2-3 jours ouvrés. <strong>Gratuite sans minimum.</strong></div>
+    </div>
+    <div class="info-box">
+      <div class="info-box-title">Retours</div>
+      <div class="info-box-text">30 jours pour retourner votre valise. Remboursement intégral garanti sous 5 jours ouvrés.</div>
+    </div>
+  </div>
+
+  <div class="contact-block">
+    <h3>Une question sur votre commande ?</h3>
+    <p>Notre équipe est disponible du lundi au vendredi, 9h-18h.</p>
+    <div class="contact-methods">
+      <a href="mailto:contact@rimowa-outlet.com" class="contact-btn">Envoyer un email</a>
+      <a href="faq.html" class="contact-btn ghost">Consulter la FAQ</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html">Accueil</a>
+  <a href="index.html#products">Catalogue</a>
+  <a href="faq.html">FAQ</a>
+  <a href="mentions-legales.html">Mentions légales</a>
+  <p style="margin-top:16px;font-size:11px">© 2026 Rimowa-Outlet — Revendeur Agréé RIMOWA</p>
+</footer>
+
+<script>
+function trackOrder() {
+  const num = document.getElementById('order-num').value.trim();
+  const email = document.getElementById('order-email').value.trim();
+  if (!num || !email) { alert('Veuillez renseigner votre numéro de commande et votre email.'); return; }
+  document.getElementById('result-order-num').textContent = num;
+  const block = document.getElementById('result-block');
+  block.classList.add('show');
+  block.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body>
+</html>

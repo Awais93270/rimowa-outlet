@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rimowa-Outlet — Valises RIMOWA Prix Outlet</title>
+  <meta name="description" content="Valises RIMOWA authentiques à prix outlet. Cabin dès 89€, Check-In dès 159€. Livraison gratuite. Garantie 5 ans.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#FAF9F7;--white:#fff;--text:#1A1A1A;--muted:#777;
+      --light:#F0EDE8;--border:#E4DDD4;--gold:#B8975A;--gold-dk:#997A3D;
+      --red:#C41C00;--serif:'Playfair Display',Georgia,serif;--sans:'Lato',sans-serif;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:15px;line-height:1.6;overflow-x:hidden}
+
+    /* ── Topbar ── */
+    .topbar{background:var(--text);color:#fff;text-align:center;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:0 20px;font-weight:700;overflow:hidden;position:relative;height:36px}
+    .topbar-track{display:flex;flex-direction:column;transition:transform .6s cubic-bezier(.4,0,.2,1)}
+    .topbar-item{height:36px;display:flex;align-items:center;justify-content:center;gap:0;white-space:nowrap;flex-shrink:0}
+    .topbar-item span{opacity:.45;margin:0 14px}
+
+    /* ── Header ── */
+    header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;transition:box-shadow .3s}
+    header.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.08)}
+    .header-inner{max-width:1280px;margin:0 auto;padding:0 32px;height:68px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;transition:height .3s}
+    header.scrolled .header-inner{height:56px}
+    .header-left{display:flex;align-items:center}
+    .header-center{display:flex;justify-content:center}
+    .header-right{display:flex;align-items:center;justify-content:flex-end;gap:20px}
+    .logo{font-family:var(--serif);font-size:20px;font-weight:600;letter-spacing:.05em;color:var(--text);text-decoration:none;white-space:nowrap}
+    .logo sup{font-family:var(--sans);font-size:8px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);vertical-align:super;margin-left:4px}
+    /* Burger */
+    .burger{display:flex;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;padding:8px;background:none;border:none;width:40px;height:40px}
+    .burger span{display:block;width:22px;height:1.5px;background:var(--text);transition:transform .3s,opacity .3s}
+    .burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+    .burger.open span:nth-child(2){opacity:0}
+    .burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+    /* Cart */
+    .cart-btn{display:flex;align-items:center;gap:7px;background:none;border:none;cursor:pointer;color:var(--text);padding:6px;position:relative;transition:color .2s}
+    .cart-btn:hover{color:var(--gold)}
+    .cart-btn svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+    .cart-count{position:absolute;top:1px;right:1px;background:var(--gold);color:#fff;font-size:9px;font-weight:700;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--sans)}
+    .cart-count.zero{display:none}
+    /* Nav link desktop (optionnel) */
+    nav{display:none}
+    /* Drawer */
+    .mobile-nav{position:fixed;inset:0;background:rgba(0,0,0,0);z-index:300;pointer-events:none;transition:background .35s}
+    .mobile-nav.open{background:rgba(0,0,0,.45);pointer-events:all}
+    .mobile-nav-panel{position:absolute;top:0;left:0;width:300px;height:100%;background:var(--white);padding:0;display:flex;flex-direction:column;transform:translateX(-100%);transition:transform .38s cubic-bezier(.4,0,.2,1);overflow-y:auto}
+    .mobile-nav.open .mobile-nav-panel{transform:translateX(0)}
+    .drawer-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--border)}
+    .drawer-logo{font-family:var(--serif);font-size:17px;font-weight:600;color:var(--text)}
+    .mobile-nav-close{font-size:22px;cursor:pointer;background:none;border:none;color:var(--text);width:36px;height:36px;display:flex;align-items:center;justify-content:center;transition:background .2s;border-radius:2px}
+    .mobile-nav-close:hover{background:var(--light)}
+    .drawer-links{padding:16px 0;flex:1}
+    .drawer-links a{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;font-size:14px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--text);text-decoration:none;border-bottom:1px solid var(--border);transition:background .15s,color .15s}
+    .drawer-links a:hover{background:var(--light);color:var(--gold)}
+    .drawer-links a span{font-size:14px;opacity:.3}
+    .drawer-footer{padding:24px;border-top:1px solid var(--border)}
+    .drawer-footer p{font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+    .drawer-footer small{font-size:12px;color:var(--muted);line-height:1.6}
+    /* Pack colors */
+    .pack-color-row{display:flex;align-items:center;gap:14px;margin-bottom:24px;flex-wrap:wrap}
+    .pack-color-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;opacity:.6}
+    .pack-swatches{display:flex;gap:8px}
+    .pack-swatch{width:28px;height:28px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:border-color .2s,transform .2s;outline:none}
+    .pack-swatch:hover{transform:scale(1.15)}
+    .pack-swatch.active{border-color:#fff;box-shadow:0 0 0 1px rgba(255,255,255,.3)}
+    .pack-swatch-alu{background:linear-gradient(135deg,#D4D4D4,#909090)}
+    .pack-color-name{font-size:12px;font-weight:700;color:#fff;letter-spacing:.06em}
+    .pack-confirm-btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#fff;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:14px 28px;border:none;cursor:pointer;transition:background .2s,transform .15s;font-family:var(--sans)}
+    .pack-confirm-btn:hover{background:var(--gold-dk)}
+    .pack-confirm-btn.confirmed{background:#2A6E35;pointer-events:none}
+    .pack-img-box img{width:100%;height:100%;object-fit:contain;padding:12px;transition:opacity .2s ease}
+
+    /* ── Hero cinématique ── */
+    .hero{position:relative;width:100%;height:92vh;min-height:580px;max-height:900px;overflow:hidden;display:flex;align-items:flex-end}
+    .hero-bg{position:absolute;inset:0;z-index:0}
+    .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;transition:transform 8s ease}
+    .hero:hover .hero-bg img{transform:scale(1.04)}
+    .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to right, rgba(15,13,10,.72) 0%, rgba(15,13,10,.4) 55%, rgba(15,13,10,.05) 100%)}
+    .hero-overlay::after{content:'';position:absolute;inset:0;background:linear-gradient(to top, rgba(10,8,6,.55) 0%, transparent 50%)}
+    .hero-content{position:relative;z-index:2;max-width:1280px;width:100%;margin:0 auto;padding:0 52px 72px;display:flex;flex-direction:column;align-items:flex-start}
+    .hero-eyebrow{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:12px}
+    .hero-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--gold)}
+    .hero-title{font-family:var(--serif);font-size:clamp(42px,5.5vw,76px);font-weight:400;line-height:1.07;color:#fff;margin-bottom:22px;text-shadow:0 2px 24px rgba(0,0,0,.25)}
+    .hero-title em{font-style:italic;color:var(--gold)}
+    .hero-sub{font-size:16px;color:rgba(255,255,255,.7);font-weight:300;max-width:430px;line-height:1.75;margin-bottom:38px}
+    .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+    .btn-primary{background:#fff;color:var(--text);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:15px 30px;text-decoration:none;display:inline-block;transition:background .2s,color .2s;border:none;cursor:pointer;font-family:var(--sans)}
+    .btn-primary:hover{background:var(--gold);color:#fff}
+    .btn-ghost{background:transparent;color:#fff;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:14px 30px;border:1.5px solid rgba(255,255,255,.45);text-decoration:none;display:inline-block;transition:border-color .2s,background .2s}
+    .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+    .hero-badge{position:absolute;top:48px;right:52px;z-index:2;background:var(--red);color:#fff;font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;padding:10px 18px}
+    .hero-scroll{position:absolute;bottom:32px;right:52px;z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.45);font-size:9px;letter-spacing:.22em;text-transform:uppercase;font-weight:700}
+    .hero-scroll-line{width:1px;height:40px;background:rgba(255,255,255,.3);animation:scrollPulse 2s ease-in-out infinite}
+    @keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(1)}50%{opacity:.8;transform:scaleY(.6)}}
+
+    /* ── Countdown hero ── */
+    .hero-countdown{position:absolute;bottom:32px;left:52px;z-index:2;display:flex;align-items:center;gap:12px}
+    .hero-countdown-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:700}
+    .countdown-blocks{display:flex;gap:6px}
+    .cd-block{display:flex;flex-direction:column;align-items:center;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);padding:6px 10px;min-width:44px}
+    .cd-num{font-size:18px;font-weight:700;color:#fff;line-height:1;font-variant-numeric:tabular-nums}
+    .cd-unit{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:2px}
+    .cd-sep{font-size:18px;font-weight:300;color:rgba(255,255,255,.4);line-height:1;padding-top:6px}
+
+    /* ── Comment ça marche ── */
+    .how-section{background:var(--light);padding:64px 40px}
+    .how-inner{max-width:1280px;margin:0 auto}
+    .how-header{text-align:center;margin-bottom:52px}
+    .how-eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px}
+    .how-title{font-family:var(--serif);font-size:clamp(22px,3vw,32px);font-weight:400}
+    .how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative}
+    .how-steps::before{content:'';position:absolute;top:36px;left:calc(16.66% + 16px);right:calc(16.66% + 16px);height:1px;background:var(--border);z-index:0}
+    .how-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 32px;position:relative;z-index:1}
+    .how-num{width:72px;height:72px;background:var(--white);border:1.5px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:26px;font-weight:400;color:var(--gold);margin-bottom:22px;flex-shrink:0}
+    .how-step-title{font-size:15px;font-weight:700;letter-spacing:.04em;margin-bottom:8px}
+    .how-step-desc{font-size:13px;color:var(--muted);line-height:1.7}
+
+    /* ── Upsell popup ── */
+    .upsell-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:600;align-items:flex-end;justify-content:center;padding:0}
+    .upsell-overlay.open{display:flex;animation:fadeIn .25s ease}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    .upsell-panel{background:var(--white);width:100%;max-width:580px;border-radius:0;padding:36px 36px 40px;position:relative;animation:slideUp .35s cubic-bezier(.4,0,.2,1)}
+    @keyframes slideUp{from{transform:translateY(60px);opacity:0}to{transform:translateY(0);opacity:1}}
+    .upsell-close{position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--muted);width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:2px;transition:background .15s}
+    .upsell-close:hover{background:var(--light)}
+    .upsell-tag{display:inline-block;background:var(--gold);color:#fff;font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:4px 10px;margin-bottom:14px}
+    .upsell-title{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.3;margin-bottom:6px}
+    .upsell-sub{font-size:13px;color:var(--muted);margin-bottom:22px;line-height:1.6}
+    .upsell-products{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px}
+    .upsell-prod{background:var(--light);padding:16px;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative}
+    .upsell-prod-img{width:80px;height:80px;object-fit:contain;margin-bottom:8px}
+    .upsell-prod-name{font-size:12px;font-weight:700;margin-bottom:2px}
+    .upsell-prod-price{font-size:13px;color:var(--muted)}
+    .upsell-prod-price s{font-size:11px}
+    .upsell-plus{display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--muted);font-weight:300;padding-top:30px}
+    .upsell-saving{background:rgba(184,151,90,.12);border:1px solid var(--gold);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+    .upsell-saving-txt{font-size:13px;color:var(--text);font-weight:600}
+    .upsell-saving-val{font-size:18px;font-weight:700;color:var(--gold)}
+    .upsell-btns{display:flex;flex-direction:column;gap:10px}
+    .upsell-btn-yes{background:var(--text);color:#fff;border:none;padding:15px;font-family:var(--sans);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;cursor:pointer;transition:background .2s;width:100%}
+    .upsell-btn-yes:hover{background:#333}
+    .upsell-btn-no{background:transparent;color:var(--muted);border:none;font-family:var(--sans);font-size:12px;text-decoration:underline;cursor:pointer;padding:4px;transition:color .2s}
+    .upsell-btn-no:hover{color:var(--text)}
+
+    /* ── Stock alert ── */
+    .stock-alert{display:flex;align-items:center;gap:8px;margin-bottom:20px}
+    .stock-dot{width:8px;height:8px;border-radius:50%;background:#E53935;flex-shrink:0;animation:pulseDot 1.4s ease-in-out infinite}
+    @keyframes pulseDot{0%,100%{box-shadow:0 0 0 0 rgba(229,57,53,.5)}50%{box-shadow:0 0 0 6px rgba(229,57,53,0)}}
+    .stock-alert-txt{font-size:12px;font-weight:700;color:#E53935;letter-spacing:.04em}
+    .stock-alert-txt span{color:var(--text)}
+    /* version fond sombre (section pack) */
+    .stock-alert.dark .stock-alert-txt{color:#FF6B6B}
+    .stock-alert.dark .stock-alert-txt span{color:rgba(255,255,255,.7)}
+    /* upsell version */
+    .upsell-stock{display:flex;align-items:center;gap:8px;background:#FFF5F5;border:1px solid #FFCDD2;padding:9px 14px;margin-bottom:18px}
+    .upsell-stock-txt{font-size:12px;font-weight:700;color:#C62828}
+
+    /* ── Back to top ── */
+    .back-top{position:fixed;bottom:28px;right:28px;z-index:300;width:44px;height:44px;background:var(--text);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;opacity:0;pointer-events:none;transition:opacity .3s,background .2s;box-shadow:0 4px 16px rgba(0,0,0,.18)}
+    .back-top.visible{opacity:1;pointer-events:all}
+    .back-top:hover{background:var(--gold)}
+
+    /* ── Trust ── */
+    .trust{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .trust-inner{max-width:1280px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(4,1fr)}
+    .trust-item{padding:22px 16px;border-right:1px solid var(--border);display:flex;align-items:center;gap:12px}
+    .trust-item:last-child{border-right:none}
+    .trust-icon{font-size:20px;flex-shrink:0;color:var(--gold)}
+    .trust-label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
+    .trust-desc{font-size:12px;color:var(--muted);margin-top:2px}
+
+    /* ── Section ── */
+    .section{max-width:1280px;margin:0 auto;padding:70px 40px}
+    .section-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:44px;flex-wrap:wrap;gap:16px}
+    .section-eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:8px}
+    .section-title{font-family:var(--serif);font-size:clamp(24px,3vw,36px);font-weight:400;line-height:1.2}
+    .section-link{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--text);text-decoration:none;border-bottom:1.5px solid var(--text);padding-bottom:2px;white-space:nowrap}
+
+    /* ── Pack promo ── */
+    .pack-section{background:var(--text);color:#fff;padding:60px 40px}
+    .pack-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .pack-eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px}
+    .pack-title{font-family:var(--serif);font-size:clamp(28px,3.5vw,46px);font-weight:400;line-height:1.2;margin-bottom:16px}
+    .pack-title em{font-style:italic;color:var(--gold)}
+    .pack-desc{font-size:15px;font-weight:300;opacity:.7;line-height:1.7;margin-bottom:28px}
+    .pack-price-block{display:flex;align-items:baseline;gap:14px;margin-bottom:28px}
+    .pack-price-new{font-size:48px;font-weight:700;color:var(--gold)}
+    .pack-price-old{font-size:16px;opacity:.5;text-decoration:line-through}
+    .pack-images{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .pack-img-box{background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;aspect-ratio:3/4;overflow:hidden}
+    .pack-img-box img{width:100%;height:100%;object-fit:contain;padding:12px}
+
+    /* ── Filter ── */
+    .filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px}
+    .filter-btn{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:9px 18px;border:1.5px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;transition:all .2s;font-family:var(--sans)}
+    .filter-btn:hover,.filter-btn.active{border-color:var(--text);background:var(--text);color:#fff}
+
+    /* ── Products grid ── */
+    .products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .product-card{background:var(--white);border:1px solid var(--border);cursor:pointer;transition:transform .2s,box-shadow .2s;text-decoration:none;color:inherit;display:block}
+    .product-card:hover{transform:translateY(-4px);box-shadow:0 14px 40px rgba(0,0,0,.1)}
+    .product-card.hidden{display:none}
+    .product-img-wrap{position:relative;background:var(--light);overflow:hidden;aspect-ratio:3/4}
+    .product-img-wrap img{width:100%;height:100%;object-fit:contain;padding:16px;transition:transform .4s ease}
+    .product-card:hover .product-img-wrap img{transform:scale(1.05)}
+    .product-badge{position:absolute;top:10px;left:10px;background:var(--red);color:#fff;font-size:10px;font-weight:900;letter-spacing:.06em;padding:5px 9px}
+    .product-tag{position:absolute;top:10px;right:10px;background:var(--text);color:#fff;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 8px}
+    .product-info{padding:18px 18px 20px}
+    .product-collection{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:5px}
+    .product-name{font-family:var(--serif);font-size:16px;font-weight:400;line-height:1.3;margin-bottom:4px}
+    .product-specs{font-size:11px;color:var(--muted);margin-bottom:12px}
+    .product-pricing{display:flex;align-items:baseline;gap:8px}
+    .price-outlet{font-size:22px;font-weight:700}
+    .price-original{font-size:13px;color:var(--muted);text-decoration:line-through}
+    .product-btn{display:block;width:100%;margin-top:12px;background:var(--text);color:#fff;border:none;padding:11px;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;cursor:pointer;transition:background .2s}
+    .product-btn:hover{background:#333}
+
+    /* ── Reviews section ── */
+    .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .review-card{background:var(--white);border:1px solid var(--border);padding:28px 24px}
+    .review-stars{color:var(--gold);font-size:16px;letter-spacing:2px;margin-bottom:10px}
+    .review-text{font-size:14px;line-height:1.7;color:var(--text);font-style:italic;margin-bottom:16px;font-family:var(--serif)}
+    .review-author{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+    .review-meta{font-size:11px;color:var(--muted);margin-top:2px}
+    .review-product{display:inline-block;margin-top:8px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:700;border:1px solid var(--gold);padding:3px 8px}
+
+    /* ── FAQ ── */
+    .faq-list{max-width:760px}
+    .faq-item{border-bottom:1px solid var(--border)}
+    .faq-question{width:100%;background:none;border:none;text-align:left;padding:22px 0;font-family:var(--sans);font-size:15px;font-weight:700;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+    .faq-question:hover{color:var(--gold)}
+    .faq-icon{font-size:20px;font-weight:300;flex-shrink:0;transition:transform .3s;color:var(--gold)}
+    .faq-answer{font-size:14px;line-height:1.8;color:var(--muted);max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s}
+    .faq-answer.open{max-height:300px;padding-bottom:20px}
+    .faq-icon.open{transform:rotate(45deg)}
+
+    /* ── Editorial ── */
+    .editorial{background:var(--text);color:#fff;padding:80px 40px;margin:0}
+    .editorial-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .editorial-label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:16px}
+    .editorial-title{font-family:var(--serif);font-size:clamp(26px,3.5vw,44px);font-weight:400;line-height:1.2;margin-bottom:18px}
+    .editorial-title em{font-style:italic;color:var(--gold)}
+    .editorial-text{font-size:14px;font-weight:300;line-height:1.8;opacity:.7;margin-bottom:26px}
+    .btn-gold{display:inline-block;background:var(--gold);color:#fff;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:13px 26px;text-decoration:none;transition:background .2s;border:none;cursor:pointer;font-family:var(--sans)}
+    .btn-gold:hover{background:var(--gold-dk)}
+    .editorial-specs{display:flex;flex-direction:column;gap:22px}
+    .spec-row{display:flex;align-items:flex-start;gap:18px;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .spec-row:last-child{border-bottom:none;padding-bottom:0}
+    .spec-num{font-family:var(--serif);font-size:32px;font-weight:400;color:var(--gold);line-height:1;flex-shrink:0;width:56px}
+    .spec-info-label{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px}
+    .spec-info-desc{font-size:12px;font-weight:300;opacity:.6;line-height:1.5}
+
+    /* ── Blog ── */
+    .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .blog-card{background:var(--white);border:1px solid var(--border);text-decoration:none;color:inherit;display:block;transition:transform .2s,box-shadow .2s}
+    .blog-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.09)}
+    .blog-img{aspect-ratio:16/9;background:var(--light);overflow:hidden;display:flex;align-items:center;justify-content:center}
+    .blog-img img{width:100%;height:100%;object-fit:contain;padding:20px;transition:transform .4s}
+    .blog-card:hover .blog-img img{transform:scale(1.05)}
+    .blog-info{padding:22px 20px}
+    .blog-cat{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:8px}
+    .blog-title{font-family:var(--serif);font-size:18px;font-weight:400;line-height:1.35;margin-bottom:8px}
+    .blog-excerpt{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:12px}
+    .blog-meta{font-size:11px;color:var(--muted);font-weight:300}
+
+    /* ── Collections ── */
+    .collections-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+    .coll-card{position:relative;background:var(--light);overflow:hidden;aspect-ratio:4/5;cursor:pointer}
+    .coll-card img{width:100%;height:100%;object-fit:contain;padding:20px;transition:transform .45s ease}
+    .coll-card:hover img{transform:scale(1.07)}
+    .coll-overlay{position:absolute;bottom:0;left:0;right:0;padding:28px 22px;background:linear-gradient(to top,rgba(0,0,0,.6) 0%,transparent 100%);color:#fff}
+    .coll-name{font-family:var(--serif);font-size:22px;font-weight:400;margin-bottom:4px}
+    .coll-sub{font-size:12px;opacity:.75;font-weight:300}
+
+    /* ── Newsletter ── */
+    .newsletter{background:var(--light);padding:70px 40px;text-align:center}
+    .newsletter-inner{max-width:500px;margin:0 auto}
+    .newsletter-eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px}
+    .newsletter-title{font-family:var(--serif);font-size:clamp(20px,3vw,30px);font-weight:400;line-height:1.3;margin-bottom:10px}
+    .newsletter-sub{font-size:14px;color:var(--muted);font-weight:300;margin-bottom:26px}
+    .newsletter-form{display:flex;max-width:420px;margin:0 auto}
+    .newsletter-input{flex:1;border:1.5px solid var(--border);border-right:none;background:var(--white);padding:13px 14px;font-family:var(--sans);font-size:14px;color:var(--text);outline:none}
+    .newsletter-input:focus{border-color:var(--text)}
+    .newsletter-submit{background:var(--text);color:#fff;border:none;padding:13px 20px;font-family:var(--sans);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;cursor:pointer;transition:background .2s;white-space:nowrap}
+    .newsletter-submit:hover{background:#333}
+
+    /* ── Footer ── */
+    footer{background:var(--text);color:#fff}
+    .footer-top{max-width:1280px;margin:0 auto;padding:56px 40px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+    .footer-brand-name{font-family:var(--serif);font-size:20px;font-weight:600;margin-bottom:12px}
+    .footer-brand-desc{font-size:13px;font-weight:300;opacity:.5;line-height:1.7;max-width:240px}
+    .footer-col-title{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:16px}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+    .footer-col ul li a{color:#fff;text-decoration:none;font-size:13px;font-weight:300;opacity:.6;transition:opacity .2s}
+    .footer-col ul li a:hover{opacity:1}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding:18px 40px;max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-size:11px;opacity:.4;flex-wrap:wrap;gap:8px}
+
+    /* ── Cart Drawer ── */
+    .cart-drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,0);z-index:500;pointer-events:none;transition:background .35s}
+    .cart-drawer-overlay.open{background:rgba(0,0,0,.5);pointer-events:all}
+    .cart-drawer{position:absolute;top:0;right:0;width:min(420px,100vw);height:100%;background:var(--white);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .38s cubic-bezier(.4,0,.2,1);box-shadow:-4px 0 32px rgba(0,0,0,.12)}
+    .cart-drawer-overlay.open .cart-drawer{transform:translateX(0)}
+    .cart-drawer-head{padding:22px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+    .cart-drawer-title{font-family:var(--serif);font-size:20px;font-weight:400}
+    .cart-drawer-close{font-size:20px;cursor:pointer;background:none;border:none;color:var(--text);width:36px;height:36px;display:flex;align-items:center;justify-content:center;transition:background .2s;border-radius:2px}
+    .cart-drawer-close:hover{background:var(--light)}
+    .cart-drawer-body{flex:1;overflow-y:auto;padding:0}
+    .cart-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:16px;padding:40px;text-align:center}
+    .cart-empty-icon{font-size:48px;opacity:.15}
+    .cart-empty-txt{font-size:14px;color:var(--muted)}
+    .cart-empty-link{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--text);border-bottom:1.5px solid var(--text);padding-bottom:2px;cursor:pointer;background:none;border-top:none;border-left:none;border-right:none;font-family:var(--sans)}
+    .cart-item{display:grid;grid-template-columns:72px 1fr auto;gap:14px;padding:18px 24px;border-bottom:1px solid var(--border);align-items:start}
+    .cart-item-img{width:72px;height:72px;background:var(--light);overflow:hidden;flex-shrink:0}
+    .cart-item-img img{width:100%;height:100%;object-fit:contain;padding:6px}
+    .cart-item-col{font-size:13px}
+    .cart-item-name{font-family:var(--serif);font-size:14px;font-weight:400;line-height:1.3;margin-bottom:3px}
+    .cart-item-color{font-size:11px;color:var(--muted);margin-bottom:8px}
+    .cart-item-qty{display:flex;align-items:center;gap:8px;margin-top:4px}
+    .qty-btn{width:26px;height:26px;border:1px solid var(--border);background:none;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;color:var(--text);transition:background .15s;font-family:var(--sans);border-radius:0}
+    .qty-btn:hover{background:var(--light)}
+    .qty-val{font-size:13px;font-weight:700;min-width:20px;text-align:center}
+    .cart-item-price{font-size:15px;font-weight:700;white-space:nowrap}
+    .cart-item-remove{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);cursor:pointer;background:none;border:none;font-family:var(--sans);margin-top:6px;padding:0;transition:color .15s}
+    .cart-item-remove:hover{color:var(--red)}
+    .cart-drawer-foot{padding:20px 24px;border-top:1px solid var(--border);background:var(--white)}
+    .cart-subtotal{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+    .cart-subtotal-label{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+    .cart-subtotal-val{font-size:22px;font-weight:700}
+    .cart-subtotal-note{font-size:11px;color:var(--muted);margin-bottom:16px}
+    .cart-checkout-btn{display:block;width:100%;background:var(--text);color:#fff;border:none;padding:16px;font-family:var(--sans);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;cursor:pointer;transition:background .2s;margin-bottom:10px}
+    .cart-checkout-btn:hover{background:#333}
+    .cart-continue-btn{display:block;width:100%;background:transparent;color:var(--text);border:1.5px solid var(--border);padding:13px;font-family:var(--sans);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;cursor:pointer;transition:border-color .2s}
+    .cart-continue-btn:hover{border-color:var(--text)}
+
+    /* ── MODAL ── */
+    .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:400;align-items:center;justify-content:center;padding:20px}
+    .modal-overlay.open{display:flex}
+    .modal{background:var(--white);max-width:960px;width:100%;max-height:90vh;overflow-y:auto;position:relative;display:grid;grid-template-columns:1fr 1fr}
+    .modal-close{position:absolute;top:16px;right:16px;font-size:22px;cursor:pointer;background:none;border:none;color:var(--text);z-index:10;width:36px;height:36px;display:flex;align-items:center;justify-content:center;transition:background .2s;border-radius:2px}
+    .modal-close:hover{background:var(--light)}
+    .modal-gallery{background:var(--light);position:relative;min-height:400px}
+    .modal-main-img{width:100%;height:100%;min-height:360px;object-fit:contain;padding:24px;display:block}
+    .modal-thumbs{display:flex;gap:8px;padding:10px 14px;overflow-x:auto;background:var(--white);border-top:1px solid var(--border)}
+    .modal-thumb{width:60px;height:60px;flex-shrink:0;border:2px solid transparent;cursor:pointer;overflow:hidden;background:var(--light)}
+    .modal-thumb.active{border-color:var(--text)}
+    .modal-thumb img{width:100%;height:100%;object-fit:contain;padding:4px}
+    .modal-info{padding:32px 28px;overflow-y:auto;display:flex;flex-direction:column;gap:0}
+    .modal-collection{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:8px}
+    .modal-name{font-family:var(--serif);font-size:24px;font-weight:400;line-height:1.25;margin-bottom:6px}
+    .modal-color{font-size:13px;color:var(--muted);margin-bottom:18px}
+    .modal-price-wrap{display:flex;align-items:baseline;gap:10px;margin-bottom:6px}
+    .modal-price{font-size:32px;font-weight:700}
+    .modal-price-orig{font-size:15px;color:var(--muted);text-decoration:line-through}
+    .modal-saving{font-size:12px;color:var(--red);font-weight:700;margin-bottom:20px}
+    .modal-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:20px}
+    .modal-tab{background:none;border:none;border-bottom:2px solid transparent;padding:10px 16px;font-family:var(--sans);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;cursor:pointer;color:var(--muted);margin-bottom:-1px;transition:all .2s}
+    .modal-tab.active{color:var(--text);border-bottom-color:var(--text)}
+    .modal-panel{display:none;font-size:13px;line-height:1.8;color:var(--muted)}
+    .modal-panel.active{display:block}
+    .modal-panel ul{padding-left:18px;display:flex;flex-direction:column;gap:4px}
+    .modal-specs-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px}
+    .spec-item-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--text);display:block}
+    .spec-item-val{font-size:13px;color:var(--muted);display:block}
+    .modal-mini-review{padding:10px 0;border-bottom:1px solid var(--border)}
+    .modal-mini-review:last-child{border-bottom:none}
+    .mini-stars{color:var(--gold);font-size:12px;margin-bottom:4px}
+    .mini-text{font-size:12px;color:var(--muted);font-style:italic;line-height:1.6;margin-bottom:4px}
+    .mini-author{font-size:11px;font-weight:700}
+    .modal-add-btn{margin-top:auto;padding-top:24px;display:flex;flex-direction:column;gap:10px}
+
+    /* ── Responsive ── */
+    @media(max-width:1100px){
+      .products-grid{grid-template-columns:repeat(3,1fr)}
+      .footer-top{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:768px){
+      .header-inner{padding:0 20px}
+      nav{display:none}
+      .burger{display:flex}
+      .hero{height:88vh;min-height:500px;max-height:none}
+      .hero-content{padding:0 24px 56px}
+      .hero-badge{top:24px;right:24px}
+      .hero-scroll{display:none}
+      .hero-countdown{bottom:20px;left:24px;right:auto}
+      .hero-title{font-size:clamp(36px,8vw,52px)}
+      .hero-sub{font-size:15px;max-width:100%}
+      .hero-overlay{background:linear-gradient(to bottom, rgba(10,8,6,.25) 0%, rgba(10,8,6,.7) 100%)}
+      .how-section{padding:48px 20px}
+      .how-steps{grid-template-columns:1fr;gap:36px}
+      .how-steps::before{display:none}
+      .upsell-panel{padding:28px 20px 32px}
+      .upsell-products{grid-template-columns:auto 20px auto;align-items:center}
+      .upsell-plus{padding-top:0}
+      .back-top{bottom:20px;right:20px;width:40px;height:40px}
+      .trust-inner{grid-template-columns:1fr 1fr;padding:0 20px}
+      .trust-item:nth-child(2){border-right:none}
+      .trust-item:nth-child(3){border-right:1px solid var(--border)}
+      .trust-item:nth-child(4){border-right:none}
+      .products-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+      .section{padding:48px 20px}
+      .reviews-grid{grid-template-columns:1fr;gap:16px}
+      .blog-grid{grid-template-columns:1fr;gap:16px}
+      .collections-grid{grid-template-columns:1fr}
+      .editorial-inner{grid-template-columns:1fr;gap:48px}
+      .editorial{padding:56px 20px}
+      .pack-inner{grid-template-columns:1fr;gap:40px}
+      .pack-section{padding:56px 20px}
+      .newsletter{padding:48px 20px}
+      .newsletter-form{flex-direction:column}
+      .newsletter-input{border-right:1.5px solid var(--border);border-bottom:none}
+      .footer-top{grid-template-columns:1fr 1fr;padding:40px 20px;gap:28px}
+      .footer-bottom{padding:18px 20px}
+      .modal{grid-template-columns:1fr;max-height:95vh}
+      .modal-gallery{min-height:260px}
+      .modal-info{padding:22px 20px}
+      .modal-name{font-size:20px}
+      .modal-price{font-size:26px}
+    }
+    @media(max-width:480px){
+      .products-grid{grid-template-columns:1fr}
+      .trust-inner{grid-template-columns:1fr}
+      .trust-item{border-right:none!important;border-bottom:1px solid var(--border)}
+      .trust-item:last-child{border-bottom:none}
+      .hero-ctas{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+
+<!-- Topbar -->
+<div class="topbar" id="topbar">
+  <div class="topbar-track" id="topbar-track">
+    <div class="topbar-item">Livraison gratuite en France<span>|</span>Expédition en 24h<span>|</span>Sans minimum d'achat</div>
+    <div class="topbar-item">✦ Authenticité garantie<span>|</span>Numéro de série RIMOWA inclus<span>|</span>Revendeur agréé officiel</div>
+    <div class="topbar-item">Retours gratuits sous 30 jours<span>|</span>Remboursement garanti<span>|</span>Garantie mondiale 5 ans</div>
+  </div>
+</div>
+
+<!-- Header -->
+<header id="site-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <button class="burger" id="burger-btn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="header-center">
+      <a href="index.html" class="logo">Rimowa-Outlet<sup>®</sup></a>
+    </div>
+    <div class="header-right">
+      <button class="cart-btn" id="cart-btn" aria-label="Panier" onclick="openCartDrawer()">
+        <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-count zero" id="cart-count">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Cart Drawer (droite) -->
+<div class="cart-drawer-overlay" id="cart-drawer-overlay" onclick="handleCartOverlay(event)">
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-head">
+      <h2 class="cart-drawer-title">Mon panier <span id="cart-drawer-count" style="font-family:var(--sans);font-size:13px;color:var(--muted);font-weight:400"></span></h2>
+      <button class="cart-drawer-close" onclick="closeCartDrawer()">✕</button>
+    </div>
+    <div class="cart-drawer-body" id="cart-drawer-body">
+      <div class="cart-empty" id="cart-empty">
+        <div class="cart-empty-icon">◻</div>
+        <p class="cart-empty-txt">Votre panier est vide</p>
+        <button class="cart-empty-link" onclick="closeCartDrawer()">Voir le catalogue</button>
+      </div>
+      <div id="cart-items-list"></div>
+    </div>
+    <div class="cart-drawer-foot" id="cart-foot" style="display:none">
+      <div class="cart-subtotal">
+        <span class="cart-subtotal-label">Sous-total</span>
+        <span class="cart-subtotal-val" id="cart-total-val">0€</span>
+      </div>
+      <p class="cart-subtotal-note">Livraison gratuite · Taxes incluses</p>
+      <button class="cart-checkout-btn" onclick="handleCheckout()">Passer commande</button>
+      <button class="cart-continue-btn" onclick="closeCartDrawer()">Continuer mes achats</button>
+    </div>
+  </div>
+</div>
+
+<!-- Drawer nav (gauche) -->
+<div class="mobile-nav" id="mobile-nav" onclick="handleDrawerOutside(event)">
+  <div class="mobile-nav-panel" id="drawer-panel">
+    <div class="drawer-header">
+      <span class="drawer-logo">Rimowa-Outlet</span>
+      <button class="mobile-nav-close" id="mobile-nav-close" onclick="closeDrawer()">✕</button>
+    </div>
+    <div class="drawer-links">
+      <a href="#products" onclick="closeDrawer()">Catalogue <span>→</span></a>
+      <a href="#collections" onclick="closeDrawer()">Collections <span>→</span></a>
+      <a href="#reviews" onclick="closeDrawer()">Avis clients <span>→</span></a>
+      <a href="catalogue.html">Tous les produits <span>→</span></a>
+      <a href="blog.html">Blog <span>→</span></a>
+      <a href="suivi.html">Suivi commande <span>→</span></a>
+      <a href="faq.html">FAQ <span>→</span></a>
+      <a href="mentions-legales.html">Mentions légales <span>→</span></a>
+    </div>
+    <div class="drawer-footer">
+      <p>Besoin d'aide ?</p>
+      <small>contact@rimowa-outlet.com<br>Lun–Sam · 9h–18h</small>
+    </div>
+  </div>
+</div>
+
+<!-- Hero cinématique -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="rimowa-hero.webp" alt="Collection RIMOWA aluminium" loading="eager" fetchpriority="high">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-badge">Dès 89€</div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Revendeur Agréé RIMOWA</p>
+    <h1 class="hero-title">Le luxe du voyage,<br>à prix <em>outlet.</em></h1>
+    <p class="hero-sub">Valises authentiques RIMOWA — Cabin dès 89€, Check-In dès 159€. Livraison gratuite. Garantie 5 ans incluse.</p>
+    <div class="hero-ctas">
+      <a href="#products" class="btn-primary">Voir le catalogue</a>
+      <a href="#collections" class="btn-ghost">Les collections</a>
+    </div>
+  </div>
+  <div class="hero-countdown" id="hero-countdown">
+    <span class="hero-countdown-label">Offre valable encore</span>
+    <div class="countdown-blocks">
+      <div class="cd-block"><span class="cd-num" id="cd-h">00</span><span class="cd-unit">h</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-block"><span class="cd-num" id="cd-m">00</span><span class="cd-unit">min</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-block"><span class="cd-num" id="cd-s">00</span><span class="cd-unit">sec</span></div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Défiler</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- Trust -->
+<div class="trust">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-icon">✦</div>
+      <div><div class="trust-label">100% Authentique</div><div class="trust-desc">Revendeur officiel agréé</div></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">◆</div>
+      <div><div class="trust-label">Garantie 5 ans</div><div class="trust-desc">Couverture mondiale RIMOWA</div></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">◇</div>
+      <div><div class="trust-label">Livraison gratuite</div><div class="trust-desc">Sans minimum d'achat</div></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">○</div>
+      <div><div class="trust-label">Retours 30 jours</div><div class="trust-desc">Remboursement garanti</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Comment ça marche -->
+<div class="how-section">
+  <div class="how-inner">
+    <div class="how-header">
+      <p class="how-eyebrow">Simple & rapide</p>
+      <h2 class="how-title">Comment commander en 3 étapes</h2>
+    </div>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-num">1</div>
+        <div class="how-step-title">Choisissez votre valise</div>
+        <div class="how-step-desc">Parcourez notre catalogue de valises RIMOWA authentiques. Filtrez par format — Cabin ou Check-In — et choisissez le coloris qui vous correspond.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">2</div>
+        <div class="how-step-title">Passez commande</div>
+        <div class="how-step-desc">Ajoutez au panier et finalisez votre commande en quelques secondes. Paiement sécurisé par carte, PayPal ou Apple Pay.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">3</div>
+        <div class="how-step-title">Recevez en 24–48h</div>
+        <div class="how-step-desc">Votre valise RIMOWA est expédiée sous 24h par Colissimo suivi, soigneusement emballée. Livraison gratuite, sans minimum d'achat.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Pack promo -->
+<div class="pack-section">
+  <div class="pack-inner">
+    <div>
+      <p class="pack-eyebrow">Offre exclusive</p>
+      <h2 class="pack-title">Le <em>Pack Voyage</em> —<br>Cabin + Check-In</h2>
+      <p class="pack-desc">Voyagez complet avec votre duo RIMOWA. Choisissez votre coloris et commandez directement — livraison gratuite en 24h.</p>
+
+      <div class="pack-color-row">
+        <span class="pack-color-label">Coloris :</span>
+        <div class="pack-swatches">
+          <button class="pack-swatch active" data-pack="noir" style="background:#1A1A1A" title="Noir Gloss" onclick="selectPack('noir')"></button>
+          <button class="pack-swatch" data-pack="bleu" style="background:#4A7AB5" title="Bleu Gloss" onclick="selectPack('bleu')"></button>
+          <button class="pack-swatch pack-swatch-alu" data-pack="alu" title="Gris Argent" onclick="selectPack('alu')"></button>
+        </div>
+        <span class="pack-color-name" id="pack-color-name">Noir Gloss</span>
+      </div>
+
+      <div class="pack-price-block">
+        <span class="pack-price-new" id="pack-price-val">200€</span>
+        <span class="pack-price-old" id="pack-price-old">248€ séparément</span>
+      </div>
+      <div style="font-size:12px;color:var(--gold);font-weight:700;margin-bottom:20px;letter-spacing:.06em" id="pack-eco-val">Économisez 48€</div>
+      <div class="stock-alert dark">
+        <div class="stock-dot"></div>
+        <p class="stock-alert-txt">⚠ Attention — <span>il ne reste que <strong id="pack-stock">9</strong> packs disponibles</strong></span></p>
+      </div>
+      <button class="pack-confirm-btn" id="pack-btn" onclick="commanderPack()">Commander ce pack — 200€</button>
+    </div>
+    <div class="pack-images">
+      <div class="pack-img-box">
+        <img id="pack-img1" src="https://lavoyagerie-paris.fr/3625-thickbox_default/rimowa-essential-lite-cabin-53-black-gloss.jpg" alt="Cabin Noir Gloss">
+      </div>
+      <div class="pack-img-box">
+        <img id="pack-img2" src="https://lavoyagerie-paris.fr/3637-thickbox_default/rimowa-essential-lite-check-in-l-73-black-gloss.jpg" alt="Check-In Noir Gloss">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Products -->
+<div class="section" id="products">
+  <div class="section-header">
+    <div>
+      <p class="section-eyebrow">Prix Outlet</p>
+      <h2 class="section-title">Toutes nos valises RIMOWA</h2>
+    </div>
+  </div>
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">Tous</button>
+    <button class="filter-btn" data-filter="cabin">Cabin</button>
+    <button class="filter-btn" data-filter="checkin">Check-In</button>
+  </div>
+  <div class="products-grid" id="products-grid">
+
+    <!-- product data embedded via JS below -->
+
+  </div>
+</div>
+
+<!-- Reviews -->
+<div class="section" id="reviews" style="background:var(--white);max-width:100%;padding-top:70px;padding-bottom:70px">
+  <div style="max-width:1280px;margin:0 auto;padding:0 40px">
+    <div class="section-header">
+      <div>
+        <p class="section-eyebrow">Ils nous font confiance</p>
+        <h2 class="section-title">Avis clients vérifiés</h2>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+        <span style="font-size:28px;font-weight:700">4.9</span>
+        <div>
+          <div style="color:var(--gold);font-size:18px">★★★★★</div>
+          <div style="font-size:11px;color:var(--muted)">Basé sur 214 avis</div>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Qualité irréprochable, exactement comme en boutique. La valise est arrivée en parfait état, livrée le lendemain. Je recommande les yeux fermés ! »</p>
+        <div class="review-author">Camille R.</div>
+        <div class="review-meta">Paris · Achat vérifié · il y a 3 jours</div>
+        <span class="review-product">Essential Lite Cabin</span>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« J'ai hésité à acheter en outlet mais tout est authentique, l'étiquette RIMOWA avec le numéro de série est bien présente. Prix imbattable. »</p>
+        <div class="review-author">Thomas M.</div>
+        <div class="review-meta">Lyon · Achat vérifié · il y a 1 semaine</div>
+        <span class="review-product">Classic Check-In L</span>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Le pack cabin + check-in à 200€ c'est une affaire incroyable. Les deux valises sont impeccables. Le service client a répondu en moins d'une heure. »</p>
+        <div class="review-author">Sophie L.</div>
+        <div class="review-meta">Bordeaux · Achat vérifié · il y a 2 semaines</div>
+        <span class="review-product">Pack Voyage</span>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Troisième commande chez Rimowa-Outlet. La constance dans la qualité et le service est remarquable. Mon entourage a tous acheté ici maintenant. »</p>
+        <div class="review-author">Marc D.</div>
+        <div class="review-meta">Marseille · Achat vérifié · il y a 3 semaines</div>
+        <span class="review-product">Essential Check-In L</span>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« La valise Essential Lite est incroyablement légère. Parfaite pour les vols en cabine. Serrure TSA fonctionnelle. Livraison express sans frais. Top ! »</p>
+        <div class="review-author">Julie K.</div>
+        <div class="review-meta">Toulouse · Achat vérifié · il y a 1 mois</div>
+        <span class="review-product">Essential Lite Cabin Blue Gloss</span>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Vraiment satisfait de mon achat. La Classic en aluminium est magnifique, les poignées en cuir sont solides. Un produit à vie pour le prix d'une valise classique. »</p>
+        <div class="review-author">Antoine P.</div>
+        <div class="review-meta">Strasbourg · Achat vérifié · il y a 1 mois</div>
+        <span class="review-product">Classic Check-In M</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Collections -->
+<div class="section" id="collections">
+  <div class="section-header">
+    <div>
+      <p class="section-eyebrow">Nos Collections</p>
+      <h2 class="section-title">Quelle valise vous correspond ?</h2>
+    </div>
+  </div>
+  <div class="collections-grid">
+    <div class="coll-card" onclick="filterAndScroll('all')">
+      <img src="https://lavoyagerie-paris.fr/4677-thickbox_default/rimowa-classic-check-in-l-73-silver.jpg" alt="RIMOWA Classic" loading="lazy">
+      <div class="coll-overlay">
+        <p class="coll-name">Classic</p>
+        <p class="coll-sub">Aluminium · Design iconique · Poignées cuir</p>
+      </div>
+    </div>
+    <div class="coll-card" onclick="filterAndScroll('checkin')">
+      <img src="https://lavoyagerie-paris.fr/3761-thickbox_default/rimowa-essential-check-in-l-73-black-gloss.jpg" alt="RIMOWA Essential" loading="lazy">
+      <div class="coll-overlay">
+        <p class="coll-name">Essential</p>
+        <p class="coll-sub">Polycarbonate · Ultra-résistant · 5 coloris</p>
+      </div>
+    </div>
+    <div class="coll-card" onclick="filterAndScroll('cabin')">
+      <img src="https://lavoyagerie-paris.fr/3649-thickbox_default/rimowa-essential-lite-cabin-53-blue-gloss.jpg" alt="RIMOWA Essential Lite" loading="lazy">
+      <div class="coll-overlay">
+        <p class="coll-name">Essential Lite</p>
+        <p class="coll-sub">La plus légère · 2.2 kg · Polycarbonate</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Editorial -->
+<div class="editorial">
+  <div class="editorial-inner">
+    <div>
+      <p class="editorial-label">L'excellence RIMOWA</p>
+      <h2 class="editorial-title">Un siècle de <em>savoir-faire</em> allemand.</h2>
+      <p class="editorial-text">Fondée en 1898 à Cologne, RIMOWA est la référence mondiale du bagage de luxe. Chaque valise allie ingénierie de précision et design intemporel — construite pour durer des générations.</p>
+      <p class="editorial-text">En tant que revendeur officiel agréé, nous vous proposons ces pièces à prix outlet avec la garantie mondiale fabricant 5 ans.</p>
+      <a href="#products" class="btn-gold">Voir le catalogue</a>
+    </div>
+    <div class="editorial-specs">
+      <div class="spec-row"><div class="spec-num">126</div><div><div class="spec-info-label">Ans d'histoire</div><div class="spec-info-desc">Depuis 1898, RIMOWA incarne le voyage d'exception et la précision allemande.</div></div></div>
+      <div class="spec-row"><div class="spec-num">5</div><div><div class="spec-info-label">Ans de garantie mondiale</div><div class="spec-info-desc">Couverte dans tous les pays par la garantie internationale RIMOWA.</div></div></div>
+      <div class="spec-row"><div class="spec-num">89€</div><div><div class="spec-info-label">Prix de départ outlet</div><div class="spec-info-desc">Nos prix outlet commencent à 89€ pour une valise cabin authentique RIMOWA.</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Blog -->
+<div class="section">
+  <div class="section-header">
+    <div>
+      <p class="section-eyebrow">Conseils voyage</p>
+      <h2 class="section-title">Le blog Rimowa-Outlet</h2>
+    </div>
+    <a href="blog.html" class="section-link">Tous les articles →</a>
+  </div>
+  <div class="blog-grid">
+    <a href="blog.html#article1" class="blog-card">
+      <div class="blog-img"><img src="https://lavoyagerie-paris.fr/3649-thickbox_default/rimowa-essential-lite-cabin-53-blue-gloss.jpg" alt="Choisir sa valise cabine" loading="lazy"></div>
+      <div class="blog-info">
+        <p class="blog-cat">Guide d'achat</p>
+        <h3 class="blog-title">Comment choisir sa valise cabine en 2026 ?</h3>
+        <p class="blog-excerpt">Dimensions IATA, poids, matière : tout ce qu'il faut savoir avant d'acheter votre prochain bagage cabine.</p>
+        <span class="blog-meta">8 mai 2026 · 5 min de lecture</span>
+      </div>
+    </a>
+    <a href="blog.html#article2" class="blog-card">
+      <div class="blog-img"><img src="https://lavoyagerie-paris.fr/4677-thickbox_default/rimowa-classic-check-in-l-73-silver.jpg" alt="Classic vs Essential" loading="lazy"></div>
+      <div class="blog-info">
+        <p class="blog-cat">Comparatif</p>
+        <h3 class="blog-title">RIMOWA Classic vs Essential : que choisir ?</h3>
+        <p class="blog-excerpt">Aluminium ou polycarbonate ? Nous comparons les deux collections phares de RIMOWA pour vous aider à décider.</p>
+        <span class="blog-meta">2 mai 2026 · 7 min de lecture</span>
+      </div>
+    </a>
+    <a href="blog.html#article3" class="blog-card">
+      <div class="blog-img"><img src="https://lavoyagerie-paris.fr/3700-thickbox_default/rimowa-essential-cabin-53-matte-black.jpg" alt="5 astuces voyager léger" loading="lazy"></div>
+      <div class="blog-info">
+        <p class="blog-cat">Astuces</p>
+        <h3 class="blog-title">5 astuces pour voyager léger avec RIMOWA</h3>
+        <p class="blog-excerpt">Avec la collection Essential Lite, voyager avec un seul bagage cabine n'a jamais été aussi simple. Nos conseils d'experts.</p>
+        <span class="blog-meta">25 avril 2026 · 4 min de lecture</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- Newsletter -->
+<div class="newsletter">
+  <div class="newsletter-inner">
+    <p class="newsletter-eyebrow">Newsletter Outlet</p>
+    <h2 class="newsletter-title">Nouvelles arrivées en avant-première.</h2>
+    <p class="newsletter-sub">Recevez nos offres outlet exclusives et nouvelles arrivées en priorité.</p>
+    <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+      <input type="email" class="newsletter-input" placeholder="votre@email.fr" required>
+      <button class="newsletter-submit">S'inscrire</button>
+    </form>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">Rimowa-Outlet</div>
+      <p class="footer-brand-desc">Revendeur officiel agréé RIMOWA. Valises authentiques à prix outlet, livrées gratuitement partout en France.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Collections</div>
+      <ul>
+        <li><a href="#" onclick="filterAndScroll('all');return false">Tous les bagages</a></li>
+        <li><a href="#" onclick="filterAndScroll('cabin');return false">Valises Cabin</a></li>
+        <li><a href="#" onclick="filterAndScroll('checkin');return false">Valises Check-In</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Service</div>
+      <ul>
+        <li><a href="suivi.html">Suivi de commande</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="faq.html#livraison">Livraison</a></li>
+        <li><a href="faq.html#retours">Retours</a></li>
+        <li><a href="faq.html#garantie">Garantie</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Légal</div>
+      <ul>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="mentions-legales.html#cgv">CGV</a></li>
+        <li><a href="mentions-legales.html#confidentialite">Confidentialité</a></li>
+        <li><a href="mentions-legales.html#cookies">Cookies</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Rimowa-Outlet — Revendeur Agréé RIMOWA</span>
+    <span>Livraison gratuite · Paiement sécurisé · Garantie 5 ans</span>
+  </div>
+</footer>
+
+<!-- Bouton retour en haut -->
+<button class="back-top" id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">↑</button>
+
+<!-- Popup upsell Pack Voyage -->
+<div class="upsell-overlay" id="upsell-overlay">
+  <div class="upsell-panel">
+    <button class="upsell-close" onclick="closeUpsell(false)">✕</button>
+    <span class="upsell-tag">Offre exclusive</span>
+    <h2 class="upsell-title">Complétez votre set avec<br>le <em style="font-style:italic;color:var(--gold)">Pack Voyage</em></h2>
+    <p class="upsell-sub" id="upsell-sub">Vous avez choisi une cabin — pour seulement <strong id="upsell-diff">111€ de plus</strong>, obtenez aussi la grande valise Check-In et économisez sur le total.</p>
+    <div class="upsell-products">
+      <div class="upsell-prod">
+        <img class="upsell-prod-img" id="upsell-cabin-img" src="" alt="Cabin">
+        <div class="upsell-prod-name" id="upsell-cabin-name">Cabin</div>
+        <div class="upsell-prod-price"><span id="upsell-cabin-price"></span></div>
+      </div>
+      <div class="upsell-plus">+</div>
+      <div class="upsell-prod">
+        <img class="upsell-prod-img" id="upsell-checkin-img" src="" alt="Check-In">
+        <div class="upsell-prod-name" id="upsell-checkin-name">Check-In L</div>
+        <div class="upsell-prod-price">incluse dans le pack</div>
+      </div>
+    </div>
+    <div class="upsell-saving">
+      <span class="upsell-saving-txt">Pack Cabin + Check-In — prix total</span>
+      <span class="upsell-saving-val">200€</span>
+    </div>
+    <div class="upsell-stock">
+      <div class="stock-dot"></div>
+      <p class="upsell-stock-txt">⚠ Plus que <strong id="upsell-stock-num">9</strong> packs disponibles dans ce coloris — commandez maintenant.</p>
+    </div>
+    <div class="upsell-btns">
+      <button class="upsell-btn-yes" onclick="closeUpsell(true)">Prendre le Pack Voyage — 200€ <span style="opacity:.6;font-weight:400;font-size:10px;margin-left:6px">(au lieu de <span id="upsell-total-sep"></span>)</span></button>
+      <button class="upsell-btn-no" onclick="closeUpsell(false)">Non merci, juste la cabin (<span id="upsell-cabin-price-no"></span>)</button>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModalOnOverlay(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-gallery">
+      <img class="modal-main-img" id="modal-main-img" src="" alt="">
+      <div class="modal-thumbs" id="modal-thumbs"></div>
+    </div>
+    <div class="modal-info">
+      <p class="modal-collection" id="modal-collection"></p>
+      <h2 class="modal-name" id="modal-name"></h2>
+      <p class="modal-color" id="modal-color"></p>
+      <div class="modal-price-wrap">
+        <span class="modal-price" id="modal-price"></span>
+        <span class="modal-price-orig" id="modal-price-orig"></span>
+      </div>
+      <p class="modal-saving" id="modal-saving"></p>
+      <div class="modal-tabs">
+        <button class="modal-tab active" onclick="switchTab(this,'desc')">Description</button>
+        <button class="modal-tab" onclick="switchTab(this,'specs')">Caractéristiques</button>
+        <button class="modal-tab" onclick="switchTab(this,'revs')">Avis (5)</button>
+      </div>
+      <div class="modal-panel active" id="tab-desc"></div>
+      <div class="modal-panel" id="tab-specs"></div>
+      <div class="modal-panel" id="tab-revs"></div>
+      <div class="modal-add-btn">
+        <button class="btn-primary" style="width:100%;padding:15px;font-size:12px" onclick="addToCart(this)">Ajouter au panier</button>
+        <a href="suivi.html" class="btn-ghost" style="text-align:center;font-size:11px;padding:12px">Suivre ma commande</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Product data ──────────────────────────────────────────
+const PRODUCTS = [
+  {
+    id:'p1', tags:['cabin','essential'],
+    collection:'RIMOWA Essential', name:'Essential Cabin S', color:'Blue Gloss',
+    dims:'55×39×20 cm', cap:'34 L', mat:'Polycarbonate', wt:'3.1 kg',
+    price:89, orig:640,
+    imgs:['3820','3821','3822','3823','3819'],
+    slug:'rimowa-essential-cabin-s-52-blue-gloss',
+    desc:'La valise cabin de la collection Essential en finition Blue Gloss brillante. Fabriquée en polycarbonate haute résistance, elle offre la parfaite protection pour vos affaires en cabine. Dimensions conformes aux normes IATA (Air France, EasyJet, Transavia).',
+    features:['Polycarbonate haute résistance','Serrure TSA combinaison','Poignée télescopique mono-tube','4 roues multidirectionnelles','2 plateaux flex-divider amovibles','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5, t:'Couleur magnifique, exactement comme sur les photos. Parfaite pour mon voyage à Amsterdam.', a:'Emma D.', d:'Paris'},
+      {s:5, t:'Très légère et solide. Les roues glissent parfaitement. Je suis conquise !', a:'Laura M.', d:'Lyon'},
+      {s:5, t:'Authentique RIMOWA, numéro de série présent. Livraison en 24h. Impeccable.', a:'Chloé R.', d:'Bordeaux'},
+    ]
+  },
+  {
+    id:'p2', tags:['cabin','essential'],
+    collection:'RIMOWA Essential', name:'Essential Cabin', color:'Matte Black',
+    dims:'55×39×23 cm', cap:'36 L', mat:'Polycarbonate', wt:'3.2 kg',
+    price:99, orig:670,
+    imgs:['3700','3701','3702','3703','3704'],
+    slug:'rimowa-essential-cabin-53-matte-black',
+    desc:'Le Matte Black de la collection Essential — une finition mate profonde et élégante. Cette valise cabin légère en polycarbonate est l\'alliée idéale de vos voyages professionnels. Format cabine universel, accepté par toutes les grandes compagnies aériennes.',
+    features:['Polycarbonate mat ultra-résistant','Serrure TSA combinaison','Poignée télescopique mono-tube','4 roues multidirectionnelles silencieuses','2 plateaux flex-divider amovibles','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5, t:'La finition matte est absolument superbe. Beaucoup plus chic qu\'une valise brillante.', a:'Hugo L.', d:'Paris'},
+      {s:5, t:'Solide, légère, le noir mat ne montre pas les traces. Parfait pour voyager pro.', a:'Nicolas B.', d:'Nantes'},
+      {s:5, t:'Troisième RIMOWA. Qualité toujours au top, prix outlet imbattable.', a:'Sylvie P.', d:'Marseille'},
+    ]
+  },
+  {
+    id:'p3', tags:['checkin','essential'],
+    collection:'RIMOWA Essential', name:'Essential Check-In L', color:'Black Gloss',
+    dims:'77.5×51×26.5 cm', cap:'85 L', mat:'Polycarbonate', wt:'4.8 kg',
+    price:179, orig:850,
+    imgs:['3761','3762','3763','3764','3765'],
+    slug:'rimowa-essential-check-in-l-73-black-gloss',
+    desc:'La grande valise de la collection Essential en finition Black Gloss. 85 litres de capacité pour vos longs voyages. Polycarbonate haute résistance, roues multidirectionnelles et serrure TSA. Une valise pensée pour les grands voyageurs.',
+    features:['Polycarbonate haute résistance','Serrure TSA combinaison','Poignée télescopique mono-tube','4 roues multidirectionnelles','2 plateaux flex-divider amovibles','85 litres de capacité','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5, t:'Spacieuse et solide. J\'ai mis 3 semaines de vêtements sans problème. La qualité RIMOWA est inégalable.', a:'Pierre V.', d:'Toulouse'},
+      {s:5, t:'Idéale pour les voyages longue durée. Les roues glissent même sur les sols irréguliers.', a:'Marie T.', d:'Rennes'},
+      {s:5, t:'Valise reçue en parfait état, emballée soigneusement. Authentique avec numéro de série.', a:'François A.', d:'Lille'},
+    ]
+  },
+  {
+    id:'p4', tags:['checkin','essential'],
+    collection:'RIMOWA Essential', name:'Essential Check-In L', color:'Blue Gloss',
+    dims:'77.5×51×26.5 cm', cap:'85 L', mat:'Polycarbonate', wt:'4.8 kg',
+    price:179, orig:850,
+    imgs:['3842','3843','3844','3845','3846'],
+    slug:'rimowa-essential-check-in-l-73-blue-gloss',
+    desc:'La grande valise Essential en Blue Gloss — une couleur signature RIMOWA, lumineuse et distinctive. 85 litres pour vos plus longs séjours. Une valise immédiatement reconnaissable sur les tapis roulants.',
+    features:['Polycarbonate haute résistance','Finition Blue Gloss signature RIMOWA','Serrure TSA combinaison','4 roues multidirectionnelles','2 plateaux flex-divider amovibles','85 litres de capacité','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5, t:'Le bleu est splendide, beaucoup plus beau qu\'en photo. Facile à repérer à l\'aéroport !', a:'Claire B.', d:'Nice'},
+      {s:5, t:'Achetée pour un voyage de 3 semaines. Elle a tout absorbé. Aucune égratignure après 4 vols.', a:'Romain K.', d:'Grenoble'},
+      {s:5, t:'Service client réactif, livraison rapide. La valise est conforme aux photos, très satisfait.', a:'Isabelle M.', d:'Strasbourg'},
+    ]
+  },
+  {
+    id:'p11', tags:['cabin','classic'],
+    collection:'RIMOWA Classic', name:'Classic Cabin S', color:'Silver',
+    dims:'55×35×23 cm', cap:'36 L', mat:'Aluminium + Cuir', wt:'3.9 kg',
+    price:100, orig:1050,
+    imgs:['4654','4655','4656','4657','4658'],
+    slug:'rimowa-classic-cabin-s-52-silver',
+    desc:'La valise cabine en aluminium emblématique de RIMOWA. Fabriquée à la main, la Classic Cabin S allie la robustesse de l\'aluminium à l\'élégance des poignées en cuir de vachette. Elle traverse les décennies sans vieillir — un objet conçu pour durer une vie.',
+    features:['Coque aluminium brossé premium','Poignées cuir de vachette véritable','2 verrous TSA à combinaison','Poignée télescopique aluminium','4 roues doubles multidirectionnelles silencieuses','Format cabine universel IATA','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5, t:'C\'est un objet d\'exception. L\'aluminium prend une patine unique au fil des voyages. Aucune valise ne lui arrive à la cheville.', a:'Julien M.', d:'Paris'},
+      {s:5, t:'Je l\'utilise en cabine depuis 2 ans, elle est impeccable. Les roues sont silencieuses, les poignées en cuir superbes.', a:'Isabelle F.', d:'Genève'},
+      {s:5, t:'Prix outlet imbattable pour cette qualité. La Classic Cabin en aluminium, c\'est un investissement à vie.', a:'Renaud L.', d:'Bordeaux'},
+    ]
+  },
+  {
+    id:'p5', tags:['checkin','classic'],
+    collection:'RIMOWA Classic', name:'Classic Check-In L', color:'Silver',
+    dims:'79×53×28 cm', cap:'84 L', mat:'Aluminium + Cuir', wt:'6 kg',
+    price:199, orig:1390,
+    imgs:['4677','4673','4674','4675','4676'],
+    slug:'rimowa-classic-check-in-l-73-silver',
+    desc:'L\'icône absolue de RIMOWA. Fabriquée en aluminium avec de véritables poignées en cuir de vachette, la Classic Check-In L est la valise des grands voyageurs exigeants. Deux verrous TSA à combinaison, 84 litres, 5 ans de garantie mondiale.',
+    features:['Coque aluminium premium','Poignées cuir de vachette véritable','2 verrous TSA à combinaison','Système trolley télescopique','4 roues doubles multidirectionnelles','Compartiment diviseur amovible','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5, t:'C\'est simplement la meilleure valise qui existe. L\'aluminium est indestructible. Un investissement à vie.', a:'Étienne G.', d:'Paris'},
+      {s:5, t:'Le son des rainures sur le tapis roulant... La classe absolue. Je ne changerais jamais.', a:'Nathalie R.', d:'Lyon'},
+      {s:5, t:'Cadeau d\'anniversaire parfait. Mon mari a failli pleurer tellement il était content.', a:'Valérie D.', d:'Bordeaux'},
+    ]
+  },
+  {
+    id:'p6', tags:['checkin','classic'],
+    collection:'RIMOWA Classic', name:'Classic Check-In M', color:'Silver',
+    dims:'71×47.5×26 cm', cap:'61 L', mat:'Aluminium + Cuir', wt:'5.3 kg',
+    price:189, orig:1290,
+    imgs:['4671','4666','4667','4668','4669'],
+    slug:'rimowa-classic-check-in-m-63-silver',
+    desc:'La version medium de la légendaire Classic RIMOWA. Plus maniable que la L, elle offre 61 litres pour les voyages de 1 à 2 semaines. Le même aluminium premium, les mêmes poignées en cuir véritable, la même élégance intemporelle.',
+    features:['Coque aluminium premium','Poignées cuir de vachette','2 verrous TSA à combinaison','Système trolley télescopique','4 roues doubles multidirectionnelles','61 litres — idéal 1-2 semaines','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5, t:'La taille M est parfaite pour moi. Ni trop grande ni trop petite, c\'est la valise idéale.', a:'Julien F.', d:'Paris'},
+      {s:5, t:'Qualité exceptionnelle. On sent que c\'est fait pour durer toute une vie. Très satisfait du prix outlet.', a:'Bernard L.', d:'Montpellier'},
+      {s:5, t:'Livraison très soigneuse. La valise était enveloppée dans du papier bulles. Parfaite.', a:'Monique B.', d:'Nantes'},
+    ]
+  },
+  {
+    id:'p7', tags:['cabin','lite'],
+    collection:'RIMOWA Essential Lite', name:'Essential Lite Cabin', color:'Blue Gloss',
+    dims:'55×37×23 cm', cap:'37 L', mat:'Polycarbonate', wt:'2.2 kg',
+    price:89, orig:525,
+    imgs:['3649','3650','3651','3652','3653'],
+    slug:'rimowa-essential-lite-cabin-53-blue-gloss',
+    desc:'La valise cabine la plus légère de RIMOWA à seulement 2,2 kg. Successeur de la Salsa Air, la Essential Lite allie légèreté extrême et résistance polycarbonate. Idéale pour les voyageurs fréquents qui veulent maximiser leur bagages autorisés.',
+    features:['La plus légère de RIMOWA : 2.2 kg','Polycarbonate ultra-léger','Serrure TSA combinaison','Poignée mono-tube télescopique','4 roues multidirectionnelles','2 compartiments égaux zippés','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5, t:'2,2 kg seulement ! Je n\'arrive pas à croire comme elle est légère. Révolutionnaire.', a:'Amandine S.', d:'Paris'},
+      {s:5, t:'Le bleu gloss est très beau. Facile à repérer à l\'aéroport. Parfaite pour Ryanair.', a:'Théo M.', d:'Toulouse'},
+      {s:5, t:'Première RIMOWA et déjà conquise. La qualité est vraiment supérieure aux autres marques.', a:'Léa C.', d:'Lyon'},
+    ]
+  },
+  {
+    id:'p8', tags:['cabin','lite'],
+    collection:'RIMOWA Essential Lite', name:'Essential Lite Cabin', color:'Black Gloss',
+    dims:'55×37×23 cm', cap:'37 L', mat:'Polycarbonate', wt:'2.2 kg',
+    price:89, orig:525,
+    imgs:['3625','3626','3627','3628','3629'],
+    slug:'rimowa-essential-lite-cabin-53-black-gloss',
+    desc:'La légèreté de la Essential Lite dans la coloris Black Gloss classique. 2,2 kg pour 37 litres — la combinaison parfaite poids/capacité pour tous vos voyages en cabine. Un must-have pour tout voyageur moderne.',
+    features:['Polycarbonate ultra-léger 2.2 kg','Finition Black Gloss intemporelle','Serrure TSA combinaison','Poignée mono-tube télescopique','4 roues silencieuses multidirectionnelles','37 litres de capacité','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5, t:'Le noir brillant est chic et discret. Parfaite pour les voyages d\'affaires.', a:'Alexandre R.', d:'Paris'},
+      {s:5, t:'Légère comme une plume. J\'ai voyagé 6 fois depuis l\'achat, aucun problème.', a:'Delphine V.', d:'Bordeaux'},
+      {s:5, t:'Rapport qualité/prix imbattable avec le prix outlet. Je l\'ai recommandée à toute ma famille.', a:'Patrick N.', d:'Rennes'},
+    ]
+  },
+  {
+    id:'p9', tags:['cabin','lite'],
+    collection:'RIMOWA Essential Lite', name:'Essential Lite Cabin', color:'Red Gloss',
+    dims:'55×37×23 cm', cap:'37 L', mat:'Polycarbonate', wt:'2.2 kg',
+    price:89, orig:525,
+    imgs:['3683','3684','3685','3686','3687'],
+    slug:'rimowa-essential-lite-cabin-53-red-gloss',
+    desc:'La Essential Lite en Red Gloss — la couleur la plus distinctive de la collection. Plus jamais de confusion sur le tapis roulant. Légèreté record de 2,2 kg pour 37 litres. La cabine parfaite pour voyager avec style.',
+    features:['Rouge Gloss signature — impossible à manquer','Polycarbonate ultra-léger 2.2 kg','Serrure TSA combinaison','Poignée mono-tube télescopique','4 roues multidirectionnelles','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5, t:'On la repère immédiatement sur le tapis. Plus jamais de confusion ! Et la qualité est top.', a:'Sophie K.', d:'Nice'},
+      {s:5, t:'La couleur est encore plus belle en vrai. Très légère. Je voyage souvent et elle résiste très bien.', a:'Camille T.', d:'Paris'},
+      {s:5, t:'Cadeau pour ma fille. Elle en voulait une rouge depuis des années. Ravie !', a:'Anne-Marie B.', d:'Lyon'},
+    ]
+  },
+  {
+    id:'p10', tags:['checkin','lite'],
+    collection:'RIMOWA Essential Lite', name:'Essential Lite Check-In L', color:'Black Gloss',
+    dims:'78×51×26.6 cm', cap:'81 L', mat:'Polycarbonate', wt:'3.7 kg',
+    price:159, orig:665,
+    imgs:['3637','3638','3639','3640','3641'],
+    slug:'rimowa-essential-lite-check-in-l-73-black-gloss',
+    desc:'La grande valise de la gamme la plus légère de RIMOWA. 3,7 kg seulement pour 81 litres — un record dans cette catégorie. La Essential Lite Check-In L est la grande valise idéale pour ceux qui veulent économiser sur le poids de franchise bagages.',
+    features:['Seulement 3.7 kg pour 81 litres','Polycarbonate ultra-léger','Serrure TSA combinaison','Poignée mono-tube télescopique','4 roues multidirectionnelles silencieuses','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5, t:'3,7 kg pour une grande valise c\'est incroyable. J\'ai gagné 2 kg sur ma franchise bagages !', a:'Bertrand L.', d:'Paris'},
+      {s:5, t:'Parfaite pour les longs voyages. Grande, légère, solide. Le trio gagnant.', a:'Marion G.', d:'Montpellier'},
+      {s:5, t:'Livraison en 24h, valise parfaite. Le service outlet est vraiment très sérieux.', a:'Christophe M.', d:'Strasbourg'},
+    ]
+  }
+];
+
+const BASE = 'https://lavoyagerie-paris.fr/';
+
+// ── Render products ──────────────────────────────────────
+function renderProducts() {
+  const grid = document.getElementById('products-grid');
+  grid.innerHTML = PRODUCTS.map(p => {
+    const disc = Math.round((1 - p.price/p.orig)*100);
+    const img = `${BASE}${p.imgs[0]}-thickbox_default/${p.slug}.jpg`;
+    const tagList = p.tags.join(' ');
+    const tagLabel = p.tags.includes('classic') ? 'Classic' : p.tags.includes('lite') ? 'Essential Lite' : 'Essential';
+    return `
+      <div class="product-card" data-tags="${tagList}" onclick="openModal('${p.id}')">
+        <div class="product-img-wrap">
+          <img src="${img}" alt="${p.name} ${p.color}" loading="lazy">
+          <div class="product-badge">−${disc}%</div>
+          <div class="product-tag">${tagLabel}</div>
+        </div>
+        <div class="product-info">
+          <p class="product-collection">${p.collection}</p>
+          <p class="product-name">${p.name}<br>${p.color}</p>
+          <p class="product-specs">${p.dims} · ${p.cap} · ${p.wt}</p>
+          <div class="product-pricing">
+            <span class="price-outlet">${p.price}€</span>
+            <span class="price-original">${p.orig}€</span>
+          </div>
+          <button class="product-btn">Voir le produit</button>
+        </div>
+      </div>`;
+  }).join('');
+}
+renderProducts();
+
+// ── Filter ───────────────────────────────────────────────
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    document.querySelectorAll('.product-card').forEach(card => {
+      const tags = card.dataset.tags || '';
+      card.classList.toggle('hidden', f !== 'all' && !tags.includes(f));
+    });
+  });
+});
+
+function filterAndScroll(f) {
+  const btn = document.querySelector(`[data-filter="${f}"]`);
+  if (btn) { btn.click(); document.getElementById('products').scrollIntoView({behavior:'smooth'}); }
+}
+
+// ── Modal ────────────────────────────────────────────────
+let currentProduct = null;
+
+function openModal(id) {
+  const p = PRODUCTS.find(x => x.id === id);
+  if (!p) return;
+  currentProduct = p;
+  const overlay = document.getElementById('modal-overlay');
+  document.getElementById('modal-collection').textContent = p.collection;
+  document.getElementById('modal-name').textContent = p.name;
+  document.getElementById('modal-color').textContent = `Coloris : ${p.color}`;
+  document.getElementById('modal-price').textContent = `${p.price}€`;
+  document.getElementById('modal-price-orig').textContent = `${p.orig}€`;
+  const saving = p.orig - p.price;
+  const disc = Math.round((1-p.price/p.orig)*100);
+  document.getElementById('modal-saving').textContent = `Vous économisez ${saving}€ (−${disc}%)`;
+
+  // main image
+  const mainImg = document.getElementById('modal-main-img');
+  mainImg.src = `${BASE}${p.imgs[0]}-thickbox_default/${p.slug}.jpg`;
+  mainImg.alt = `${p.name} ${p.color}`;
+
+  // thumbs
+  const thumbsEl = document.getElementById('modal-thumbs');
+  thumbsEl.innerHTML = p.imgs.slice(0,5).map((id,i) =>
+    `<div class="modal-thumb${i===0?' active':''}" onclick="setMainImg(this,'${BASE}${id}-thickbox_default/${p.slug}.jpg')">
+       <img src="${BASE}${id}-thickbox_default/${p.slug}.jpg" alt="" loading="lazy">
+     </div>`
+  ).join('');
+
+  // desc tab
+  document.getElementById('tab-desc').innerHTML = `
+    <p style="margin-bottom:14px">${p.desc}</p>
+    <ul>${p.features.map(f=>`<li>${f}</li>`).join('')}</ul>`;
+
+  // specs tab
+  document.getElementById('tab-specs').innerHTML = `
+    <div class="modal-specs-grid">
+      <div><span class="spec-item-label">Dimensions</span><span class="spec-item-val">${p.dims}</span></div>
+      <div><span class="spec-item-label">Capacité</span><span class="spec-item-val">${p.cap}</span></div>
+      <div><span class="spec-item-label">Matière</span><span class="spec-item-val">${p.mat}</span></div>
+      <div><span class="spec-item-label">Poids</span><span class="spec-item-val">${p.wt}</span></div>
+      <div><span class="spec-item-label">Roues</span><span class="spec-item-val">4 roues multidirectionnelles</span></div>
+      <div><span class="spec-item-label">Serrure</span><span class="spec-item-val">TSA combinaison</span></div>
+      <div><span class="spec-item-label">Garantie</span><span class="spec-item-val">5 ans mondiale</span></div>
+      <div><span class="spec-item-label">Coloris</span><span class="spec-item-val">${p.color}</span></div>
+    </div>`;
+
+  // reviews tab
+  document.getElementById('tab-revs').innerHTML = p.reviews.map(r =>
+    `<div class="modal-mini-review">
+       <div class="mini-stars">${'★'.repeat(r.s)}</div>
+       <p class="mini-text">« ${r.t} »</p>
+       <span class="mini-author">${r.a} · ${r.d}</span>
+     </div>`
+  ).join('');
+
+  // reset to first tab
+  document.querySelectorAll('.modal-tab').forEach((t,i) => t.classList.toggle('active',i===0));
+  document.querySelectorAll('.modal-panel').forEach((p,i) => p.classList.toggle('active',i===0));
+
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function setMainImg(thumb, src) {
+  document.getElementById('modal-main-img').src = src;
+  document.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
+  thumb.classList.add('active');
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeModalOnOverlay(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModal();
+}
+
+function switchTab(btn, id) {
+  document.querySelectorAll('.modal-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.modal-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-'+id).classList.add('active');
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ── Pack Voyage ──────────────────────────────────────────
+const PACKS = {
+  noir: {
+    name: 'Noir Gloss',
+    price: 200, orig: 248, eco: 48,
+    img1: '3625-thickbox_default/rimowa-essential-lite-cabin-53-black-gloss.jpg',
+    img2: '3637-thickbox_default/rimowa-essential-lite-check-in-l-73-black-gloss.jpg',
+    desc: 'Cabine 53cm + Check-In L 73cm'
+  },
+  bleu: {
+    name: 'Bleu Gloss',
+    price: 200, orig: 268, eco: 68,
+    img1: '3649-thickbox_default/rimowa-essential-lite-cabin-53-blue-gloss.jpg',
+    img2: '3842-thickbox_default/rimowa-essential-check-in-l-73-blue-gloss.jpg',
+    desc: 'Cabine 53cm + Check-In L 73cm'
+  },
+  alu: {
+    name: 'Gris Argent',
+    price: 200, orig: 268, eco: 68,
+    img1: '4654-thickbox_default/rimowa-classic-cabin-s-52-silver.jpg',
+    img2: '4677-thickbox_default/rimowa-classic-check-in-l-73-silver.jpg',
+    desc: 'Classic Cabine S 52cm + Check-In L 73cm'
+  }
+};
+
+function selectPack(type) {
+  const p = PACKS[type];
+  const BASE = 'https://lavoyagerie-paris.fr/';
+  document.querySelectorAll('.pack-swatch').forEach(s => s.classList.remove('active'));
+  document.querySelector(`.pack-swatch[data-pack="${type}"]`).classList.add('active');
+  document.getElementById('pack-color-name').textContent = p.name;
+  document.getElementById('pack-price-val').textContent = p.price + '€';
+  document.getElementById('pack-price-old').textContent = p.orig + '€';
+  document.getElementById('pack-eco-val').textContent = '−' + p.eco + '€';
+  const img1 = document.getElementById('pack-img1');
+  const img2 = document.getElementById('pack-img2');
+  img1.style.opacity = '0';
+  img2.style.opacity = '0';
+  setTimeout(() => {
+    img1.src = BASE + p.img1;
+    img2.src = BASE + p.img2;
+    img1.style.opacity = '1';
+    img2.style.opacity = '1';
+  }, 180);
+  document.getElementById('pack-btn').style.background = '';
+  document.getElementById('pack-btn').textContent = 'Commander ce pack — ' + p.price + '€';
+}
+
+function commanderPack() {
+  const btn = document.getElementById('pack-btn');
+  btn.style.background = '#2d7a2d';
+  btn.textContent = '✓ Demande envoyée — on vous recontacte !';
+  setTimeout(() => {
+    btn.style.background = '';
+    const swatches = document.querySelectorAll('.pack-swatch');
+    let activeType = 'noir';
+    swatches.forEach(s => { if (s.classList.contains('active')) activeType = s.dataset.pack; });
+    btn.textContent = 'Commander ce pack — ' + PACKS[activeType].price + '€';
+  }, 4000);
+}
+
+// ── Header scroll animation ──────────────────────────────
+const header = document.getElementById('site-header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ── Drawer nav ───────────────────────────────────────────
+const burgerBtn = document.getElementById('burger-btn');
+const mobileNav = document.getElementById('mobile-nav');
+
+burgerBtn.addEventListener('click', () => {
+  const isOpen = mobileNav.classList.toggle('open');
+  burgerBtn.classList.toggle('open', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+
+function handleDrawerOutside(event) {
+  if (event.target === mobileNav) closeDrawer();
+}
+
+function closeDrawer() {
+  mobileNav.classList.remove('open');
+  burgerBtn.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ── FAQ accordion ────────────────────────────────────────
+document.querySelectorAll('.faq-question').forEach(q => {
+  q.addEventListener('click', () => {
+    const ans = q.nextElementSibling;
+    const icon = q.querySelector('.faq-icon');
+    const isOpen = ans.classList.contains('open');
+    document.querySelectorAll('.faq-answer.open').forEach(a => {
+      a.classList.remove('open');
+      a.previousElementSibling.querySelector('.faq-icon').classList.remove('open');
+    });
+    if (!isOpen) { ans.classList.add('open'); icon.classList.add('open'); }
+  });
+});
+
+// ── Cart state ───────────────────────────────────────────
+let cart = [];
+
+function cartTotal() { return cart.reduce((s,i) => s + i.price * i.qty, 0); }
+function cartQty()   { return cart.reduce((s,i) => s + i.qty, 0); }
+
+function updateCartBadge() {
+  const q = cartQty();
+  const el = document.getElementById('cart-count');
+  el.textContent = q;
+  el.classList.toggle('zero', q === 0);
+}
+
+function renderCartDrawer() {
+  const list = document.getElementById('cart-items-list');
+  const empty = document.getElementById('cart-empty');
+  const foot  = document.getElementById('cart-foot');
+  const countEl = document.getElementById('cart-drawer-count');
+
+  if (cart.length === 0) {
+    empty.style.display = 'flex';
+    list.innerHTML = '';
+    foot.style.display = 'none';
+    countEl.textContent = '';
+    return;
+  }
+  empty.style.display = 'none';
+  foot.style.display = 'block';
+  countEl.textContent = `(${cartQty()} article${cartQty() > 1 ? 's' : ''})`;
+  document.getElementById('cart-total-val').textContent = cartTotal() + '€';
+
+  list.innerHTML = cart.map((item, idx) => `
+    <div class="cart-item">
+      <div class="cart-item-img">
+        <img src="${item.img}" alt="${item.name}" loading="lazy">
+      </div>
+      <div class="cart-item-col">
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-color">${item.color}</div>
+        <div class="cart-item-qty">
+          <button class="qty-btn" onclick="changeQty(${idx},-1)">−</button>
+          <span class="qty-val">${item.qty}</span>
+          <button class="qty-btn" onclick="changeQty(${idx},1)">+</button>
+        </div>
+        <button class="cart-item-remove" onclick="removeFromCart(${idx})">Retirer</button>
+      </div>
+      <div class="cart-item-price">${item.price * item.qty}€</div>
+    </div>
+  `).join('');
+}
+
+function changeQty(idx, delta) {
+  cart[idx].qty += delta;
+  if (cart[idx].qty <= 0) cart.splice(idx, 1);
+  updateCartBadge();
+  renderCartDrawer();
+}
+
+function removeFromCart(idx) {
+  cart.splice(idx, 1);
+  updateCartBadge();
+  renderCartDrawer();
+}
+
+function openCartDrawer() {
+  document.getElementById('cart-drawer-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  renderCartDrawer();
+}
+
+function closeCartDrawer() {
+  document.getElementById('cart-drawer-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function handleCartOverlay(e) {
+  if (e.target === document.getElementById('cart-drawer-overlay')) closeCartDrawer();
+}
+
+function handleCheckout() {
+  const btn = document.querySelector('.cart-checkout-btn');
+  btn.textContent = '✓ Commande transmise — on vous recontacte !';
+  btn.style.background = '#2d7a2d';
+  setTimeout(() => {
+    btn.textContent = 'Passer commande';
+    btn.style.background = '';
+  }, 4000);
+}
+
+// ── Upsell Pack ──────────────────────────────────────────
+let pendingCartProduct = null;
+let pendingCartBtn = null;
+
+// Correspondance couleur → Check-In assorti
+const CHECKIN_BY_COLOR = {
+  'Black Gloss': { img:'3637-thickbox_default/rimowa-essential-lite-check-in-l-73-black-gloss.jpg', label:'Check-In L — Black Gloss' },
+  'Blue Gloss':  { img:'3842-thickbox_default/rimowa-essential-check-in-l-73-blue-gloss.jpg',       label:'Check-In L — Blue Gloss' },
+  'Red Gloss':   { img:'3683-thickbox_default/rimowa-essential-lite-cabin-53-red-gloss.jpg',         label:'Check-In L — Red Gloss' },
+  'Matte Black': { img:'3761-thickbox_default/rimowa-essential-check-in-l-73-black-gloss.jpg',       label:'Check-In L — Black' },
+  'Silver':      { img:'4677-thickbox_default/rimowa-classic-check-in-l-73-silver.jpg',              label:'Check-In L — Silver' },
+};
+
+function openUpsell(p, btn) {
+  pendingCartProduct = p;
+  pendingCartBtn = btn;
+
+  const cabinImg = `${BASE}${p.imgs[0]}-thickbox_default/${p.slug}.jpg`;
+  const checkin = CHECKIN_BY_COLOR[p.color] || CHECKIN_BY_COLOR['Black Gloss'];
+
+  document.getElementById('upsell-cabin-img').src = cabinImg;
+  document.getElementById('upsell-cabin-name').textContent = `${p.name} — ${p.color}`;
+  document.getElementById('upsell-cabin-price').textContent = `${p.price}€`;
+  document.getElementById('upsell-cabin-price-no').textContent = `${p.price}€`;
+  document.getElementById('upsell-checkin-img').src = BASE + checkin.img;
+  document.getElementById('upsell-checkin-name').textContent = checkin.label;
+
+  // Stock variable selon couleur (7–12, toujours pareil pour la même couleur)
+  const stockByColor = {'Black Gloss':8,'Blue Gloss':6,'Red Gloss':4,'Matte Black':11,'Silver':7};
+  const stock = stockByColor[p.color] || 9;
+  document.getElementById('upsell-stock-num').textContent = stock;
+
+  const totalSep = p.price + 159;
+  document.getElementById('upsell-total-sep').textContent = `${totalSep}€`;
+  const diff = 200 - p.price;
+  document.getElementById('upsell-diff').textContent = `${diff}€ de plus`;
+  document.getElementById('upsell-overlay').classList.add('open');
+}
+
+function closeUpsell(takePack) {
+  document.getElementById('upsell-overlay').classList.remove('open');
+  if (!pendingCartProduct || !pendingCartBtn) return;
+  const p = pendingCartProduct;
+  const btn = pendingCartBtn;
+
+  if (takePack) {
+    const cabinImg = `${BASE}${p.imgs[0]}-thickbox_default/${p.slug}.jpg`;
+    const packImg = 'https://lavoyagerie-paris.fr/3637-thickbox_default/rimowa-essential-lite-check-in-l-73-black-gloss.jpg';
+    const existingPack = cart.find(i => i.id === 'pack-voyage');
+    if (existingPack) {
+      existingPack.qty++;
+    } else {
+      cart.push({ id:'pack-voyage', name:'Pack Voyage — Cabin + Check-In', color:p.color, price:200, qty:1, img:cabinImg });
+    }
+  } else {
+    const img = `${BASE}${p.imgs[0]}-thickbox_default/${p.slug}.jpg`;
+    const existing = cart.find(i => i.id === p.id);
+    if (existing) existing.qty++;
+    else cart.push({ id:p.id, name:p.name, color:p.color, price:p.price, qty:1, img });
+  }
+
+  updateCartBadge();
+  btn.textContent = '✓ Ajouté au panier';
+  btn.style.background = '#2d7a2d';
+  setTimeout(() => {
+    btn.textContent = 'Ajouter au panier';
+    btn.style.background = '';
+    closeModal();
+    openCartDrawer();
+  }, 500);
+
+  pendingCartProduct = null;
+  pendingCartBtn = null;
+}
+
+// ── Add to cart ──────────────────────────────────────────
+function addToCart(btn) {
+  if (!currentProduct) return;
+  const p = currentProduct;
+  const isCabin = p.tags && p.tags.includes('cabin');
+
+  if (isCabin) {
+    btn.textContent = '✓ Ajouté';
+    btn.style.background = '#2d7a2d';
+    setTimeout(() => {
+      btn.textContent = 'Ajouter au panier';
+      btn.style.background = '';
+      closeModal();
+      openUpsell(p, btn);
+    }, 600);
+    return;
+  }
+
+  const img = `${BASE}${p.imgs[0]}-thickbox_default/${p.slug}.jpg`;
+  const existing = cart.find(i => i.id === p.id);
+  if (existing) existing.qty++;
+  else cart.push({ id:p.id, name:p.name, color:p.color, price:p.price, qty:1, img });
+  updateCartBadge();
+
+  btn.textContent = '✓ Ajouté au panier';
+  btn.style.background = '#2d7a2d';
+  setTimeout(() => {
+    btn.textContent = 'Ajouter au panier';
+    btn.style.background = '';
+    closeModal();
+    openCartDrawer();
+  }, 800);
+}
+
+// ── Topbar rotation ──────────────────────────────────────
+(function() {
+  const track = document.getElementById('topbar-track');
+  const items = track.querySelectorAll('.topbar-item');
+  const total = items.length;
+  let current = 0;
+  const itemH = 36;
+
+  function next() {
+    current = (current + 1) % total;
+    track.style.transform = `translateY(-${current * itemH}px)`;
+    if (current === 0) {
+      setTimeout(() => {
+        track.style.transition = 'none';
+        track.style.transform = 'translateY(0)';
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          track.style.transition = 'transform .6s cubic-bezier(.4,0,.2,1)';
+        }));
+      }, 650);
+    }
+  }
+  setInterval(next, 3500);
+})();
+
+// ── Countdown jusqu'à minuit ─────────────────────────────
+(function() {
+  function pad(n) { return String(n).padStart(2,'0'); }
+  function tick() {
+    const now = new Date();
+    const midnight = new Date(now);
+    midnight.setHours(24,0,0,0);
+    let diff = Math.floor((midnight - now) / 1000);
+    const h = Math.floor(diff / 3600); diff -= h * 3600;
+    const m = Math.floor(diff / 60);
+    const s = diff - m * 60;
+    document.getElementById('cd-h').textContent = pad(h);
+    document.getElementById('cd-m').textContent = pad(m);
+    document.getElementById('cd-s').textContent = pad(s);
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
+// ── Back to top ──────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  document.getElementById('back-top').classList.toggle('visible', window.scrollY > 400);
+}, { passive: true });
+
+// ── Newsletter ───────────────────────────────────────────
+function handleNewsletter(e) {
+  e.preventDefault();
+  const input = e.target.querySelector('input');
+  const btn = e.target.querySelector('button');
+  btn.textContent = '✓ Inscrit !';
+  btn.style.background = '#2d7a2d';
+  setTimeout(() => { btn.textContent = 'S\'inscrire'; btn.style.background = ''; }, 3000);
+  input.value = '';
+}
+</script>
+</body>
+</html>

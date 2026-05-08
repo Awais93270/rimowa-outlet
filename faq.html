@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — Rimowa-Outlet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#FAF9F7;--white:#fff;--text:#1A1A1A;--muted:#777;--light:#F0EDE8;--border:#E4DDD4;--gold:#B8975A;--serif:'Playfair Display',serif;--sans:'Lato',sans-serif}
+    body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6}
+    .topbar{background:var(--text);color:#fff;text-align:center;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:9px 20px;font-weight:700}
+    .topbar span{opacity:.4;margin:0 12px}
+    header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+    .header-inner{max-width:1280px;margin:0 auto;padding:0 40px;height:68px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:10px}
+    .logo-badge{background:var(--text);color:#fff;font-size:9px;font-family:var(--sans);font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:3px 8px}
+    nav{display:flex;gap:26px}
+    nav a{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--muted);text-decoration:none;transition:color .2s}
+    nav a:hover{color:var(--text)}
+    .page-hero{background:var(--light);padding:70px 40px;text-align:center}
+    .page-eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px}
+    .page-title{font-family:var(--serif);font-size:clamp(28px,4vw,48px);font-weight:400;line-height:1.2}
+    .page-sub{font-size:15px;color:var(--muted);font-weight:300;margin-top:12px}
+    .wrap{max-width:900px;margin:0 auto;padding:70px 40px 80px}
+    .faq-group{margin-bottom:48px}
+    .faq-group-title{font-family:var(--serif);font-size:22px;font-weight:400;margin-bottom:20px;color:var(--text);padding-bottom:12px;border-bottom:2px solid var(--gold);display:inline-block}
+    .faq-item{border-bottom:1px solid var(--border)}
+    .faq-item:first-of-type{border-top:1px solid var(--border)}
+    .faq-question{width:100%;background:none;border:none;text-align:left;padding:20px 0;font-family:var(--sans);font-size:15px;font-weight:700;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+    .faq-question:hover{color:var(--gold)}
+    .faq-icon{font-size:22px;font-weight:300;flex-shrink:0;transition:transform .3s;color:var(--gold);line-height:1}
+    .faq-answer{font-size:14px;line-height:1.8;color:var(--muted);max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s}
+    .faq-answer.open{max-height:400px;padding-bottom:20px}
+    .faq-icon.open{transform:rotate(45deg)}
+    .faq-answer a{color:var(--gold);text-decoration:none}
+    .faq-answer a:hover{text-decoration:underline}
+    .contact-cta{background:var(--text);color:#fff;padding:48px 40px;text-align:center;margin-top:60px}
+    .cta-title{font-family:var(--serif);font-size:26px;font-weight:400;margin-bottom:10px}
+    .cta-sub{font-size:15px;font-weight:300;opacity:.7;margin-bottom:24px}
+    .btn-cta{display:inline-block;background:var(--gold);color:#fff;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:13px 28px;text-decoration:none;transition:background .2s}
+    .btn-cta:hover{background:#997A3D}
+    footer{background:var(--text);color:#fff;padding:32px;text-align:center;font-size:12px;opacity:.7}
+    footer a{color:#fff;text-decoration:none;margin:0 10px;opacity:.7}
+    @media(max-width:600px){
+      .header-inner{padding:0 20px}nav{display:none}
+      .wrap{padding:48px 20px}
+      .page-hero{padding:48px 20px}
+    }
+  </style>
+</head>
+<body>
+<div class="topbar">Livraison gratuite<span>|</span>Authenticité garantie<span>|</span>Retours 30 jours</div>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">Rimowa-Outlet <span class="logo-badge">Officiel</span></a>
+    <nav>
+      <a href="index.html#products">Catalogue</a>
+      <a href="blog.html">Blog</a>
+      <a href="suivi.html">Suivi commande</a>
+      <a href="mentions-legales.html">Légal</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <p class="page-eyebrow">Aide & Support</p>
+  <h1 class="page-title">Questions fréquentes</h1>
+  <p class="page-sub">Toutes les réponses à vos questions sur nos produits, la livraison, les retours et la garantie.</p>
+</div>
+
+<div class="wrap">
+
+  <!-- Authenticité -->
+  <div class="faq-group">
+    <h2 class="faq-group-title">Authenticité & Qualité</h2>
+    <div class="faq-item">
+      <button class="faq-question">Vos valises RIMOWA sont-elles authentiques ? <span class="faq-icon">+</span></button>
+      <div class="faq-answer">Oui, 100%. Nous sommes revendeur officiel agréé RIMOWA. Chaque valise est livrée avec son numéro de série officiel, sa notice de garantie et son emballage d'origine. Vous pouvez vérifier l'authenticité directement sur le site RIMOWA avec le numéro de série.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Pourquoi vos prix sont-ils si bas ? <span class="faq-icon">+</span></button>
+      <div class="faq-answer">Nos prix outlet s'expliquent par notre modèle : nous vendons des fins de série, des stocks excédentaires et des collections passées à prix réduit. Les valises sont neuves et authentiques, mais leur prix est inférieur car elles ne sont plus dans la collection courante. Cela nous permet de vous offrir jusqu'à 85% de réduction sur le prix boutique.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Les valises ont-elles des défauts ? <span class="faq-icon">+</span></button>
+      <div class="faq-answer">Non. Toutes nos valises sont neuves et en parfait état. Elles n'ont aucun défaut. Si une valise présente le moindre défaut à la réception, elle est remboursée intégralement ou échangée sans frais et sans questions.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Comment vérifier l'authenticité de ma valise ? <span class="faq-icon">+</span></button>
+      <div class="faq-answer">Chaque valise RIMOWA authentique possède : un numéro de série gravé à l'intérieur du compartiment, une notice de garantie officielle RIMOWA, le logo RIMOWA imprimé sur les roues, et une serrure TSA avec le logo TSA gravé. Vous pouvez enregistrer votre valise sur rimowa.com avec ce numéro de série.</div>
+    </div>
+  </div>
+
+  <!-- Livraison -->
+  <div class="faq-group" id="livraison">
+    <h2 class="faq-group-title">Livraison</h2>
+    <div class="faq-item">
+      <button class="faq-question">La livraison est-elle vraiment gratuite ? <span class="faq-icon">+</span></button>
+      <div class="faq-answer">Oui, la livraison est <strong>totalement gratuite</strong>, sans minimum d'achat, pour toute commande en France métropolitaine. Nous livrons par Colissimo avec suivi. La livraison en Europe est également disponible (frais variables selon destination).</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Quel est le délai de livraison ? <span class="faq-icon">+</span></button>
+      <div class="faq-answer">Nous expédions sous 24h (jours ouvrés) après confirmation de votre commande. La livraison Colissimo prend ensuite 2 à 3 jours ouvrés. Vous recevrez un email avec le numéro de suivi dès l'expédition. En pratique, la plupart des clients reçoivent leur valise en 2 jours après commande.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Livrez-vous en dehors de la France ? <span class="faq-icon">+</span></button>
+      <div class="faq-answer">Oui, nous livrons dans toute l'Europe : Belgique, Suisse, Luxembourg, Espagne, Italie, Allemagne, Pays-Bas, Portugal et autres pays UE. Les frais de livraison internationale varient entre 9,90€ et 19,90€ selon la destination. Contactez-nous pour un devis précis.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Comment est emballée ma valise ? <span class="faq-icon">+</span></button>
+      <div class="faq-answer">Vos valises sont soigneusement emballées dans du papier bulle, placées dans une boîte en carton double cannelure adaptée. Nous prenons soin de protéger chaque valise pour qu'elle vous arrive en parfait état.</div>
+    </div>
+  </div>
+
+  <!-- Retours -->
+  <div class="faq-group" id="retours">
+    <h2 class="faq-group-title">Retours & Échanges</h2>
+    <div class="faq-item">
+      <button class="faq-question">Puis-je retourner ma valise ? <span class="faq-icon">+</span></button>
+      <div class="faq-answer">Oui, vous disposez de <strong>30 jours</strong> à compter de la réception pour retourner votre valise, sans justification. La valise doit être retournée dans son état d'origine, avec son emballage. Les frais de retour sont à votre charge sauf en cas de défaut.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Comment initier un retour ? <span class="faq-icon">+</span></button>
+      <div class="faq-answer">Envoyez un email à <a href="mailto:retours@rimowa-outlet.com">retours@rimowa-outlet.com</a> avec votre numéro de commande et le motif du retour. Nous vous enverrons une étiquette de retour et les instructions dans les 24h. Le remboursement est effectué dans les 5 jours ouvrés suivant réception du colis.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Ma valise est arrivée abîmée, que faire ? <span class="faq-icon">+</span></button>
+      <div class="faq-answer">Photographiez immédiatement les dommages et contactez-nous dans les 48h à <a href="mailto:contact@rimowa-outlet.com">contact@rimowa-outlet.com</a>. Nous procéderons à un échange ou un remboursement intégral à nos frais, sans délai.</div>
+    </div>
+  </div>
+
+  <!-- Garantie -->
+  <div class="faq-group" id="garantie">
+    <h2 class="faq-group-title">Garantie RIMOWA</h2>
+    <div class="faq-item">
+      <button class="faq-question">Quelle est la garantie sur les valises RIMOWA ? <span class="faq-icon">+</span></button>
+      <div class="faq-answer">Toutes les valises RIMOWA sont couvertes par la <strong>garantie mondiale officielle de 5 ans</strong>. Cette garantie est fournie directement par RIMOWA et couvre tout défaut de fabrication. Vous pouvez l'activer en enregistrant votre valise sur rimowa.com avec votre numéro de série.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">La garantie est-elle valable même en outlet ? <span class="faq-icon">+</span></button>
+      <div class="faq-answer">Oui, absolument. La garantie RIMOWA est liée au produit, pas au lieu d'achat. Puisque nos valises sont authentiques et neuves, elles bénéficient intégralement de la garantie officielle 5 ans RIMOWA, que vous les ayez achetées chez nous ou en boutique officielle.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Où faire réparer ma valise RIMOWA ? <span class="faq-icon">+</span></button>
+      <div class="faq-answer">En France, les réparations RIMOWA sont effectuées dans les boutiques RIMOWA officielles (Paris, Marseille, Lyon, Nice, Bordeaux). Vous pouvez également contacter le service client RIMOWA directement au 0800 000 000 ou sur rimowa.com. Avec votre numéro de série, la prise en charge sous garantie est immédiate.</div>
+    </div>
+  </div>
+
+  <!-- Paiement -->
+  <div class="faq-group">
+    <h2 class="faq-group-title">Commande & Paiement</h2>
+    <div class="faq-item">
+      <button class="faq-question">Comment passer commande ? <span class="faq-icon">+</span></button>
+      <div class="faq-answer">Vous pouvez passer commande directement sur notre site (bouton "Ajouter au panier") ou en nous contactant par email à <a href="mailto:contact@rimowa-outlet.com">contact@rimowa-outlet.com</a>. Nous traitons chaque commande personnellement pour garantir la meilleure expérience.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Quels modes de paiement acceptez-vous ? <span class="faq-icon">+</span></button>
+      <div class="faq-answer">Nous acceptons les cartes bancaires (Visa, Mastercard, American Express), PayPal, Apple Pay et Google Pay. Tous les paiements sont sécurisés par chiffrement SSL 256 bits.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Comment fonctionne le Pack Voyage (Cabin + Check-In) ? <span class="faq-icon">+</span></button>
+      <div class="faq-answer">Le Pack Voyage comprend une valise cabin de votre choix (Essential Lite Cabin : 89€) et une grande valise check-in (Essential Lite Check-In L : 159€), le tout pour 200€ au lieu de 248€. Pour composer votre pack, contactez-nous en précisant les coloris souhaités.</div>
+    </div>
+  </div>
+
+  <div class="contact-cta">
+    <h2 class="cta-title">Votre question n'est pas là ?</h2>
+    <p class="cta-sub">Notre équipe répond dans les 2 heures, du lundi au vendredi de 9h à 18h.</p>
+    <a href="mailto:contact@rimowa-outlet.com" class="btn-cta">Nous contacter</a>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html">Accueil</a>
+  <a href="index.html#products">Catalogue</a>
+  <a href="suivi.html">Suivi commande</a>
+  <a href="mentions-legales.html">Mentions légales</a>
+  <p style="margin-top:16px;font-size:11px">© 2026 Rimowa-Outlet — Revendeur Agréé RIMOWA</p>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-question').forEach(q => {
+  q.addEventListener('click', () => {
+    const ans = q.nextElementSibling;
+    const icon = q.querySelector('.faq-icon');
+    const isOpen = ans.classList.contains('open');
+    document.querySelectorAll('.faq-answer.open').forEach(a => {
+      a.classList.remove('open');
+      a.previousElementSibling.querySelector('.faq-icon').classList.remove('open');
+    });
+    if (!isOpen) { ans.classList.add('open'); icon.classList.add('open'); }
+  });
+});
+// auto-open anchored section
+const hash = window.location.hash;
+if (hash) {
+  const el = document.querySelector(hash);
+  if (el) setTimeout(() => el.scrollIntoView({behavior:'smooth'}), 100);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bagages — Rimowa-Outlet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:    #0C0C0C;
+      --bg2:   #141414;
+      --bg3:   #1C1C1C;
+      --line:  #2A2A2A;
+      --text:  #EFEFEF;
+      --muted: #888;
+      --dim:   #555;
+      --white: #FFFFFF;
+      --cream: #F5F0E8;
+      --gold:  #C9A86C;
+      --red:   #E03030;
+      --sans:  'DM Sans', sans-serif;
+      --serif: 'DM Serif Display', serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--bg); color: var(--text); overflow-x: hidden; font-size: 14px; line-height: 1.5; }
+
+    /* ── Topbar ── */
+    .topbar {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--line);
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      padding: 9px 20px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    .topbar b { color: var(--white); }
+
+    /* ── Header ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(12,12,12,.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+      transition: background .4s;
+    }
+    .header-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 48px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+    .logo {
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .header-nav { display: flex; gap: 32px; }
+    .header-nav a {
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .header-nav a:hover, .header-nav a.active { color: var(--white); }
+    .header-right { display: flex; align-items: center; gap: 20px; flex-shrink: 0; }
+    .header-icon {
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 18px;
+      transition: color .2s;
+      background: none;
+      border: none;
+      line-height: 1;
+    }
+    .header-icon:hover { color: var(--white); }
+    .cart-count {
+      background: var(--gold);
+      color: #000;
+      font-size: 9px;
+      font-weight: 700;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: -6px;
+      vertical-align: top;
+    }
+    .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .burger span { display: block; width: 22px; height: 1.5px; background: var(--muted); }
+
+    /* ── Hero cinématique ── */
+    .hero-cinema {
+      position: relative;
+      height: 94vh;
+      min-height: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      overflow: hidden;
+      padding-bottom: 80px;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: #000;
+    }
+    /* Gradient overlay */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        transparent 30%,
+        rgba(0,0,0,.3) 60%,
+        rgba(0,0,0,.85) 100%
+      );
+    }
+    /* Valise hero flottante */
+    .hero-suitcase {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -54%);
+      width: 380px;
+      filter: drop-shadow(0 60px 80px rgba(0,0,0,.8));
+      animation: float 6s ease-in-out infinite;
+      z-index: 1;
+    }
+    @keyframes float {
+      0%, 100% { transform: translate(-50%, -54%); }
+      50%       { transform: translate(-50%, -57%); }
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+    .hero-label {
+      font-size: 10px;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(48px, 7vw, 96px);
+      font-weight: 400;
+      line-height: .95;
+      color: var(--white);
+      margin-bottom: 28px;
+      letter-spacing: -.01em;
+    }
+    .hero-title em { font-style: italic; color: var(--gold); }
+    .hero-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-rw {
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 13px 28px;
+      cursor: pointer;
+      font-family: var(--sans);
+      text-decoration: none;
+      display: inline-block;
+      transition: all .25s;
+    }
+    .btn-rw-white { background: var(--white); color: #000; border: none; }
+    .btn-rw-white:hover { background: var(--cream); }
+    .btn-rw-ghost { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,.35); }
+    .btn-rw-ghost:hover { border-color: var(--white); background: rgba(255,255,255,.06); }
+    .hero-scroll {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--dim);
+      animation: bounce 2s ease-in-out infinite;
+    }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+    .hero-scroll-line { width: 1px; height: 36px; background: var(--dim); }
+
+    /* ── Filter strip ── */
+    .filter-strip {
+      position: sticky;
+      top: 68px;
+      z-index: 100;
+      background: rgba(12,12,12,.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .filter-strip-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .filter-strip-inner::-webkit-scrollbar { display: none; }
+    .filter-tabs { display: flex; gap: 0; flex-shrink: 0; }
+    .ftab {
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--dim);
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: 16px 20px;
+      cursor: pointer;
+      transition: all .2s;
+      white-space: nowrap;
+      font-family: var(--sans);
+    }
+    .ftab:hover { color: var(--muted); }
+    .ftab.active { color: var(--white); border-bottom-color: var(--white); }
+    .filter-count {
+      font-size: 11px;
+      color: var(--dim);
+      letter-spacing: .08em;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    /* ── Section divider ── */
+    .section-divider {
+      position: relative;
+      height: 280px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      margin: 0;
+    }
+    .section-divider-bg {
+      position: absolute;
+      inset: 0;
+      background: var(--bg2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .section-divider-content {
+      position: relative;
+      z-index: 1;
+      padding: 0 48px;
+      max-width: 1440px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .sd-label {
+      font-size: 11px;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+    .sd-title {
+      font-family: var(--serif);
+      font-size: clamp(40px, 6vw, 80px);
+      font-weight: 400;
+      line-height: .95;
+      letter-spacing: -.01em;
+      color: var(--white);
+    }
+    .sd-title em { font-style: italic; color: var(--gold); }
+    .sd-right {
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .sd-price {
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 6px;
+    }
+    .sd-price b { color: var(--white); font-size: 28px; letter-spacing: normal; font-weight: 300; }
+    .sd-btn {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--white);
+      border: 1px solid var(--line);
+      padding: 10px 20px;
+      text-decoration: none;
+      transition: border-color .2s, background .2s;
+      margin-top: 12px;
+      cursor: pointer;
+      background: none;
+      font-family: var(--sans);
+    }
+    .sd-btn:hover { border-color: var(--white); background: rgba(255,255,255,.05); }
+
+    /* ── Products grid ── */
+    .products-wrap {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 48px 80px;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--line);
+    }
+    .product-cell {
+      background: var(--bg);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-cell.hidden { display: none; }
+
+    /* Image zone */
+    .pc-img-wrap {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      background: var(--bg2);
+    }
+    .pc-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 24px;
+      transition: transform .6s cubic-bezier(.25,.46,.45,.94), opacity .3s;
+      display: block;
+    }
+    .product-cell:hover .pc-img { transform: scale(1.04); }
+
+    /* Outlet badge */
+    .pc-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: var(--red);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      padding: 4px 9px;
+      z-index: 2;
+    }
+
+    /* Color swatches — appear on hover */
+    .pc-swatches {
+      position: absolute;
+      bottom: 14px;
+      left: 16px;
+      display: flex;
+      gap: 6px;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity .3s, transform .3s;
+      z-index: 2;
+    }
+    .product-cell:hover .pc-swatches { opacity: 1; transform: translateY(0); }
+    .swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,.25);
+      cursor: pointer;
+      transition: transform .2s, border-color .2s;
+    }
+    .swatch:hover, .swatch.active { transform: scale(1.3); border-color: var(--white); }
+
+    /* Quick add — slides up on hover */
+    .pc-quick-add {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      padding: 13px;
+      text-align: center;
+      transform: translateY(100%);
+      transition: transform .3s cubic-bezier(.25,.46,.45,.94);
+      cursor: pointer;
+      border: none;
+      font-family: var(--sans);
+      z-index: 3;
+    }
+    .product-cell:hover .pc-quick-add { transform: translateY(0); }
+
+    /* Info zone */
+    .pc-info {
+      padding: 18px 18px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .pc-info-left {}
+    .pc-collection {
+      font-size: 9px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    .pc-name {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    .pc-color {
+      font-size: 11px;
+      color: var(--dim);
+      margin-top: 3px;
+    }
+    .pc-pricing { text-align: right; flex-shrink: 0; }
+    .pc-price { font-size: 16px; font-weight: 500; color: var(--white); }
+    .pc-orig { font-size: 11px; color: var(--dim); text-decoration: line-through; margin-top: 2px; }
+
+    /* ── Pack strip ── */
+    .pack-strip {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--bg2);
+      padding: 64px 48px;
+    }
+    .pack-strip-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .pack-label { font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 16px; }
+    .pack-title { font-family: var(--serif); font-size: clamp(32px, 4vw, 56px); font-weight: 400; line-height: 1.05; color: var(--white); margin-bottom: 16px; }
+    .pack-title em { font-style: italic; color: var(--gold); }
+    .pack-desc { font-size: 14px; color: var(--muted); font-weight: 300; line-height: 1.8; margin-bottom: 28px; max-width: 400px; }
+    .pack-price-row { display: flex; align-items: baseline; gap: 14px; margin-bottom: 28px; }
+    .pack-price-big { font-family: var(--serif); font-size: 52px; font-weight: 400; color: var(--gold); }
+    .pack-price-sub { font-size: 13px; color: var(--dim); }
+    .pack-price-sub s { display: block; }
+    .pack-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); }
+    .pack-img-cell { background: var(--bg3); aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .pack-img-cell img { width: 100%; height: 100%; object-fit: contain; padding: 20px; transition: transform .5s ease, opacity .18s ease; }
+    .pack-img-cell:hover img { transform: scale(1.06); }
+    .pack-color-row { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; flex-wrap: wrap; }
+    .pack-color-label { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+    .pack-swatches { display: flex; gap: 8px; }
+    .pack-swatch {
+      width: 30px; height: 30px; border-radius: 50%; border: 2px solid transparent;
+      cursor: pointer; transition: border-color .2s, transform .2s; outline: none;
+      position: relative;
+    }
+    .pack-swatch:hover { transform: scale(1.15); }
+    .pack-swatch.active { border-color: var(--white); box-shadow: 0 0 0 1px var(--line); }
+    .pack-swatch-alu { background: linear-gradient(135deg,#D4D4D4 0%,#A8A8A8 100%); }
+    .pack-color-selected { font-size: 12px; color: var(--text); font-weight: 400; letter-spacing: .06em; }
+    .pack-btn-confirm {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--white); color: #0C0C0C;
+      font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+      padding: 14px 32px; border: none; cursor: pointer;
+      transition: background .2s, color .2s, transform .15s;
+    }
+    .pack-btn-confirm:hover { background: var(--gold); color: #fff; }
+    .pack-btn-confirm.confirmed { background: #2A6E35; color: #fff; pointer-events: none; }
+    .pack-tag { display: inline-block; font-size: 9px; letter-spacing: .18em; text-transform: uppercase; border: 1px solid var(--gold); color: var(--gold); padding: 3px 8px; margin-bottom: 14px; }
+
+    /* ── Reviews strip ── */
+    .reviews-strip {
+      padding: 80px 48px;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    .reviews-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px; }
+    .reviews-label { font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 8px; }
+    .reviews-title { font-family: var(--serif); font-size: clamp(22px, 3vw, 36px); font-weight: 400; color: var(--white); }
+    .reviews-score { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .reviews-num { font-family: var(--serif); font-size: 40px; font-weight: 400; color: var(--white); }
+    .reviews-stars-col { display: flex; flex-direction: column; gap: 2px; }
+    .r-stars { color: var(--gold); font-size: 14px; letter-spacing: 2px; }
+    .r-count { font-size: 11px; color: var(--dim); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); }
+    .review-tile { background: var(--bg2); padding: 28px 24px; }
+    .rt-stars { color: var(--gold); font-size: 13px; letter-spacing: 2px; margin-bottom: 12px; }
+    .rt-text { font-size: 14px; line-height: 1.75; color: var(--muted); font-style: italic; margin-bottom: 16px; }
+    .rt-author { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--text); }
+    .rt-meta { font-size: 11px; color: var(--dim); margin-top: 3px; }
+    .rt-product { display: inline-block; margin-top: 10px; font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold); padding: 3px 8px; opacity: .7; }
+
+    /* ── Footer ── */
+    .footer-top {
+      border-top: 1px solid var(--line);
+      background: var(--bg2);
+      padding: 60px 48px;
+    }
+    .footer-top-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+    }
+    .footer-logo { font-size: 13px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--white); margin-bottom: 14px; }
+    .footer-tagline { font-size: 13px; color: var(--dim); font-weight: 300; line-height: 1.7; max-width: 240px; }
+    .fcol-title { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; font-weight: 600; color: var(--gold); margin-bottom: 16px; }
+    .fcol ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .fcol ul li a { font-size: 13px; color: var(--dim); text-decoration: none; font-weight: 300; transition: color .2s; }
+    .fcol ul li a:hover { color: var(--white); }
+    .footer-bottom {
+      border-top: 1px solid var(--line);
+      padding: 20px 48px;
+      max-width: 1440px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--dim);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* ── Modal ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.85);
+      z-index: 500;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      max-width: 980px;
+      width: 100%;
+      max-height: 92vh;
+      overflow-y: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      z-index: 10;
+      background: rgba(0,0,0,.5);
+      border: 1px solid var(--line);
+      color: var(--white);
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background .2s;
+    }
+    .modal-close:hover { background: var(--line); }
+    .modal-gallery { background: var(--bg3); position: relative; }
+    .modal-main-img { width: 100%; min-height: 380px; object-fit: contain; padding: 28px; display: block; }
+    .modal-thumbs { display: flex; gap: 6px; padding: 12px; background: var(--bg2); border-top: 1px solid var(--line); overflow-x: auto; }
+    .modal-thumb { width: 58px; height: 58px; flex-shrink: 0; border: 1px solid var(--line); cursor: pointer; overflow: hidden; background: var(--bg3); transition: border-color .2s; }
+    .modal-thumb.active { border-color: var(--white); }
+    .modal-thumb img { width: 100%; height: 100%; object-fit: contain; padding: 5px; }
+    .modal-info { padding: 36px 32px; display: flex; flex-direction: column; overflow-y: auto; }
+    .modal-coll { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 10px; }
+    .modal-name { font-family: var(--serif); font-size: 26px; font-weight: 400; color: var(--white); line-height: 1.2; margin-bottom: 6px; }
+    .modal-col-tag { font-size: 12px; color: var(--dim); margin-bottom: 22px; }
+    .modal-prices { display: flex; align-items: baseline; gap: 12px; margin-bottom: 5px; }
+    .modal-price { font-size: 32px; font-weight: 300; color: var(--white); font-family: var(--serif); }
+    .modal-orig { font-size: 14px; color: var(--dim); text-decoration: line-through; }
+    .modal-eco { font-size: 11px; color: var(--red); font-weight: 600; letter-spacing: .04em; margin-bottom: 24px; }
+    .modal-divider { height: 1px; background: var(--line); margin: 20px 0; }
+    .modal-tabs { display: flex; border-bottom: 1px solid var(--line); margin-bottom: 20px; }
+    .modal-tab {
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--dim);
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: 10px 16px;
+      cursor: pointer;
+      margin-bottom: -1px;
+      font-family: var(--sans);
+      transition: color .2s;
+    }
+    .modal-tab:hover { color: var(--muted); }
+    .modal-tab.active { color: var(--white); border-bottom-color: var(--white); }
+    .modal-panel { display: none; font-size: 13px; line-height: 1.8; color: var(--muted); }
+    .modal-panel.active { display: block; }
+    .modal-panel ul { padding-left: 16px; display: flex; flex-direction: column; gap: 5px; }
+    .modal-specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 20px; }
+    .spec-k { font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--white); font-weight: 600; display: block; margin-bottom: 2px; }
+    .spec-v { font-size: 13px; color: var(--dim); display: block; }
+    .mini-review { padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .mini-review:last-child { border-bottom: none; }
+    .mr-stars { color: var(--gold); font-size: 11px; margin-bottom: 5px; }
+    .mr-text { font-size: 12px; color: var(--dim); font-style: italic; margin-bottom: 4px; }
+    .mr-auth { font-size: 10px; color: var(--text); letter-spacing: .06em; }
+    .modal-actions { margin-top: auto; padding-top: 24px; display: flex; flex-direction: column; gap: 10px; }
+    .btn-add {
+      background: var(--white);
+      color: #000;
+      border: none;
+      padding: 15px;
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-add:hover { background: var(--cream); }
+    .btn-suivi {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      padding: 13px;
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      transition: border-color .2s, color .2s;
+    }
+    .btn-suivi:hover { border-color: var(--muted); color: var(--white); }
+
+    /* ── Mobile menu ── */
+    .mobile-nav { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.7); z-index: 400; }
+    .mobile-nav.open { display: block; }
+    .mobile-panel { position: absolute; right: 0; top: 0; bottom: 0; width: 300px; background: var(--bg2); border-left: 1px solid var(--line); padding: 68px 32px 32px; display: flex; flex-direction: column; gap: 20px; }
+    .mobile-close { position: absolute; top: 18px; right: 18px; background: none; border: none; color: var(--muted); font-size: 20px; cursor: pointer; }
+    .mobile-panel a { font-size: 14px; letter-spacing: .08em; text-transform: uppercase; font-weight: 500; color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
+    .mobile-panel a:hover { color: var(--white); }
+
+    /* ── Responsive ── */
+    @media (max-width: 1100px) {
+      .products-grid { grid-template-columns: repeat(3, 1fr); }
+      .footer-top-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .header-inner { padding: 0 20px; }
+      .header-nav { display: none; }
+      .burger { display: flex; }
+      .hero-cinema { height: 85vh; }
+      .hero-suitcase { width: 240px; }
+      .products-wrap { padding: 0 0 60px; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .section-divider-content { flex-direction: column; gap: 20px; align-items: flex-start; }
+      .section-divider { height: auto; padding: 40px 24px; }
+      .pack-strip { padding: 48px 24px; }
+      .pack-strip-inner { grid-template-columns: 1fr; gap: 40px; }
+      .reviews-strip { padding: 60px 20px; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .reviews-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .footer-top { padding: 48px 24px; }
+      .footer-top-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-bottom { padding: 18px 24px; }
+      .modal { grid-template-columns: 1fr; max-height: 95vh; }
+      .modal-gallery { min-height: 260px; }
+      .modal-info { padding: 24px 20px; }
+      .filter-strip-inner { padding: 0 20px; }
+      .hero-title { font-size: 42px; }
+      .sd-title { font-size: 36px; }
+    }
+    @media (max-width: 480px) {
+      .products-grid { grid-template-columns: 1fr; }
+      .hero-ctas { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Topbar -->
+<div class="topbar"><b>Livraison gratuite</b> · Authenticité garantie · Retours 30 jours</div>
+
+<!-- Header -->
+<header id="hdr">
+  <div class="header-inner">
+    <a href="catalogue.html" class="logo">Rimowa-Outlet</a>
+    <nav class="header-nav">
+      <a href="catalogue.html" class="active">Bagages</a>
+      <a href="#cabin-section">Collections</a>
+      <a href="blog.html">Journal</a>
+      <a href="suivi.html">Suivi</a>
+      <a href="faq.html">Aide</a>
+    </nav>
+    <div class="header-right">
+      <button class="header-icon" style="cursor:default;opacity:.4" disabled>&#9906;</button>
+      <a href="index.html" class="header-icon" title="Voir le panier" style="text-decoration:none">&#9723;</a>
+      <button class="burger" id="burger-btn"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile nav -->
+<div class="mobile-nav" id="mobile-nav">
+  <div class="mobile-panel">
+    <button class="mobile-close" id="mobile-close">✕</button>
+    <a href="catalogue.html">Bagages</a>
+    <a href="#cabin-section">Collections</a>
+    <a href="blog.html">Journal</a>
+    <a href="suivi.html">Suivi commande</a>
+    <a href="faq.html">Aide</a>
+    <a href="mentions-legales.html">Mentions légales</a>
+  </div>
+</div>
+
+<!-- Hero cinématique -->
+<section class="hero-cinema">
+  <div class="hero-bg"></div>
+  <img
+    class="hero-suitcase"
+    src="https://lavoyagerie-paris.fr/4677-thickbox_default/rimowa-classic-check-in-l-73-silver.jpg"
+    alt="RIMOWA Classic Silver"
+    id="hero-img"
+  >
+  <div class="hero-content">
+    <p class="hero-label">Revendeur Agréé RIMOWA</p>
+    <h1 class="hero-title">Bagages<br><em>outlet.</em></h1>
+    <div class="hero-ctas">
+      <a href="#products" class="btn-rw btn-rw-white">Découvrir le catalogue</a>
+      <a href="#products" class="btn-rw btn-rw-ghost">Voir les produits</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    Défiler
+  </div>
+</section>
+
+<!-- Filter strip -->
+<div class="filter-strip">
+  <div class="filter-strip-inner">
+    <div class="filter-tabs">
+      <button class="ftab active" data-filter="all">Tous</button>
+      <button class="ftab" data-filter="cabin">Cabin</button>
+      <button class="ftab" data-filter="checkin">Check-In</button>
+      <button class="ftab" data-filter="classic">Classic</button>
+      <button class="ftab" data-filter="original">Original</button>
+      <button class="ftab" data-filter="hybrid">Hybrid</button>
+      <button class="ftab" data-filter="essential">Essential</button>
+      <button class="ftab" data-filter="lite">Essential Lite</button>
+    </div>
+    <span class="filter-count" id="filter-count">23 produits</span>
+  </div>
+</div>
+
+<!-- Collection divider: Essential Lite -->
+<div class="section-divider" id="cabin-section">
+  <div class="section-divider-bg"></div>
+  <div class="section-divider-content">
+    <div>
+      <p class="sd-label">La plus légère</p>
+      <div class="sd-title">Essential<br><em>Lite.</em></div>
+    </div>
+    <div class="sd-right">
+      <div class="sd-price">Cabin dès <b>89€</b></div>
+      <div class="sd-price">Check-In dès <b>159€</b></div>
+      <button class="sd-btn" onclick="applyFilter('lite')">Voir la collection →</button>
+    </div>
+  </div>
+</div>
+
+<!-- Products grid -->
+<div class="products-wrap" id="products">
+  <div class="products-grid" id="products-grid"></div>
+</div>
+
+<!-- Collection divider: Classic -->
+<div class="section-divider" id="classic-section">
+  <div class="section-divider-bg"></div>
+  <div class="section-divider-content">
+    <div>
+      <p class="sd-label">L'icône depuis 1898</p>
+      <div class="sd-title">Classic<br><em>Aluminium.</em></div>
+    </div>
+    <div class="sd-right">
+      <div class="sd-price">Cabin dès <b>169€</b></div>
+      <div class="sd-price">Check-In dès <b>189€</b></div>
+      <button class="sd-btn" onclick="applyFilter('classic')">Voir la collection →</button>
+    </div>
+  </div>
+</div>
+
+<!-- Collection divider: Original -->
+<div class="section-divider" id="original-section">
+  <div class="section-divider-bg"></div>
+  <div class="section-divider-content">
+    <div>
+      <p class="sd-label">L'héritière du Topas</p>
+      <div class="sd-title">Original<br><em>Anodisé.</em></div>
+    </div>
+    <div class="sd-right">
+      <div class="sd-price">Cabin dès <b>179€</b></div>
+      <div class="sd-price">Trunk dès <b>299€</b></div>
+      <button class="sd-btn" onclick="applyFilter('original')">Voir la collection →</button>
+    </div>
+  </div>
+</div>
+
+<!-- Collection divider: Hybrid -->
+<div class="section-divider" id="hybrid-section">
+  <div class="section-divider-bg"></div>
+  <div class="section-divider-content">
+    <div>
+      <p class="sd-label">Alu + Polycarbonate</p>
+      <div class="sd-title">Hybrid<br><em>Innovation.</em></div>
+    </div>
+    <div class="sd-right">
+      <div class="sd-price">Cabin dès <b>149€</b></div>
+      <button class="sd-btn" onclick="applyFilter('hybrid')">Voir la collection →</button>
+    </div>
+  </div>
+</div>
+
+<!-- Pack strip -->
+<div class="pack-strip">
+  <div class="pack-strip-inner">
+    <div>
+      <p class="pack-label">Offre Exclusive Outlet</p>
+      <h2 class="pack-title">Pack <em>Voyage</em> —<br>Cabin + Check-In</h2>
+      <p class="pack-desc">Le duo parfait pour voyager complet. Choisissez votre coloris et commandez directement — livraison gratuite en 24h.</p>
+
+      <!-- Color selector -->
+      <div class="pack-color-row">
+        <span class="pack-color-label">Coloris :</span>
+        <div class="pack-swatches">
+          <button class="pack-swatch active" data-pack="noir" style="background:#1A1A1A" title="Noir Gloss" onclick="selectPack('noir')"></button>
+          <button class="pack-swatch" data-pack="bleu" style="background:#4A7AB5" title="Bleu Gloss" onclick="selectPack('bleu')"></button>
+          <button class="pack-swatch pack-swatch-alu" data-pack="alu" title="Gris Aluminium" onclick="selectPack('alu')"></button>
+        </div>
+        <span class="pack-color-selected" id="pack-color-name">Noir Gloss</span>
+      </div>
+
+      <div class="pack-price-row">
+        <span class="pack-price-big" id="pack-price-val">200€</span>
+        <div class="pack-price-sub" id="pack-price-sub">
+          <s>248€ séparément</s>
+          Économisez 48€
+        </div>
+      </div>
+      <button class="pack-btn-confirm" id="pack-btn" onclick="commanderPack()">Commander ce pack →</button>
+    </div>
+    <div class="pack-imgs">
+      <div class="pack-img-cell">
+        <img id="pack-img1" src="https://lavoyagerie-paris.fr/3625-thickbox_default/rimowa-essential-lite-cabin-53-black-gloss.jpg" alt="Cabin Noir Gloss" loading="lazy">
+      </div>
+      <div class="pack-img-cell">
+        <img id="pack-img2" src="https://lavoyagerie-paris.fr/3637-thickbox_default/rimowa-essential-lite-check-in-l-73-black-gloss.jpg" alt="Check-In Noir Gloss" loading="lazy">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Reviews -->
+<div class="reviews-strip">
+  <div class="reviews-header">
+    <div>
+      <p class="reviews-label">Ils nous font confiance</p>
+      <h2 class="reviews-title">Avis clients vérifiés</h2>
+    </div>
+    <div class="reviews-score">
+      <span class="reviews-num">4.9</span>
+      <div class="reviews-stars-col">
+        <span class="r-stars">★★★★★</span>
+        <span class="r-count">214 avis</span>
+      </div>
+    </div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-tile">
+      <div class="rt-stars">★★★★★</div>
+      <p class="rt-text">« Qualité irréprochable. Exactement comme en boutique officielle. Livraison en 24h. Je recommande sans hésiter. »</p>
+      <div class="rt-author">Camille R.</div>
+      <div class="rt-meta">Paris · Achat vérifié · il y a 3 jours</div>
+      <span class="rt-product">Essential Lite Cabin</span>
+    </div>
+    <div class="review-tile">
+      <div class="rt-stars">★★★★★</div>
+      <p class="rt-text">« Le pack Cabin + Check-In à 200€ c'est imbattable. Les deux valises sont impeccables, numéros de série présents. »</p>
+      <div class="rt-author">Sophie L.</div>
+      <div class="rt-meta">Bordeaux · Achat vérifié · il y a 2 semaines</div>
+      <span class="rt-product">Pack Voyage</span>
+    </div>
+    <div class="review-tile">
+      <div class="rt-stars">★★★★★</div>
+      <p class="rt-text">« La Classic en aluminium est magnifique. Un siècle d'histoire dans les mains. À ce prix outlet, c'est un cadeau incroyable. »</p>
+      <div class="rt-author">Thomas M.</div>
+      <div class="rt-meta">Lyon · Achat vérifié · il y a 1 mois</div>
+      <span class="rt-product">Classic Check-In L</span>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer-top">
+  <div class="footer-top-inner">
+    <div>
+      <div class="footer-logo">Rimowa-Outlet</div>
+      <p class="footer-tagline">Revendeur officiel agréé RIMOWA. Valises authentiques à prix outlet. Livraison gratuite.</p>
+    </div>
+    <div class="fcol">
+      <div class="fcol-title">Collections</div>
+      <ul>
+        <li><a href="#" onclick="applyFilter('classic');return false">RIMOWA Classic</a></li>
+        <li><a href="#" onclick="applyFilter('essential');return false">RIMOWA Essential</a></li>
+        <li><a href="#" onclick="applyFilter('lite');return false">Essential Lite</a></li>
+        <li><a href="#" onclick="applyFilter('cabin');return false">Valises Cabin</a></li>
+        <li><a href="#" onclick="applyFilter('checkin');return false">Valises Check-In</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <div class="fcol-title">Service</div>
+      <ul>
+        <li><a href="suivi.html">Suivi de commande</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="faq.html#livraison">Livraison</a></li>
+        <li><a href="faq.html#retours">Retours</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <div class="fcol-title">Légal</div>
+      <ul>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="mentions-legales.html#cgv">CGV</a></li>
+        <li><a href="mentions-legales.html#confidentialite">RGPD</a></li>
+        <li><a href="blog.html">Journal</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="footer-bottom">
+  <span>© 2026 Rimowa-Outlet — Revendeur Agréé RIMOWA</span>
+  <span>Livraison gratuite · Paiement sécurisé · Garantie 5 ans</span>
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-gallery">
+      <img class="modal-main-img" id="modal-main-img" src="" alt="">
+      <div class="modal-thumbs" id="modal-thumbs"></div>
+    </div>
+    <div class="modal-info">
+      <p class="modal-coll" id="modal-coll"></p>
+      <h2 class="modal-name" id="modal-name"></h2>
+      <p class="modal-col-tag" id="modal-col-tag"></p>
+      <div class="modal-prices">
+        <span class="modal-price" id="modal-price"></span>
+        <span class="modal-orig" id="modal-orig"></span>
+      </div>
+      <p class="modal-eco" id="modal-eco"></p>
+      <div class="modal-tabs">
+        <button class="modal-tab active" onclick="switchTab(this,'desc')">Description</button>
+        <button class="modal-tab" onclick="switchTab(this,'specs')">Specs</button>
+        <button class="modal-tab" onclick="switchTab(this,'revs')">Avis (3)</button>
+      </div>
+      <div class="modal-panel active" id="tab-desc"></div>
+      <div class="modal-panel" id="tab-specs"></div>
+      <div class="modal-panel" id="tab-revs"></div>
+      <div class="modal-actions">
+        <button class="btn-add" onclick="addToCart()">Ajouter au panier</button>
+        <a href="suivi.html" class="btn-suivi">Suivre ma commande</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BASE = 'https://lavoyagerie-paris.fr/';
+
+const PRODUCTS = [
+  {
+    id:'p1',tags:['cabin','essential'],
+    collection:'RIMOWA Essential',name:'Essential Cabin S',color:'Blue Gloss',
+    dims:'55×39×20 cm',cap:'34 L',mat:'Polycarbonate',wt:'3.1 kg',
+    price:89,orig:640,
+    imgs:['3820','3821','3822','3823','3819'],
+    slug:'rimowa-essential-cabin-s-52-blue-gloss',
+    swatches:['#4A7AB5','#1A1A1A','#2B2B2B'],
+    desc:'La valise cabin Essential en Blue Gloss — légère, résistante, conforme IATA. Polycarbonate haute résistance, serrure TSA, 4 roues multidirectionnelles.',
+    features:['Polycarbonate haute résistance','Serrure TSA combinaison','4 roues multidirectionnelles','2 plateaux flex-divider','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5,t:'Couleur magnifique, parfaite pour mon voyage.',a:'Emma D.',d:'Paris'},
+      {s:5,t:'Légère et solide. Les roues sont silencieuses.',a:'Laura M.',d:'Lyon'},
+      {s:5,t:'Authentique RIMOWA avec numéro de série. Impeccable.',a:'Chloé R.',d:'Bordeaux'},
+    ]
+  },
+  {
+    id:'p2',tags:['cabin','essential'],
+    collection:'RIMOWA Essential',name:'Essential Cabin',color:'Matte Black',
+    dims:'55×39×23 cm',cap:'36 L',mat:'Polycarbonate',wt:'3.2 kg',
+    price:99,orig:670,
+    imgs:['3700','3701','3702','3703','3704'],
+    slug:'rimowa-essential-cabin-53-matte-black',
+    swatches:['#1A1A1A','#2C2C2C','#4A7AB5'],
+    desc:'La finition Matte Black, sobre et élégante. Polycarbonate mat ultra-résistant. Idéale pour les voyages d\'affaires. Format cabine universel.',
+    features:['Polycarbonate mat ultra-résistant','Serrure TSA combinaison','4 roues multidirectionnelles silencieuses','2 plateaux flex-divider','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5,t:'La finition matte est absolument superbe.',a:'Hugo L.',d:'Paris'},
+      {s:5,t:'Solide, légère, le noir mat ne montre pas les traces.',a:'Nicolas B.',d:'Nantes'},
+      {s:5,t:'Troisième RIMOWA. Qualité toujours au top.',a:'Sylvie P.',d:'Marseille'},
+    ]
+  },
+  {
+    id:'p3',tags:['checkin','essential'],
+    collection:'RIMOWA Essential',name:'Essential Check-In L',color:'Black Gloss',
+    dims:'77.5×51×26.5 cm',cap:'85 L',mat:'Polycarbonate',wt:'4.8 kg',
+    price:179,orig:850,
+    imgs:['3761','3762','3763','3764','3765'],
+    slug:'rimowa-essential-check-in-l-73-black-gloss',
+    swatches:['#1A1A1A','#2C2C2C','#4A7AB5'],
+    desc:'La grande valise Essential en Black Gloss. 85 litres pour vos longs voyages. Polycarbonate, roues multidirectionnelles, serrure TSA.',
+    features:['85 litres de capacité','Polycarbonate haute résistance','Serrure TSA combinaison','4 roues multidirectionnelles','2 plateaux flex-divider','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5,t:'Spacieuse et solide. 3 semaines de vêtements sans problème.',a:'Pierre V.',d:'Toulouse'},
+      {s:5,t:'Idéale pour les voyages longue durée.',a:'Marie T.',d:'Rennes'},
+      {s:5,t:'Valise reçue en parfait état, authentique.',a:'François A.',d:'Lille'},
+    ]
+  },
+  {
+    id:'p4',tags:['checkin','essential'],
+    collection:'RIMOWA Essential',name:'Essential Check-In L',color:'Blue Gloss',
+    dims:'77.5×51×26.5 cm',cap:'85 L',mat:'Polycarbonate',wt:'4.8 kg',
+    price:179,orig:850,
+    imgs:['3842','3843','3844','3845','3846'],
+    slug:'rimowa-essential-check-in-l-73-blue-gloss',
+    swatches:['#4A7AB5','#1A1A1A','#2C2C2C'],
+    desc:'La grande valise Essential en Blue Gloss — reconnaissable au premier coup d\'œil sur les tapis roulants. 85 litres, polycarbonate.',
+    features:['Blue Gloss signature RIMOWA','85 litres de capacité','Serrure TSA combinaison','4 roues multidirectionnelles','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5,t:'Le bleu est splendide, facile à repérer !',a:'Claire B.',d:'Nice'},
+      {s:5,t:'Aucune égratignure après 4 vols. Impeccable.',a:'Romain K.',d:'Grenoble'},
+      {s:5,t:'Service client réactif, livraison rapide.',a:'Isabelle M.',d:'Strasbourg'},
+    ]
+  },
+  {
+    id:'p5',tags:['checkin','classic'],
+    collection:'RIMOWA Classic',name:'Classic Check-In L',color:'Silver',
+    dims:'79×53×28 cm',cap:'84 L',mat:'Aluminium + Cuir',wt:'6 kg',
+    price:199,orig:1390,
+    imgs:['4677','4673','4674','4675','4676'],
+    slug:'rimowa-classic-check-in-l-73-silver',
+    swatches:['#C0C0C0','#8A8A8A'],
+    desc:'L\'icône absolue. Aluminium aéronautique, poignées cuir véritable, deux verrous TSA. La valise des grands voyageurs exigeants. Un investissement à vie.',
+    features:['Aluminium aéronautique premium','Poignées cuir vachette véritable','2 verrous TSA à combinaison','4 roues doubles multidirectionnelles','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5,t:'La meilleure valise qui existe. L\'aluminium est indestructible.',a:'Étienne G.',d:'Paris'},
+      {s:5,t:'Le son des rainures sur le carrelage... la classe absolue.',a:'Nathalie R.',d:'Lyon'},
+      {s:5,t:'Mon mari a failli pleurer tellement il était content.',a:'Valérie D.',d:'Bordeaux'},
+    ]
+  },
+  {
+    id:'p6',tags:['checkin','classic'],
+    collection:'RIMOWA Classic',name:'Classic Check-In M',color:'Silver',
+    dims:'71×47.5×26 cm',cap:'61 L',mat:'Aluminium + Cuir',wt:'5.3 kg',
+    price:189,orig:1290,
+    imgs:['4671','4666','4667','4668','4669'],
+    slug:'rimowa-classic-check-in-m-63-silver',
+    swatches:['#C0C0C0','#8A8A8A'],
+    desc:'La version medium de la Classic RIMOWA. 61 litres, aluminium, poignées cuir. Idéale pour les voyages de 1 à 2 semaines. Même élégance intemporelle.',
+    features:['Aluminium aéronautique premium','Poignées cuir vachette','2 verrous TSA à combinaison','61 litres — 1-2 semaines','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5,t:'La taille M est parfaite pour moi.',a:'Julien F.',d:'Paris'},
+      {s:5,t:'Qualité exceptionnelle. Fait pour durer toute une vie.',a:'Bernard L.',d:'Montpellier'},
+      {s:5,t:'Valise emballée avec soin. Parfaite.',a:'Monique B.',d:'Nantes'},
+    ]
+  },
+  {
+    id:'p7',tags:['cabin','lite'],
+    collection:'RIMOWA Essential Lite',name:'Essential Lite Cabin',color:'Blue Gloss',
+    dims:'55×37×23 cm',cap:'37 L',mat:'Polycarbonate',wt:'2.2 kg',
+    price:89,orig:525,
+    imgs:['3649','3650','3651','3652','3653'],
+    slug:'rimowa-essential-lite-cabin-53-blue-gloss',
+    swatches:['#4A7AB5','#1A1A1A','#C41C00'],
+    desc:'La plus légère de RIMOWA à 2,2 kg. Successeur de la Salsa Air, elle maximise votre franchise bagages.',
+    features:['2.2 kg — la plus légère de RIMOWA','Polycarbonate ultra-léger','Serrure TSA combinaison','4 roues multidirectionnelles','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5,t:'2,2 kg seulement ! Révolutionnaire.',a:'Amandine S.',d:'Paris'},
+      {s:5,t:'Le bleu gloss est très beau, facile à repérer.',a:'Théo M.',d:'Toulouse'},
+      {s:5,t:'Première RIMOWA et déjà conquise.',a:'Léa C.',d:'Lyon'},
+    ]
+  },
+  {
+    id:'p8',tags:['cabin','lite'],
+    collection:'RIMOWA Essential Lite',name:'Essential Lite Cabin',color:'Black Gloss',
+    dims:'55×37×23 cm',cap:'37 L',mat:'Polycarbonate',wt:'2.2 kg',
+    price:89,orig:525,
+    imgs:['3625','3626','3627','3628','3629'],
+    slug:'rimowa-essential-lite-cabin-53-black-gloss',
+    swatches:['#1A1A1A','#4A7AB5','#C41C00'],
+    desc:'La légèreté record en Black Gloss. 2,2 kg pour 37 litres. La cabin idéale pour les voyages professionnels fréquents.',
+    features:['2.2 kg — ultra-léger','Black Gloss intemporel','Serrure TSA combinaison','4 roues silencieuses','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5,t:'Le noir brillant est chic et discret.',a:'Alexandre R.',d:'Paris'},
+      {s:5,t:'Légère comme une plume. 6 voyages, aucun problème.',a:'Delphine V.',d:'Bordeaux'},
+      {s:5,t:'Rapport qualité/prix imbattable en outlet.',a:'Patrick N.',d:'Rennes'},
+    ]
+  },
+  {
+    id:'p9',tags:['cabin','lite'],
+    collection:'RIMOWA Essential Lite',name:'Essential Lite Cabin',color:'Red Gloss',
+    dims:'55×37×23 cm',cap:'37 L',mat:'Polycarbonate',wt:'2.2 kg',
+    price:89,orig:525,
+    imgs:['3683','3684','3685','3686','3687'],
+    slug:'rimowa-essential-lite-cabin-53-red-gloss',
+    swatches:['#C41C00','#1A1A1A','#4A7AB5'],
+    desc:'Le Red Gloss — impossible à manquer sur les tapis roulants. 2,2 kg, polycarbonate, la plus légère de la gamme.',
+    features:['Rouge Gloss — identifiable partout','2.2 kg ultra-léger','Serrure TSA combinaison','4 roues multidirectionnelles','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5,t:'On la repère immédiatement. Plus jamais de confusion !',a:'Sophie K.',d:'Nice'},
+      {s:5,t:'Encore plus belle en vrai. Très légère.',a:'Camille T.',d:'Paris'},
+      {s:5,t:'Cadeau pour ma fille. Ravie !',a:'Anne-Marie B.',d:'Lyon'},
+    ]
+  },
+  {
+    id:'p10',tags:['checkin','lite'],
+    collection:'RIMOWA Essential Lite',name:'Essential Lite Check-In L',color:'Black Gloss',
+    dims:'78×51×26.6 cm',cap:'81 L',mat:'Polycarbonate',wt:'3.7 kg',
+    price:159,orig:665,
+    imgs:['3637','3638','3639','3640','3641'],
+    slug:'rimowa-essential-lite-check-in-l-73-black-gloss',
+    swatches:['#1A1A1A','#4A7AB5'],
+    desc:'3,7 kg pour 81 litres — un record. La grande valise la plus légère de RIMOWA pour maximiser la franchise bagages.',
+    features:['3.7 kg pour 81 litres — record','Polycarbonate ultra-léger','Serrure TSA combinaison','4 roues silencieuses','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5,t:'3,7 kg pour une grande valise c\'est incroyable !',a:'Bertrand L.',d:'Paris'},
+      {s:5,t:'Grande, légère, solide. Le trio gagnant.',a:'Marion G.',d:'Montpellier'},
+      {s:5,t:'Livraison en 24h. Valise parfaite.',a:'Christophe M.',d:'Strasbourg'},
+    ]
+  },
+
+  // ── Essential — nouvelles couleurs & tailles ─────────────────
+  {
+    id:'p11',tags:['cabin','essential'],
+    collection:'RIMOWA Essential',name:'Essential Cabin S',color:'Red Gloss',
+    dims:'55×39×20 cm',cap:'34 L',mat:'Polycarbonate',wt:'3.1 kg',
+    price:89,orig:640,
+    imgs:['3860','3861','3862','3863','3864'],
+    slug:'rimowa-essential-cabin-s-52-red-gloss',
+    swatches:['#C41C00','#1A1A1A','#4A7AB5'],
+    desc:'L\'Essential Cabin S en Red Gloss — impossible à rater sur les tapis roulants. 34 litres, polycarbonate haute résistance, conforme IATA. Le format S parfait pour les week-ends.',
+    features:['34 litres — format S compact','Red Gloss reconnaissable partout','Polycarbonate haute résistance','Serrure TSA combinaison','4 roues multidirectionnelles','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5,t:'Le rouge est magnifique et intense. On me pose des questions partout.',a:'Lucie B.',d:'Paris'},
+      {s:5,t:'Plus jamais de confusion sur le tapis roulant !',a:'Antoine M.',d:'Nice'},
+      {s:5,t:'Légère et résistante. Parfaite pour les week-ends.',a:'Émilie S.',d:'Lyon'},
+    ]
+  },
+  {
+    id:'p12',tags:['cabin','essential'],
+    collection:'RIMOWA Essential',name:'Essential Cabin',color:'White Gloss',
+    dims:'55×39×23 cm',cap:'36 L',mat:'Polycarbonate',wt:'3.2 kg',
+    price:99,orig:670,
+    imgs:['3949','3950','3951','3952','3953'],
+    slug:'rimowa-essential-cabin-53-white-gloss',
+    swatches:['#F0F0F0','#1A1A1A','#4A7AB5'],
+    desc:'La cabin Essential en White Gloss — pure, lumineuse et élégante. 36 litres, polycarbonate, serrure TSA. La valise la plus épurée visuellement de la gamme.',
+    features:['White Gloss éclatant','36 litres — format cabin standard','Polycarbonate haute résistance','Serrure TSA combinaison','4 roues multidirectionnelles silencieuses','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5,t:'Le blanc brillant est absolument somptueux en vrai.',a:'Margaux D.',d:'Paris'},
+      {s:5,t:'Élégante et moderne. Beaucoup de compliments en voyage.',a:'Clara V.',d:'Bordeaux'},
+      {s:5,t:'Authentique RIMOWA au prix outlet. Impeccable.',a:'Thomas K.',d:'Nantes'},
+    ]
+  },
+  {
+    id:'p13',tags:['cabin','essential'],
+    collection:'RIMOWA Essential',name:'Essential Cabin Plus',color:'White Gloss',
+    dims:'56×44×24 cm',cap:'45 L',mat:'Polycarbonate',wt:'3.9 kg',
+    price:119,orig:695,
+    imgs:['3955','3956','3957','3958','3959'],
+    slug:'rimowa-essential-cabin-plus-56-white-gloss',
+    swatches:['#F0F0F0','#C41C00','#1A1A1A'],
+    desc:'La Cabin Plus — plus grande qu\'un format cabin standard tout en restant en cabine. 45 litres pour vos voyages de 4-5 jours. Le compromis idéal entre cabin et check-in.',
+    features:['45 litres — plus spacieux qu\'un cabin','Format Plus accepté en cabine élargie','Polycarbonate haute résistance','Serrure TSA combinaison','4 roues multidirectionnelles','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5,t:'La taille parfaite entre cabin et check-in. Je l\'emporte partout.',a:'Julien R.',d:'Paris'},
+      {s:5,t:'45 litres en cabine c\'est incroyable, plus besoin de soute.',a:'Stéphanie M.',d:'Lyon'},
+      {s:5,t:'Finition blanche impeccable. Aucun défaut.',a:'David L.',d:'Rennes'},
+    ]
+  },
+
+  // ── Essential — Check-In M ────────────────────────────────────
+  {
+    id:'p14',tags:['checkin','essential'],
+    collection:'RIMOWA Essential',name:'Essential Check-In M',color:'Matte Black',
+    dims:'67.5×44.5×24 cm',cap:'60 L',mat:'Polycarbonate',wt:'4.1 kg',
+    price:149,orig:780,
+    imgs:['3711','3712','3713','3714','3715'],
+    slug:'rimowa-essential-check-in-m-63-matte-black',
+    swatches:['#2B2B2B','#C41C00','#4A7AB5'],
+    desc:'La valise Check-In M Essential en Matte Black — 60 litres pour les voyages d\'une semaine. Polycarbonate mat ultra-résistant, sobre et professionnel.',
+    features:['60 litres — 7 à 10 jours','Matte Black sobre et résistant','Polycarbonate ultra-résistant','Serrure TSA combinaison','4 roues multidirectionnelles','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5,t:'La taille M est la plus pratique pour les voyages d\'une semaine.',a:'Marc B.',d:'Paris'},
+      {s:5,t:'Le noir mat ne montre pas les traces. Parfait pour le business.',a:'Elisa N.',d:'Toulouse'},
+      {s:5,t:'Solide et légère. Ma valise de référence désormais.',a:'Yann P.',d:'Nantes'},
+    ]
+  },
+  {
+    id:'p15',tags:['checkin','essential'],
+    collection:'RIMOWA Essential',name:'Essential Check-In M',color:'Red Gloss',
+    dims:'67.5×44.5×24 cm',cap:'60 L',mat:'Polycarbonate',wt:'4.1 kg',
+    price:149,orig:780,
+    imgs:['3878','3879','3880','3881','3882'],
+    slug:'rimowa-essential-check-in-m-63-red-gloss',
+    swatches:['#C41C00','#2B2B2B','#4A7AB5'],
+    desc:'La Check-In M en Red Gloss éclatant. 60 litres, polycarbonate, ultra-reconnaissable sur les tapis roulants. Idéale pour une semaine de voyage.',
+    features:['60 litres — 7 à 10 jours','Red Gloss — inratable','Polycarbonate haute résistance','Serrure TSA combinaison','4 roues multidirectionnelles','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5,t:'La couleur est encore plus belle en vrai. Magnifique.',a:'Carla V.',d:'Paris'},
+      {s:5,t:'Je retrouve ma valise immédiatement sur le tapis.',a:'Franck D.',d:'Marseille'},
+      {s:5,t:'Qualité incroyable pour le prix outlet.',a:'Isabelle T.',d:'Strasbourg'},
+    ]
+  },
+
+  // ── Essential Lite — Check-In M ───────────────────────────────
+  {
+    id:'p16',tags:['checkin','lite'],
+    collection:'RIMOWA Essential Lite',name:'Essential Lite Check-In M',color:'Black Gloss',
+    dims:'67.5×44×25 cm',cap:'59 L',mat:'Polycarbonate',wt:'3.1 kg',
+    price:139,orig:625,
+    imgs:['3631','3632','3633','3634','3635'],
+    slug:'rimowa-essential-lite-check-in-m-63-black-gloss',
+    swatches:['#1A1A1A','#4A7AB5'],
+    desc:'La Check-In M la plus légère de RIMOWA — 3,1 kg seulement. 59 litres pour maximiser votre franchise bagages sur les vols low-cost.',
+    features:['3.1 kg — la plus légère de sa catégorie','59 litres — 7 jours','Polycarbonate ultra-léger','Serrure TSA combinaison','4 roues multidirectionnelles','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5,t:'3,1 kg pour une check-in, c\'est un exploit technologique.',a:'Régis B.',d:'Paris'},
+      {s:5,t:'Légère et spacieuse. Le combo parfait pour le low-cost.',a:'Christine M.',d:'Lyon'},
+      {s:5,t:'Plus de surpoids grâce à la Lite. Économies garanties.',a:'Pascal G.',d:'Bordeaux'},
+    ]
+  },
+
+  // ── Hybrid ────────────────────────────────────────────────────
+  {
+    id:'p17',tags:['cabin','hybrid'],
+    collection:'RIMOWA Hybrid',name:'Hybrid Cabin S',color:'Black Gloss',
+    dims:'55×40×20 cm',cap:'32 L',mat:'Aluminium + Polycarbonate',wt:'3.7 kg',
+    price:149,orig:630,
+    imgs:['4096','4097','4098','4099','4100'],
+    slug:'rimowa-hybrid-cabin-s-52-black-gloss',
+    swatches:['#1A1A1A','#F0F0F0'],
+    desc:'Le meilleur des deux mondes — coins en aluminium, coque en polycarbonate. La Hybrid Cabin S allie la robustesse de l\'aluminium à la légèreté du polycarbonate.',
+    features:['Aluminium + Polycarbonate premium','Coins renforcés en aluminium','32 litres — format S cabin','Serrure TSA à loquet clipsé','4 roues Multiwheel® silencieuses','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5,t:'Le mix alu/poly est parfait. Solide et légère à la fois.',a:'Adrien L.',d:'Paris'},
+      {s:5,t:'On sent la qualité dès qu\'on la saisit. Classe absolue.',a:'Nadia K.',d:'Nice'},
+      {s:5,t:'La Hybrid est dans une catégorie à part.',a:'Benoît R.',d:'Rennes'},
+    ]
+  },
+
+  // ── Classic — Cabin ───────────────────────────────────────────
+  {
+    id:'p18',tags:['cabin','classic'],
+    collection:'RIMOWA Classic',name:'Classic Cabin S',color:'Silver',
+    dims:'55×40×20 cm',cap:'33 L',mat:'Aluminium + Cuir',wt:'4.2 kg',
+    price:169,orig:1070,
+    imgs:['4654','4655','4656','4657','4658'],
+    slug:'rimowa-classic-cabin-s-52-silver',
+    swatches:['#C0C0C0','#1A1A1A'],
+    desc:'La Classic Cabin S en aluminium brossé — la plus compacte des aluminiums RIMOWA. 33 litres, poignées cuir véritable, double verrous TSA. Le luxe absolu en format S.',
+    features:['Aluminium aéronautique premium','Poignées cuir vachette véritable','2 verrous TSA à combinaison','33 litres — format S cabin','4 roues doubles multidirectionnelles','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5,t:'L\'aluminium est indestructible et d\'une beauté rare.',a:'Arnaud V.',d:'Paris'},
+      {s:5,t:'Le bruit des roulettes dans les couloirs... le luxe total.',a:'Camille B.',d:'Lyon'},
+      {s:5,t:'La qualité RIMOWA Classic est incomparable.',a:'Marine D.',d:'Bordeaux'},
+    ]
+  },
+
+  // ── Original — Cabin ──────────────────────────────────────────
+  {
+    id:'p19',tags:['cabin','original'],
+    collection:'RIMOWA Original',name:'Original Cabin S',color:'Silver',
+    dims:'55×40×20 cm',cap:'31 L',mat:'Aluminium anodisé',wt:'4.2 kg',
+    price:179,orig:900,
+    imgs:['3456','3457','3458','3459','3460'],
+    slug:'rimowa-original-cabin-s-52-silver',
+    swatches:['#C0C0C0','#404040','#8A8A8A'],
+    desc:'L\'icône absolue héritière du Topas. 31 litres en aluminium anodisé, rainures horizontales signature reconnaissables dans tous les aéroports du monde. Un siècle de savoir-faire.',
+    features:['Aluminium anodisé haute qualité','Design rainures signature RIMOWA','2 serrures TSA à combinaison','31 litres format S','4 roues Multiwheel® silencieuses','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5,t:'La valise à vie. Authentique, parfaite, iconique.',a:'Philippe R.',d:'Paris'},
+      {s:5,t:'L\'Original est dans une autre dimension de qualité.',a:'Sandrine M.',d:'Lyon'},
+      {s:5,t:'Numéro de série présent. Authentique et sans défaut.',a:'Olivier D.',d:'Strasbourg'},
+    ]
+  },
+  {
+    id:'p20',tags:['cabin','original'],
+    collection:'RIMOWA Original',name:'Original Cabin',color:'Silver',
+    dims:'55×40×23 cm',cap:'35 L',mat:'Aluminium anodisé',wt:'4.3 kg',
+    price:189,orig:920,
+    imgs:['3462','3463','3464','3465','3466'],
+    slug:'rimowa-original-cabin-53-silver',
+    swatches:['#C0C0C0','#404040','#8A8A8A'],
+    desc:'La cabin Original — le format standard héritier du Topas. 35 litres en aluminium anodisé. Les rainures horizontales reconnaissables dans tous les aéroports du monde.',
+    features:['Aluminium anodisé haute qualité','35 litres — format standard cabin','2 serrures TSA à combinaison','4 roues Multiwheel® silencieuses','2 plateaux flex-divider','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5,t:'La cabin Original est parfaite. Classe absolue.',a:'Éric B.',d:'Paris'},
+      {s:5,t:'Les rainures attirent tous les regards en aéroport.',a:'Nathalie R.',d:'Nice'},
+      {s:5,t:'Troisième RIMOWA. La qualité ne déçoit jamais.',a:'Laurent T.',d:'Montpellier'},
+    ]
+  },
+  {
+    id:'p21',tags:['cabin','original'],
+    collection:'RIMOWA Original',name:'Original Cabin Plus',color:'Silver',
+    dims:'57×44×25.5 cm',cap:'49 L',mat:'Aluminium anodisé',wt:'4.7 kg',
+    price:199,orig:970,
+    imgs:['3468','3469','3470','3471','3472'],
+    slug:'rimowa-original-cabin-plus-56-silver',
+    swatches:['#C0C0C0','#404040','#8A8A8A'],
+    desc:'La Cabin Plus Original — 49 litres en cabine élargie. Idéale pour 4-5 jours sans soute. L\'aluminium anodisé signature, plus d\'espace pour vos essentiels.',
+    features:['49 litres — cabin plus spacieuse','Aluminium anodisé premium','2 serrures TSA à combinaison','4 roues Multiwheel® silencieuses','2 plateaux flex-divider','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5,t:'La Cabin Plus est le format idéal pour mes voyages.',a:'Frédéric L.',d:'Paris'},
+      {s:5,t:'49 litres en cabine, plus besoin de soute.',a:'Anne B.',d:'Bordeaux'},
+      {s:5,t:'Impeccable. La qualité justifie chaque centime.',a:'Michel D.',d:'Lyon'},
+    ]
+  },
+
+  // ── Original — Trunk ──────────────────────────────────────────
+  {
+    id:'p22',tags:['checkin','original'],
+    collection:'RIMOWA Original',name:'Original Trunk',color:'Titanium',
+    dims:'73×44×36.5 cm',cap:'90 L',mat:'Aluminium anodisé',wt:'6.1 kg',
+    price:299,orig:1340,
+    imgs:['3535','3536','3537','3538','3539'],
+    slug:'rimowa-original-trunk-75-titanium',
+    swatches:['#8A8A8A','#C0C0C0','#404040'],
+    desc:'Le coffre iconique en aluminium anodisé Titanium. 90 litres pour vos grands voyages. Format trunk à ouverture verticale — transportez vêtements longs et objets encombrants.',
+    features:['90 litres — format trunk','Aluminium anodisé Titanium exclusif','Ouverture verticale unique','2 compartiments 1/3 - 2/3','2 serrures TSA à combinaison','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5,t:'Le trunk est une œuvre d\'art. Parfait pour les longs voyages.',a:'Jacques M.',d:'Paris'},
+      {s:5,t:'La teinte Titanium est sublime, différente de l\'argent.',a:'Véronique B.',d:'Lyon'},
+      {s:5,t:'90 litres et toujours élégant. RIMOWA au sommet.',a:'Henri D.',d:'Nice'},
+    ]
+  },
+  {
+    id:'p23',tags:['checkin','original'],
+    collection:'RIMOWA Original',name:'Original Trunk Plus',color:'Silver',
+    dims:'80×44×36.5 cm',cap:'105 L',mat:'Aluminium anodisé',wt:'6.4 kg',
+    price:329,orig:1450,
+    imgs:['3492','3493','3494','3495','3496'],
+    slug:'rimowa-original-trunk-plus-80-silver',
+    swatches:['#C0C0C0','#8A8A8A','#404040'],
+    desc:'Le plus grand trunk Original — 105 litres. Pour les longs séjours, les tournées ou les aventures sans escale. L\'aluminium anodisé signature en grand format XXL.',
+    features:['105 litres — capacité XXL','Aluminium anodisé Silver','Format trunk XXL','2 serrures TSA à combinaison','4 roues Multiwheel® silencieuses','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5,t:'105 litres d\'aluminium pur. Impressionnant et solide.',a:'Robert G.',d:'Paris'},
+      {s:5,t:'Idéal pour les déplacements de plusieurs semaines.',a:'Patricia M.',d:'Bordeaux'},
+      {s:5,t:'La qualité de finition est extraordinaire pour ce prix.',a:'François R.',d:'Montpellier'},
+    ]
+  }
+];
+
+// ── Render grid ───────────────────────────────────────────
+function renderGrid(filter='all') {
+  const grid = document.getElementById('products-grid');
+  const visible = filter === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.tags.includes(filter));
+  document.getElementById('filter-count').textContent = `${visible.length} produit${visible.length > 1 ? 's' : ''}`;
+
+  grid.innerHTML = visible.map(p => {
+    const disc = Math.round((1-p.price/p.orig)*100);
+    const img = `${BASE}${p.imgs[0]}-thickbox_default/${p.slug}.jpg`;
+    const swatches = p.swatches.map((c,i) =>
+      `<div class="swatch${i===0?' active':''}" style="background:${c}" onclick="event.stopPropagation();swapImg(event,'${p.id}','${c}')"></div>`
+    ).join('');
+    return `
+      <div class="product-cell" data-id="${p.id}" data-tags="${p.tags.join(' ')}" onclick="openModal('${p.id}')">
+        <div class="pc-img-wrap">
+          <img class="pc-img" id="img-${p.id}" src="${img}" alt="${p.name} ${p.color}" loading="lazy">
+          <div class="pc-badge">−${disc}%</div>
+          <div class="pc-swatches">${swatches}</div>
+          <button class="pc-quick-add" onclick="event.stopPropagation();openModal('${p.id}')">Voir le produit</button>
+        </div>
+        <div class="pc-info">
+          <div class="pc-info-left">
+            <p class="pc-collection">${p.collection}</p>
+            <p class="pc-name">${p.name}</p>
+            <p class="pc-color">${p.color}</p>
+          </div>
+          <div class="pc-pricing">
+            <div class="pc-price">${p.price}€</div>
+            <div class="pc-orig">${p.orig}€</div>
+          </div>
+        </div>
+      </div>`;
+  }).join('');
+}
+renderGrid();
+
+// ── Filter ────────────────────────────────────────────────
+let currentFilter = 'all';
+document.querySelectorAll('.ftab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.ftab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = btn.dataset.filter;
+    renderGrid(currentFilter);
+    document.getElementById('products').scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+function applyFilter(f) {
+  const btn = document.querySelector(`.ftab[data-filter="${f}"]`);
+  if (btn) btn.click();
+}
+
+// ── Swatch swap (demo) ────────────────────────────────────
+function swapImg(e, id, color) {
+  // visual-only: just highlight swatch
+  const cell = e.target.closest('.product-cell');
+  cell.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+  e.target.classList.add('active');
+}
+
+// ── Modal ─────────────────────────────────────────────────
+let currentProduct = null;
+function openModal(id) {
+  const p = PRODUCTS.find(x => x.id === id);
+  if (!p) return;
+  currentProduct = p;
+  document.getElementById('modal-coll').textContent = p.collection;
+  document.getElementById('modal-name').textContent = p.name;
+  document.getElementById('modal-col-tag').textContent = `Coloris : ${p.color}`;
+  document.getElementById('modal-price').textContent = `${p.price}€`;
+  document.getElementById('modal-orig').textContent = `${p.orig}€`;
+  const saved = p.orig - p.price;
+  const disc = Math.round((1-p.price/p.orig)*100);
+  document.getElementById('modal-eco').textContent = `Vous économisez ${saved}€ (−${disc}%)`;
+
+  const mainImg = document.getElementById('modal-main-img');
+  mainImg.src = `${BASE}${p.imgs[0]}-thickbox_default/${p.slug}.jpg`;
+  mainImg.alt = `${p.name} ${p.color}`;
+
+  document.getElementById('modal-thumbs').innerHTML = p.imgs.map((id,i) =>
+    `<div class="modal-thumb${i===0?' active':''}" onclick="setMain(this,'${BASE}${id}-thickbox_default/${p.slug}.jpg')">
+       <img src="${BASE}${id}-thickbox_default/${p.slug}.jpg" alt="" loading="lazy">
+     </div>`
+  ).join('');
+
+  document.getElementById('tab-desc').innerHTML =
+    `<p style="margin-bottom:14px">${p.desc}</p><ul>${p.features.map(f=>`<li>${f}</li>`).join('')}</ul>`;
+
+  document.getElementById('tab-specs').innerHTML =
+    `<div class="modal-specs-grid">
+      <div><span class="spec-k">Dimensions</span><span class="spec-v">${p.dims}</span></div>
+      <div><span class="spec-k">Capacité</span><span class="spec-v">${p.cap}</span></div>
+      <div><span class="spec-k">Matière</span><span class="spec-v">${p.mat}</span></div>
+      <div><span class="spec-k">Poids</span><span class="spec-v">${p.wt}</span></div>
+      <div><span class="spec-k">Roues</span><span class="spec-v">4 multidirectionnelles</span></div>
+      <div><span class="spec-k">Serrure</span><span class="spec-v">TSA combinaison</span></div>
+      <div><span class="spec-k">Garantie</span><span class="spec-v">5 ans mondiale</span></div>
+      <div><span class="spec-k">Coloris</span><span class="spec-v">${p.color}</span></div>
+    </div>`;
+
+  document.getElementById('tab-revs').innerHTML = p.reviews.map(r =>
+    `<div class="mini-review">
+       <div class="mr-stars">${'★'.repeat(r.s)}</div>
+       <p class="mr-text">« ${r.t} »</p>
+       <span class="mr-auth">${r.a} · ${r.d}</span>
+     </div>`
+  ).join('');
+
+  document.querySelectorAll('.modal-tab').forEach((t,i) => t.classList.toggle('active',i===0));
+  document.querySelectorAll('.modal-panel').forEach((p,i) => p.classList.toggle('active',i===0));
+
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function setMain(thumb, src) {
+  document.getElementById('modal-main-img').src = src;
+  document.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
+  thumb.classList.add('active');
+}
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeModalOutside(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModal();
+}
+function switchTab(btn, id) {
+  document.querySelectorAll('.modal-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.modal-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-'+id).classList.add('active');
+}
+function addToCart(btn) {
+  if (!currentProduct) return;
+  if (!btn) return;
+  btn.textContent = '✓ Ajouté';
+  btn.style.background = '#2d7a2d';
+  setTimeout(() => {
+    btn.textContent = 'Ajouter au panier';
+    btn.style.background = '';
+    closeModal();
+    window.location.href = 'index.html#products';
+  }, 900);
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ── Pack Voyage — sélecteur couleurs ─────────────────────────
+const PACKS = {
+  noir: {
+    name: 'Noir Gloss',
+    price: 200, orig: 248, eco: 48,
+    img1: '3625-thickbox_default/rimowa-essential-lite-cabin-53-black-gloss.jpg',
+    img2: '3637-thickbox_default/rimowa-essential-lite-check-in-l-73-black-gloss.jpg',
+    alt1: 'Essential Lite Cabin — Noir Gloss',
+    alt2: 'Essential Lite Check-In L — Noir Gloss',
+    detail: 'Essential Lite Cabin + Essential Lite Check-In L'
+  },
+  bleu: {
+    name: 'Bleu Gloss',
+    price: 200, orig: 268, eco: 68,
+    img1: '3649-thickbox_default/rimowa-essential-lite-cabin-53-blue-gloss.jpg',
+    img2: '3842-thickbox_default/rimowa-essential-check-in-l-73-blue-gloss.jpg',
+    alt1: 'Essential Lite Cabin — Bleu Gloss',
+    alt2: 'Essential Check-In L — Bleu Gloss',
+    detail: 'Essential Lite Cabin + Essential Check-In L'
+  },
+  alu: {
+    name: 'Gris Aluminium',
+    price: 280, orig: 358, eco: 78,
+    img1: '4654-thickbox_default/rimowa-classic-cabin-s-52-silver.jpg',
+    img2: '4666-thickbox_default/rimowa-classic-check-in-m-63-silver.jpg',
+    alt1: 'Classic Cabin S — Silver',
+    alt2: 'Classic Check-In M — Silver',
+    detail: 'Classic Cabin S + Classic Check-In M (Aluminium)'
+  }
+};
+
+let currentPackType = 'noir';
+
+function selectPack(type) {
+  const p = PACKS[type];
+  currentPackType = type;
+
+  document.getElementById('pack-color-name').textContent = p.name;
+  document.getElementById('pack-price-val').textContent = p.price + '€';
+  document.getElementById('pack-price-sub').innerHTML =
+    `<s>${p.orig}€ séparément</s>Économisez ${p.eco}€`;
+
+  const base = 'https://lavoyagerie-paris.fr/';
+  const img1 = document.getElementById('pack-img1');
+  const img2 = document.getElementById('pack-img2');
+
+  img1.style.opacity = '0';
+  img2.style.opacity = '0';
+  setTimeout(() => {
+    img1.src = base + p.img1;
+    img1.alt = p.alt1;
+    img2.src = base + p.img2;
+    img2.alt = p.alt2;
+    img1.style.opacity = '1';
+    img2.style.opacity = '1';
+  }, 180);
+
+  document.querySelectorAll('.pack-swatch').forEach(s =>
+    s.classList.toggle('active', s.dataset.pack === type)
+  );
+
+  const btn = document.getElementById('pack-btn');
+  btn.textContent = 'Commander ce pack →';
+  btn.classList.remove('confirmed');
+  btn.disabled = false;
+}
+
+function commanderPack() {
+  const p = PACKS[currentPackType];
+  const btn = document.getElementById('pack-btn');
+  btn.textContent = '✓ Commande enregistrée — livraison 24h';
+  btn.classList.add('confirmed');
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = 'Commander ce pack →';
+    btn.classList.remove('confirmed');
+    btn.disabled = false;
+  }, 4000);
+}
+
+// ── Hero parallax ─────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  const suitcase = document.getElementById('hero-img');
+  if (suitcase && y < window.innerHeight) {
+    suitcase.style.transform = `translate(-50%, calc(-54% - ${y * 0.15}px))`;
+  }
+});
+
+// ── Mobile nav ────────────────────────────────────────────
+document.getElementById('burger-btn').addEventListener('click', () => {
+  document.getElementById('mobile-nav').classList.add('open');
+  document.body.style.overflow = 'hidden';
+});
+document.getElementById('mobile-close').addEventListener('click', () => {
+  document.getElementById('mobile-nav').classList.remove('open');
+  document.body.style.overflow = '';
+});
+document.getElementById('mobile-nav').addEventListener('click', e => {
+  if (e.target === document.getElementById('mobile-nav')) {
+    document.getElementById('mobile-nav').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+</script>
+</body>
+</html>
