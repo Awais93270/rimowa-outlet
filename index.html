@@ -97,6 +97,8 @@
     .topbar-track{display:flex;flex-direction:column;transition:transform .6s cubic-bezier(.4,0,.2,1)}
     .topbar-item{height:36px;display:flex;align-items:center;justify-content:center;gap:0;white-space:nowrap;flex-shrink:0}
     .topbar-item span{opacity:.45;margin:0 14px}
+    @keyframes topbar-scroll{from{transform:translateX(100vw)}to{transform:translateX(-100%)}}
+    .topbar-item span.tb{opacity:1;margin:0;display:inline-block;white-space:nowrap;animation:topbar-scroll 16s linear infinite}
 
     /* ── Header ── */
     header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;transition:box-shadow .3s}
@@ -561,6 +563,8 @@
       .footer-top{grid-template-columns:1fr 1fr}
     }
     @media(max-width:768px){
+      .topbar{padding:0}
+      .topbar-item{justify-content:flex-start;overflow:hidden}
       .cookie-banner{flex-direction:column;align-items:flex-start;padding:18px 20px}
       .cookie-btns{width:100%;display:grid;grid-template-columns:1fr 1fr}
       .toast{max-width:calc(100vw - 48px)}
@@ -789,55 +793,6 @@
   </div>
 </section>
 
-<!-- Trust -->
-<div class="trust">
-  <div class="trust-inner">
-    <div class="trust-item">
-      <div class="trust-icon">✦</div>
-      <div><div class="trust-label">100% Authentique</div><div class="trust-desc">Revendeur officiel agréé</div></div>
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon">◆</div>
-      <div><div class="trust-label">Garantie 5 ans</div><div class="trust-desc">Couverture mondiale RIMOWA</div></div>
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon">◇</div>
-      <div><div class="trust-label">Livraison gratuite</div><div class="trust-desc">Sans minimum d'achat</div></div>
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon">○</div>
-      <div><div class="trust-label">Retours 30 jours</div><div class="trust-desc">Remboursement garanti</div></div>
-    </div>
-  </div>
-</div>
-
-<!-- Comment ça marche -->
-<div class="how-section">
-  <div class="how-inner">
-    <div class="how-header">
-      <p class="how-eyebrow">Simple & rapide</p>
-      <h2 class="how-title">Comment commander en 3 étapes</h2>
-    </div>
-    <div class="how-steps">
-      <div class="how-step">
-        <div class="how-num">1</div>
-        <div class="how-step-title">Choisissez votre valise</div>
-        <div class="how-step-desc">Parcourez notre catalogue de valises RIMOWA authentiques. Filtrez par format — Cabin ou Check-In — et choisissez le coloris qui vous correspond.</div>
-      </div>
-      <div class="how-step">
-        <div class="how-num">2</div>
-        <div class="how-step-title">Passez commande</div>
-        <div class="how-step-desc">Ajoutez au panier et finalisez votre commande en quelques secondes. Paiement sécurisé par carte, PayPal ou Apple Pay.</div>
-      </div>
-      <div class="how-step">
-        <div class="how-num">3</div>
-        <div class="how-step-title">Recevez en 24–48h</div>
-        <div class="how-step-desc">Votre valise RIMOWA est expédiée sous 24h par Colissimo suivi, soigneusement emballée. Livraison gratuite, sans minimum d'achat.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- Pack promo -->
 <div class="pack-section">
   <div class="pack-inner">
@@ -851,7 +806,9 @@
         <div class="pack-swatches">
           <button class="pack-swatch active" data-pack="noir" style="background:#1A1A1A" title="Noir Gloss" onclick="selectPack('noir')"></button>
           <button class="pack-swatch" data-pack="bleu" style="background:#4A7AB5" title="Bleu Gloss" onclick="selectPack('bleu')"></button>
-          <button class="pack-swatch pack-swatch-alu" data-pack="alu" title="Gris Argent" onclick="selectPack('alu')"></button>
+          <button class="pack-swatch pack-swatch-alu" data-pack="alu" title="Gris Argent Classic" onclick="selectPack('alu')"></button>
+          <button class="pack-swatch pack-swatch-alu" data-pack="original_silver" style="background:linear-gradient(135deg,#C8C8C8,#787878)" title="Original Silver Alu" onclick="selectPack('original_silver')"></button>
+          <button class="pack-swatch" data-pack="noir_ess" style="background:#111;border:2px solid #555" title="Noir Essential" onclick="selectPack('noir_ess')"></button>
         </div>
         <span class="pack-color-name" id="pack-color-name">Noir Gloss</span>
       </div>
@@ -890,6 +847,7 @@
     <button class="filter-btn active" data-filter="all">Tous</button>
     <button class="filter-btn" data-filter="cabin">Cabin</button>
     <button class="filter-btn" data-filter="checkin">Check-In</button>
+    <button class="filter-btn" data-filter="original">Original Alu</button>
   </div>
   <div class="products-grid" id="products-grid">
 
@@ -1145,6 +1103,55 @@
 <div class="recently-section" id="recently-section" style="display:none">
   <h3 class="recently-title">Récemment consultés</h3>
   <div class="recently-grid" id="recently-grid"></div>
+</div>
+
+<!-- Trust -->
+<div class="trust">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-icon">✦</div>
+      <div><div class="trust-label">100% Authentique</div><div class="trust-desc">Revendeur officiel agréé</div></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">◆</div>
+      <div><div class="trust-label">Garantie 5 ans</div><div class="trust-desc">Couverture mondiale RIMOWA</div></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">◇</div>
+      <div><div class="trust-label">Livraison gratuite</div><div class="trust-desc">Sans minimum d'achat</div></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">○</div>
+      <div><div class="trust-label">Retours 30 jours</div><div class="trust-desc">Remboursement garanti</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Comment ça marche -->
+<div class="how-section">
+  <div class="how-inner">
+    <div class="how-header">
+      <p class="how-eyebrow">Simple & rapide</p>
+      <h2 class="how-title">Comment commander en 3 étapes</h2>
+    </div>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-num">1</div>
+        <div class="how-step-title">Choisissez votre valise</div>
+        <div class="how-step-desc">Parcourez notre catalogue de valises RIMOWA authentiques. Filtrez par format — Cabin ou Check-In — et choisissez le coloris qui vous correspond.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">2</div>
+        <div class="how-step-title">Passez commande</div>
+        <div class="how-step-desc">Ajoutez au panier et finalisez votre commande en quelques secondes. Paiement sécurisé par carte, PayPal ou Apple Pay.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">3</div>
+        <div class="how-step-title">Recevez en 24–48h</div>
+        <div class="how-step-desc">Votre valise RIMOWA est expédiée sous 24h par Colissimo suivi, soigneusement emballée. Livraison gratuite, sans minimum d'achat.</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Newsletter -->
@@ -1450,19 +1457,233 @@ const PRODUCTS = [
       {s:5, t:'Parfaite pour les longs voyages. Grande, légère, solide. Le trio gagnant.', a:'Marion G.', d:'Montpellier'},
       {s:5, t:'Livraison en 24h, valise parfaite. Le service outlet est vraiment très sérieux.', a:'Christophe M.', d:'Strasbourg'},
     ]
+  },
+  {
+    id:'p12', tags:['cabin','original'],
+    collection:'RIMOWA Original', name:'Original Cabin S', color:'Silver',
+    dims:'55×40×20 cm', cap:'31 L', mat:'Aluminium', wt:'4.2 kg',
+    price:89, orig:695,
+    imgs:[
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Cabin_S_Aluminum_152_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Cabin_S_Aluminum_152_1_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Cabin_S_Aluminum_152_2_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Cabin_S_Aluminum_152_3_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Cabin_S_Aluminum_152_4_ZOOM.jpg',
+    ],
+    slug:'rimowa-original-cabin-s-aluminum-argent',
+    desc:'La valise cabine compacte de la collection Original en aluminium brossé. Plus légère et compacte que la Cabin standard, elle est parfaite pour les voyages d\'une nuit ou les trajets business. Dimensions conformes à toutes les compagnies aériennes.',
+    features:['Coque aluminium brossé RIMOWA','2 verrous TSA à combinaison','Poignée télescopique aluminium','4 roues multidirectionnelles silencieuses','31 litres — idéale nuit ou week-end','Intérieur polyester premium','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5, t:'La plus compacte de la collection Original, parfaite pour les voyages express. L\'aluminium est magnifique.', a:'Thomas B.', d:'Paris'},
+      {s:5, t:'Format idéal pour le carry-on. Légère et robuste. Très satisfait.', a:'Sarah L.', d:'Lyon'},
+      {s:5, t:'Valise reçue en parfait état, emballage soigné. Authentique RIMOWA.', a:'Marc D.', d:'Toulouse'},
+    ]
+  },
+  {
+    id:'p13', tags:['cabin','original'],
+    collection:'RIMOWA Original', name:'Original Cabin Twist', color:'Silver & Black',
+    dims:'55×40×23 cm', cap:'35 L', mat:'Aluminium + Cuir', wt:'4.3 kg',
+    price:99, orig:845,
+    imgs:[
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Cabin_Twist_in_S_153_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Cabin_Twist_in_S_153_1_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Cabin_Twist_in_S_153_2_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Cabin_Twist_in_S_153_3_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Cabin_Twist_in_S_153_4_ZOOM.jpg',
+    ],
+    slug:'rimowa-original-cabin-twist-silver-black',
+    desc:'L\'Original Cabin Twist — la fusion parfaite entre aluminium iconique RIMOWA et cuir artisanal. Les accents noirs créent un contraste saisissant avec les rainures aluminium argentées. Une pièce d\'exception pour le voyageur exigeant.',
+    features:['Coque aluminium brossé premium','Poignées cuir véritable Black','2 verrous TSA à combinaison','4 roues plastique rigide','Design bicolore exclusif Silver & Black','35 litres — format cabine universel','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5, t:'La combinaison argent/noir est sublime. On ne voit que ça à l\'aéroport. Un vrai objet de désir.', a:'Amélie K.', d:'Paris'},
+      {s:5, t:'Qualité RIMOWA au top. Les poignées en cuir sont très élégantes. Taille cabine parfaite.', a:'Vincent R.', d:'Bordeaux'},
+      {s:5, t:'Livraison rapide, produit authentique. Exactement ce que je cherchais.', a:'Lucie M.', d:'Nantes'},
+    ]
+  },
+  {
+    id:'p14', tags:['cabin','original'],
+    collection:'RIMOWA Original', name:'Original Cabin Twist', color:'Silver & Red',
+    dims:'55×40×23 cm', cap:'35 L', mat:'Aluminium + Cuir', wt:'4.3 kg',
+    price:99, orig:845,
+    imgs:[
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Cabin_Twist_in_S_155_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Cabin_Twist_in_S_155_1_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Cabin_Twist_in_S_155_2_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Cabin_Twist_in_S_155_3_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Cabin_Twist_in_S_155_4_ZOOM.jpg',
+    ],
+    slug:'rimowa-original-cabin-twist-silver-red',
+    desc:'L\'Original Cabin Twist dans sa version la plus audacieuse : les accents rouge vif sur la structure aluminium créent un contraste spectaculaire. Une édition qui ne passe pas inaperçue sur les tapis des aéroports du monde entier.',
+    features:['Coque aluminium brossé premium','Poignées cuir véritable Red','2 verrous TSA à combinaison','4 roues plastique rigide','Design bicolore exclusif Silver & Red','35 litres — format cabine universel','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5, t:'Le rouge est absolument magnifique. Une valise qui attire tous les regards. Qualité irréprochable.', a:'Charlotte V.', d:'Paris'},
+      {s:5, t:'Original et élégant à la fois. La combinaison cuir rouge et aluminium est parfaite.', a:'Antoine G.', d:'Marseille'},
+      {s:5, t:'Cadeau parfait. Mon compagnon était sous le choc. Service outlet au top.', a:'Émilie D.', d:'Rennes'},
+    ]
+  },
+  {
+    id:'p15', tags:['cabin','original'],
+    collection:'RIMOWA Original', name:'Original Cabin Twist', color:'Silver & Brown',
+    dims:'55×40×23 cm', cap:'35 L', mat:'Aluminium + Cuir', wt:'4.3 kg',
+    price:99, orig:845,
+    imgs:[
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Cabin_Twist_in_S_154_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Cabin_Twist_in_S_154_1_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Cabin_Twist_in_S_154_2_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Cabin_Twist_in_S_154_3_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Cabin_Twist_in_S_154_4_ZOOM.jpg',
+    ],
+    slug:'rimowa-original-cabin-twist-silver-brown',
+    desc:'L\'Original Cabin Twist dans sa version la plus chic : les accents cognac sur l\'aluminium brossé évoquent l\'élégance du voyage premium. Une alliance entre tradition artisanale et modernité industrielle.',
+    features:['Coque aluminium brossé premium','Poignées cuir véritable Cognac Brown','2 verrous TSA à combinaison','4 roues plastique rigide','Design bicolore exclusif Silver & Brown','35 litres — format cabine universel','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5, t:'La plus belle version Twist à mon avis. Le marron cognac avec l\'alu silver, c\'est parfait.', a:'Sylvain T.', d:'Paris'},
+      {s:5, t:'Classe absolue. Le cuir est de très belle qualité. Une valise pour toute une vie.', a:'Marie-Claire F.', d:'Lyon'},
+      {s:5, t:'Reçu en 24h, emballé avec soin. Authentique et magnifique. Je recommande.', a:'Jérôme A.', d:'Nice'},
+    ]
+  },
+  {
+    id:'p16', tags:['checkin','original'],
+    collection:'RIMOWA Original', name:'Original Trunk Plus', color:'Blue',
+    dims:'80×36.5×44 cm', cap:'105 L', mat:'Aluminium', wt:'6.4 kg',
+    price:149, orig:1195,
+    imgs:[
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Trunk_Plus_Large_173_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Trunk_Plus_Large_173_1_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Trunk_Plus_Large_173_2_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Trunk_Plus_Large_173_3_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Trunk_Plus_Large_173_4_ZOOM.jpg',
+    ],
+    slug:'rimowa-original-trunk-plus-large-aluminum-bleu',
+    desc:'Le Trunk Plus de la collection Original — le grand format iconique de RIMOWA en aluminium brossé. 105 litres pour les expéditions les plus ambitieuses. La couleur Bleu exclusive fait de chaque arrivée un moment de style.',
+    features:['Coque aluminium brossé premium','105 litres de capacité','Design Trunk intemporel','Poignée télescopique aluminium','4 roues doubles multidirectionnelles','Coloris Blue exclusif','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5, t:'Impressionnant. 105 litres en aluminium, c\'est une valise pour toute une vie. Le bleu est magnifique.', a:'Bertrand C.', d:'Paris'},
+      {s:5, t:'Parfaite pour les longs séjours. Robustesse extrême. Je la recommande les yeux fermés.', a:'Hélène B.', d:'Bordeaux'},
+      {s:5, t:'Prix outlet incroyable pour cette qualité. Livraison soignée en 24h.', a:'Olivier M.', d:'Strasbourg'},
+    ]
+  },
+  {
+    id:'p17', tags:['checkin','original'],
+    collection:'RIMOWA Original', name:'Original Trunk XL', color:'Silver',
+    dims:'80×43.5×44 cm', cap:'130 L', mat:'Aluminium', wt:'6.8 kg',
+    price:159, orig:1295,
+    imgs:[
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Trunk_XL_Large_A_177_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Trunk_XL_Large_A_177_1_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Trunk_XL_Large_A_177_2_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Trunk_XL_Large_A_177_3_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Trunk_XL_Large_A_177_4_ZOOM.jpg',
+    ],
+    slug:'rimowa-original-trunk-xl-large-aluminum-argent',
+    desc:'Le Trunk XL — la valise ultime de la collection Original. 130 litres en aluminium massif pour les grandes expéditions et les longs séjours. Un objet de voyage d\'exception qui ne vieillit jamais.',
+    features:['Coque aluminium brossé premium','130 litres — capacité maximale','Format Trunk XL exceptionnel','Poignée télescopique aluminium','4 roues doubles multidirectionnelles','Finition Silver classique','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5, t:'Le plus grand format RIMOWA Original. Pour les voyages de plusieurs semaines, rien de mieux.', a:'François P.', d:'Paris'},
+      {s:5, t:'130 litres en aluminium ! Impressionnant. Livraison parfaite malgré le volume.', a:'Nathalie V.', d:'Lyon'},
+      {s:5, t:'Qualité premium. L\'aluminium est solide et léger à la fois. Un investissement à vie.', a:'Pierre L.', d:'Toulouse'},
+    ]
+  },
+  {
+    id:'p18', tags:['checkin','essential'],
+    collection:'RIMOWA Essential', name:'Essential Check-In M', color:'Black',
+    dims:'67.5×44.5×24 cm', cap:'60 L', mat:'Polycarbonate', wt:'4.1 kg',
+    price:119, orig:780,
+    imgs:[
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Essential_CheckIn_M_Leger_68_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Essential_CheckIn_M_Leger_68_1_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Essential_CheckIn_M_Leger_68_2_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Essential_CheckIn_M_Leger_68_3_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Essential_CheckIn_M_Leger_68_4_ZOOM.jpg',
+    ],
+    slug:'rimowa-essential-check-in-m-black',
+    desc:'La valise medium de la collection Essential — le format idéal pour les voyages de 5 à 10 jours. 60 litres de capacité en polycarbonate haute résistance. Plus maniable que la L, cette taille M est plébiscitée par les voyageurs fréquents.',
+    features:['Polycarbonate haute résistance','60 litres — idéale 5-10 jours','Serrure TSA combinaison','Poignée télescopique mono-tube','4 roues multidirectionnelles silencieuses','2 plateaux flex-divider amovibles','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5, t:'La taille parfaite entre la cabin et la grande valise. 60 litres c\'est idéal pour 1 semaine.', a:'Céline F.', d:'Paris'},
+      {s:5, t:'Très légère pour une valise de soute. Les roues sont silencieuses. Très satisfaite.', a:'Pauline G.', d:'Lyon'},
+      {s:5, t:'Authentique RIMOWA avec numéro de série. Livraison express, excellent emballage.', a:'Sébastien R.', d:'Bordeaux'},
+    ]
+  },
+  {
+    id:'p19', tags:['checkin','essential'],
+    collection:'RIMOWA Essential', name:'Essential Trunk Plus', color:'Black',
+    dims:'80×37×41 cm', cap:'101 L', mat:'Polycarbonate', wt:'5.4 kg',
+    price:139, orig:890,
+    imgs:[
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Essential_Trunk_Plus_Larg_89_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Essential_Trunk_Plus_Larg_89_1_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Essential_Trunk_Plus_Larg_89_2_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Essential_Trunk_Plus_Larg_89_3_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Essential_Trunk_Plus_Larg_89_4_ZOOM.jpg',
+    ],
+    slug:'rimowa-essential-trunk-plus-large-black',
+    desc:'Le Trunk Plus de la collection Essential — un format grand voyage en polycarbonate léger. 101 litres pour vos plus longues expéditions. Plus léger que l\'Original Trunk grâce au polycarbonate, sans compromis sur la capacité.',
+    features:['Polycarbonate haute résistance','101 litres de capacité','Format Trunk grande capacité','Serrure TSA combinaison','4 roues multidirectionnelles silencieuses','Poignée télescopique mono-tube','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5, t:'Pour les longs voyages, c\'est la valise idéale. Légère pour sa taille et très robuste.', a:'Michel B.', d:'Paris'},
+      {s:5, t:'101 litres en polycarbonate, parfait pour les longs séjours et les déménagements.', a:'Isabelle T.', d:'Grenoble'},
+      {s:5, t:'Excellente valise. Le Trunk Plus polycarbonate est beaucoup plus pratique que je pensais.', a:'Nicolas V.', d:'Lille'},
+    ]
+  },
+  {
+    id:'p20', tags:['cabin','distinct'],
+    collection:'RIMOWA Distinct', name:'Distinct Cabin', color:'Black',
+    dims:'55×40×23 cm', cap:'33 L', mat:'Cuir & Aluminium', wt:'3.9 kg',
+    price:129, orig:1450,
+    imgs:[
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Distinct_Cabin_Cuir_Carry_46_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Distinct_Cabin_Cuir_Carry_46_1_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Distinct_Cabin_Cuir_Carry_46_2_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Distinct_Cabin_Cuir_Carry_46_3_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Distinct_Cabin_Cuir_Carry_46_4_ZOOM.jpg',
+    ],
+    slug:'rimowa-distinct-cabin-cuir-carryon-black',
+    desc:'La Distinct Cabin — la valise la plus luxueuse de RIMOWA. Un mariage unique entre cuir véritable et aluminium poli. Chaque détail, du fermoir métallique aux coutures en cuir, témoigne d\'un savoir-faire exceptionnel. L\'excellence absolue en format cabine.',
+    features:['Extérieur cuir véritable premium','Structure aluminium interne','Fermeture métal haute sécurité','Poignées cuir véritable','Intérieur Nylon Jacquard','33 litres — format cabine universel','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5, t:'Le summum du luxe en valise. Le cuir est d\'une qualité exceptionnelle. Aucun compromis.', a:'Stéphanie A.', d:'Paris'},
+      {s:5, t:'La plus belle valise que j\'aie jamais vue. Un vrai objet d\'art du voyage.', a:'Jean-Pierre M.', d:'Monaco'},
+      {s:5, t:'Investissement justifié. Prix outlet incroyable pour cette collection.', a:'Vanessa L.', d:'Nice'},
+    ]
+  },
+  {
+    id:'p21', tags:['cabin','lite'],
+    collection:'RIMOWA Essential Lite', name:'Essential Lite Cabin', color:'Green',
+    dims:'55×37×23 cm', cap:'37 L', mat:'Polycarbonate', wt:'2.2 kg',
+    price:89, orig:525,
+    imgs:[
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Essential_Lite_Cabin_Lege_72_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Essential_Lite_Cabin_Lege_72_1_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Essential_Lite_Cabin_Lege_72_2_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Essential_Lite_Cabin_Lege_72_3_ZOOM.jpg',
+      'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Essential_Lite_Cabin_Lege_72_4_ZOOM.jpg',
+    ],
+    slug:'rimowa-essential-lite-cabin-green',
+    desc:'La Essential Lite en vert — une couleur fraîche et tendance dans la gamme la plus légère de RIMOWA. 2,2 kg pour 37 litres, cette valise cabine combine légèreté record et style affirmé pour les voyageurs qui veulent se démarquer.',
+    features:['La plus légère de RIMOWA : 2.2 kg','Polycarbonate ultra-léger','Finition Vert tendance','Serrure TSA combinaison','Poignée mono-tube télescopique','4 roues multidirectionnelles','Garantie mondiale 5 ans'],
+    reviews:[
+      {s:5, t:'La couleur verte est magnifique, très tendance. Et la légèreté de la Lite est incomparable.', a:'Flora P.', d:'Paris'},
+      {s:5, t:'2,2 kg seulement et une couleur unique. Je me démarque sur chaque vol.', a:'Johanna M.', d:'Strasbourg'},
+      {s:5, t:'Parfaite pour Ryanair. Légère, stylée, pratique. Je l\'adore.', a:'Clément B.', d:'Toulouse'},
+    ]
   }
 ];
 
 const BASE = 'https://lavoyagerie-paris.fr/';
+function pImg(p, idx) {
+  const id = p.imgs[idx !== undefined ? idx : 0] || p.imgs[0];
+  return id.startsWith('http') ? id : `${BASE}${id}-thickbox_default/${p.slug}.jpg`;
+}
 
 // ── Render products ──────────────────────────────────────
 function renderProducts() {
   const grid = document.getElementById('products-grid');
   grid.innerHTML = PRODUCTS.map(p => {
     const disc = Math.round((1 - p.price/p.orig)*100);
-    const img = `${BASE}${p.imgs[0]}-thickbox_default/${p.slug}.jpg`;
+    const img = pImg(p, 0);
     const tagList = p.tags.join(' ');
-    const tagLabel = p.tags.includes('classic') ? 'Classic' : p.tags.includes('lite') ? 'Essential Lite' : 'Essential';
+    const tagLabel = p.tags.includes('original') ? 'Original' : p.tags.includes('distinct') ? 'Distinct' : p.tags.includes('classic') ? 'Classic' : p.tags.includes('lite') ? 'Essential Lite' : 'Essential';
     return `
       <div class="product-card" data-tags="${tagList}" onclick="openModal('${p.id}')">
         <div class="product-img-wrap">
@@ -1527,16 +1748,17 @@ function openModal(id) {
 
   // main image
   const mainImg = document.getElementById('modal-main-img');
-  mainImg.src = `${BASE}${p.imgs[0]}-thickbox_default/${p.slug}.jpg`;
+  mainImg.src = pImg(p, 0);
   mainImg.alt = `${p.name} ${p.color}`;
 
   // thumbs
   const thumbsEl = document.getElementById('modal-thumbs');
-  thumbsEl.innerHTML = p.imgs.slice(0,5).map((id,i) =>
-    `<div class="modal-thumb${i===0?' active':''}" onclick="setMainImg(this,'${BASE}${id}-thickbox_default/${p.slug}.jpg')">
-       <img src="${BASE}${id}-thickbox_default/${p.slug}.jpg" alt="" loading="lazy">
-     </div>`
-  ).join('');
+  thumbsEl.innerHTML = p.imgs.slice(0,5).map((id,i) => {
+    const u = id.startsWith('http') ? id : `${BASE}${id}-thickbox_default/${p.slug}.jpg`;
+    return `<div class="modal-thumb${i===0?' active':''}" onclick="setMainImg(this,'${u}')">
+       <img src="${u}" alt="" loading="lazy">
+     </div>`;
+  }).join('');
 
   // desc tab
   document.getElementById('tab-desc').innerHTML = `
@@ -1619,6 +1841,20 @@ const PACKS = {
     img1: '4661-thickbox_default/rimowa-classic-cabin-s-52-silver.jpg',
     img2: '4671-thickbox_default/rimowa-classic-check-in-l-73-silver.jpg',
     desc: 'Classic Cabine S 52cm + Check-In L 73cm'
+  },
+  original_silver: {
+    name: 'Original Silver',
+    price: 200, orig: 248, eco: 48,
+    img1: 'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Cabin_S_Aluminum_152_ZOOM.jpg',
+    img2: 'https://www.rimowafrance.com/images/large/60720924495111/Valises_Rimowa_Original_Trunk_XL_Large_A_177_ZOOM.jpg',
+    desc: 'Original Cabin S + Original Trunk XL — Aluminium'
+  },
+  noir_ess: {
+    name: 'Noir Essential',
+    price: 200, orig: 278, eco: 78,
+    img1: '3700-thickbox_default/rimowa-essential-cabin-53-matte-black.jpg',
+    img2: '3761-thickbox_default/rimowa-essential-check-in-l-73-black-gloss.jpg',
+    desc: 'Essential Cabin + Check-In L — Noir'
   }
 };
 
@@ -1636,8 +1872,8 @@ function selectPack(type) {
   img1.style.opacity = '0';
   img2.style.opacity = '0';
   setTimeout(() => {
-    img1.src = BASE + p.img1;
-    img2.src = BASE + p.img2;
+    img1.src = p.img1.startsWith('http') ? p.img1 : BASE + p.img1;
+    img2.src = p.img2.startsWith('http') ? p.img2 : BASE + p.img2;
     img1.style.opacity = '1';
     img2.style.opacity = '1';
   }, 180);
@@ -1828,7 +2064,7 @@ function openUpsell(p, btn) {
   pendingCartProduct = p;
   pendingCartBtn = btn;
 
-  const cabinImg = `${BASE}${p.imgs[0]}-thickbox_default/${p.slug}.jpg`;
+  const cabinImg = pImg(p, 0);
   const checkin = CHECKIN_BY_COLOR[p.color] || CHECKIN_BY_COLOR['Black Gloss'];
 
   document.getElementById('upsell-cabin-img').src = cabinImg;
@@ -1859,7 +2095,7 @@ function closeUpsell(takePack) {
   const btn = pendingCartBtn;
 
   if (takePack) {
-    const cabinImg = `${BASE}${p.imgs[0]}-thickbox_default/${p.slug}.jpg`;
+    const cabinImg = pImg(p, 0);
     const packImg = 'https://lavoyagerie-paris.fr/3637-thickbox_default/rimowa-essential-lite-check-in-l-73-black-gloss.jpg';
     const existingPack = cart.find(i => i.id === 'pack-voyage');
     if (existingPack) {
@@ -1868,7 +2104,7 @@ function closeUpsell(takePack) {
       cart.push({ id:'pack-voyage', name:'Pack Voyage — Cabin + Check-In', color:p.color, price:200, qty:1, img:cabinImg });
     }
   } else {
-    const img = `${BASE}${p.imgs[0]}-thickbox_default/${p.slug}.jpg`;
+    const img = pImg(p, 0);
     const existing = cart.find(i => i.id === p.id);
     if (existing) existing.qty++;
     else cart.push({ id:p.id, name:p.name, color:p.color, price:p.price, qty:1, img });
@@ -1906,7 +2142,7 @@ function addToCart(btn) {
     return;
   }
 
-  const img = `${BASE}${p.imgs[0]}-thickbox_default/${p.slug}.jpg`;
+  const img = pImg(p, 0);
   const existing = cart.find(i => i.id === p.id);
   if (existing) existing.qty++;
   else cart.push({ id:p.id, name:p.name, color:p.color, price:p.price, qty:1, img });
@@ -1931,6 +2167,14 @@ function addToCart(btn) {
   const total = items.length;
   let current = 0;
   const itemH = 36;
+
+  if (window.innerWidth <= 768) {
+    // Marquee horizontal : animer un inline-block dont la largeur = largeur du texte
+    items.forEach(function(item) {
+      item.innerHTML = '<span class="tb">' + item.innerHTML + '</span>';
+    });
+    return;
+  }
 
   function next() {
     current = (current + 1) % total;
@@ -2047,7 +2291,7 @@ function renderRecentlyViewed() {
   grid.innerHTML = recentlyViewed.map(id => {
     const p = PRODUCTS.find(x => x.id === id);
     if (!p) return '';
-    const img = `${BASE}${p.imgs[0]}-thickbox_default/${p.slug}.jpg`;
+    const img = pImg(p, 0);
     return `<div class="recently-card" onclick="openModal('${p.id}')">
       <div class="recently-img"><img src="${img}" alt="${p.name}" loading="lazy"></div>
       <div class="recently-info">
