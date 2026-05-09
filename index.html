@@ -186,7 +186,7 @@
     .how-step-desc{font-size:13px;color:var(--muted);line-height:1.7}
 
     /* ── Upsell popup ── */
-    .upsell-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:600;align-items:flex-end;justify-content:center;padding:0}
+    .upsell-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1000;align-items:flex-end;justify-content:center;padding:0}
     .upsell-overlay.open{display:flex;animation:fadeIn .25s ease}
     @keyframes fadeIn{from{opacity:0}to{opacity:1}}
     .upsell-panel{background:var(--white);width:100%;max-width:580px;border-radius:0;padding:36px 36px 40px;position:relative;animation:slideUp .35s cubic-bezier(.4,0,.2,1)}
@@ -1836,10 +1836,12 @@ function openUpsell(p, btn) {
   const diff = 200 - p.price;
   document.getElementById('upsell-diff').textContent = `${diff}€ de plus`;
   document.getElementById('upsell-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
 
 function closeUpsell(takePack) {
   document.getElementById('upsell-overlay').classList.remove('open');
+  document.body.style.overflow = '';
   if (!pendingCartProduct || !pendingCartBtn) return;
   const p = pendingCartProduct;
   const btn = pendingCartBtn;
