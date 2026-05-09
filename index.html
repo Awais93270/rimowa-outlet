@@ -102,16 +102,6 @@
   </script>
   <!-- Product schema injecté dynamiquement par JS -->
   <script id="product-schema-placeholder" type="application/ld+json">[]</script>
-  <!-- Snap Pixel — remplacer VOTRE_PIXEL_ID par l'ID obtenu dans Snap Ads Manager -->
-  <script type="text/javascript">
-  (function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function(){
-  a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
-  a.queue=[];var s='script';r=t.createElement(s);r.async=!0;
-  r.src=n;var u=t.getElementsByTagName(s)[0];
-  u.parentNode.insertBefore(r,u);})(window,document,'https://sc-static.net/scevent.min.js');
-  snaptr('init', 'VOTRE_PIXEL_ID', { user_email: '' });
-  snaptr('track', 'PAGE_VIEW');
-  </script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17179829801"></script>
   <script>
@@ -1988,7 +1978,7 @@ function commanderPack() {
       name: 'Pack Voyage — ' + p.name,
       price: p.price,
       qty: 1,
-      img: BASE + p.img1
+      img: p.img1.startsWith('http') ? p.img1 : BASE + p.img1
     });
   }
   btn.style.background = '#2d7a2d';
