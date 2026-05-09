@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+Disallow: /generate_ads.sh
+Disallow: /campaign-brief.md
+
+Sitemap: https://rimowa-outlet.fr/sitemap.xml
+
+# Bloquer les crawlers d'entraînement IA
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
