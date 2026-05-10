@@ -2110,6 +2110,11 @@ function handleCartOverlay(e) {
   if (e.target === document.getElementById('cart-drawer-overlay')) closeCartDrawer();
 }
 
+function wamboCheckout(items, source) {
+  const encoded = btoa(JSON.stringify(items));
+  window.location.href = 'https://rimowa-outlet.fr/checkout/fe2f2910-cdc4-4196-96a8-0d3dd03e71ac?items=' + encoded + '&source=' + (source || 'organic');
+}
+
 function handleCheckout() {
   const total = cartTotal();
   const qty   = cartQty();
@@ -2123,9 +2128,17 @@ function handleCheckout() {
   btn.textContent = 'Traitement en cours…';
   btn.style.background = '#2d7a2d';
   btn.disabled = true;
+  const items = cart.map(i => ({
+    title:    i.name,
+    price:    i.price,
+    quantity: i.qty,
+    image:    i.img,
+    color:    i.color || '',
+    sku:      i.id
+  }));
   setTimeout(() => {
-    window.location.href = 'suivi.html';
-  }, 1200);
+    wamboCheckout(items, 'organic');
+  }, 800);
 }
 
 // ── Upsell Pack ──────────────────────────────────────────
